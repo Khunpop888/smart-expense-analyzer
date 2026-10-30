@@ -38,47 +38,47 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
   body {
-    background-color: #f1f5f9; /* Slate-100: Richer contrast against pure white cards */
-    color: #0f172a; /* Slate-900: Crisp, dark high-contrast text */
+    background-color: #f5f5f7; /* Apple-style clean warm neutral: comfortable, high-contrast, zero blue tint */
+    color: #1d1d1f; /* Apple deep neutral black */
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   .card {
     background: #ffffff;
-    border: 1px solid #cbd5e1; /* Slate-300: High-contrast distinct borders */
+    border: 1px solid #e5e7eb; /* Zinc-200 clean, crisp border */
     border-radius: 1.25rem;
-    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .card-hover:hover {
-    box-shadow: 0 16px 32px -4px rgba(15, 23, 42, 0.1), 0 6px 12px -3px rgba(15, 23, 42, 0.05);
+    box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.08), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
     transform: translateY(-2px);
-    border-color: #94a3b8;
+    border-color: #cbd5e1;
   }
   .chip {
-    padding: 0.55rem 1.15rem;
+    padding: 0.5rem 1rem;
     border-radius: 9999px;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #e5e7eb;
     background-color: #ffffff;
-    color: #334155;
+    color: #475569;
     transition: all 0.15s ease;
     white-space: nowrap;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.4rem;
   }
   .chip:hover {
-    border-color: #64748b;
+    border-color: #94a3b8;
     background-color: #f8fafc;
     color: #0f172a;
   }
   .chip.active {
-    background-color: #4f46e5;
+    background-color: #1e293b;
     color: #ffffff;
-    border-color: #4f46e5;
-    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+    border-color: #1e293b;
+    box-shadow: 0 4px 12px rgba(30, 41, 59, 0.25);
   }
   .inp {
     background: #ffffff;
@@ -254,55 +254,55 @@
 
 <main class="max-w-[1440px] mx-auto px-4 sm:px-6 py-6 space-y-6 flex-1">
 
-  <!-- ============ SECTION 1: HERO FINANCIAL SUMMARY CARD & TOP INSIGHTS ============ -->
+  <!-- ============ SECTION 1: HERO FINANCIAL SUMMARY & SPENDING BEHAVIOR ANALYSIS ============ -->
   <section class="grid grid-cols-1 lg:grid-cols-12 gap-5">
     
     <!-- Hero Total Spend Card (Apple Card/Revolut Style) -->
-    <div class="lg:col-span-8 rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white shadow-xl relative overflow-hidden flex flex-col justify-between border border-slate-800">
+    <div class="lg:col-span-5 rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white shadow-xl relative overflow-hidden flex flex-col justify-between border border-slate-800">
       <div class="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none"></div>
       <div class="absolute -left-10 -top-10 w-64 h-64 rounded-full bg-sky-500/10 blur-3xl pointer-events-none"></div>
 
       <div>
         <div class="flex items-center justify-between mb-4">
-          <span id="heroCyclePill" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-indigo-200 backdrop-blur-md">
-            <i data-lucide="calendar-check" class="w-4 h-4 text-indigo-300"></i>
+          <span id="heroCyclePill" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-indigo-200 backdrop-blur-md">
+            <i data-lucide="calendar" class="w-4 h-4 text-indigo-300"></i>
             <span id="heroCycleText">รอบบิล ต.ค. 2569</span>
           </span>
-          <span id="heroStatusPill" class="text-xs sm:text-sm font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
-            กระทบยอดครบ 100%
+          <span id="heroTxCountPill" class="text-xs font-bold px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-200 border border-indigo-400/30">
+            0 รายการ
           </span>
         </div>
 
-        <p class="text-sm text-slate-300 font-medium">ยอดใช้จ่ายจริงรวมรอบบิลนี้ (Actual Spending)</p>
+        <p class="text-xs sm:text-sm text-slate-300 font-medium">ยอดรายจ่ายจริงรวมรอบนี้ (Total Actual Expense)</p>
         <div class="flex items-baseline gap-2 mt-1">
-          <h2 id="heroTotalAmount" class="text-4xl sm:text-5xl font-black tracking-tight text-white font-mono">฿0.00</h2>
+          <h2 id="heroTotalAmount" class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white font-mono">฿0.00</h2>
         </div>
-        <p id="heroTargetSubtext" class="text-sm text-indigo-200/90 mt-1 font-semibold">เป้าหมายตามบิล: ฿0.00</p>
+        <p id="heroSubtext" class="text-xs sm:text-sm text-indigo-200/90 mt-1 font-semibold">บัญชีบันทึกรายจ่ายจริงตามหลักฐานสลิป/บิล</p>
       </div>
 
-      <div class="mt-6 pt-5 border-t border-white/10 space-y-4">
-        <div class="grid grid-cols-2 gap-4 text-xs sm:text-sm">
-          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+      <div class="mt-6 pt-5 border-t border-white/10 space-y-3">
+        <div class="grid grid-cols-2 gap-3 text-xs sm:text-sm">
+          <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
             <div class="flex items-center gap-2 text-slate-200 font-semibold">
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-              <span>Fixed Cost (คงที่)</span>
+              <span>Fixed (คงที่)</span>
             </div>
-            <p id="heroFixedAmount" class="text-xl sm:text-2xl font-black text-white mt-1 font-mono">฿0.00</p>
-            <p id="heroFixedPct" class="text-xs text-emerald-300 font-semibold mt-0.5">0% ของรอบบิล</p>
+            <p id="heroFixedAmount" class="text-lg sm:text-xl font-black text-white mt-1 font-mono">฿0.00</p>
+            <p id="heroFixedPct" class="text-xs text-emerald-300 font-medium mt-0.5">0% ของรายจ่าย</p>
           </div>
 
-          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+          <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10">
             <div class="flex items-center gap-2 text-slate-200 font-semibold">
               <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
-              <span>Variable Cost (ผันแปร)</span>
+              <span>Variable (ผันแปร)</span>
             </div>
-            <p id="heroVarAmount" class="text-xl sm:text-2xl font-black text-white mt-1 font-mono">฿0.00</p>
-            <p id="heroVarPct" class="text-xs text-sky-300 font-semibold mt-0.5">100% ของรอบบิล</p>
+            <p id="heroVarAmount" class="text-lg sm:text-xl font-black text-white mt-1 font-mono">฿0.00</p>
+            <p id="heroVarPct" class="text-xs text-sky-300 font-medium mt-0.5">100% ของรายจ่าย</p>
           </div>
         </div>
 
         <div class="flex items-center justify-between pt-1">
-          <button class="text-xs sm:text-sm text-indigo-300 hover:text-white font-semibold inline-flex items-center gap-1.5 transition-colors" onclick="addFixedCostsQuickly()">
+          <button class="text-xs text-indigo-300 hover:text-white font-semibold inline-flex items-center gap-1.5 transition-colors" onclick="addFixedCostsQuickly()">
             <i data-lucide="plus-circle" class="w-4 h-4 text-emerald-400"></i>
             <span>+ บันทึก Fixed Cost 3 รายการ (รถ/คอนโด/แม่ ฿42,577)</span>
           </button>
@@ -310,25 +310,38 @@
       </div>
     </div>
 
-    <!-- Quick Month Insights Card -->
-    <div class="lg:col-span-4 card p-6 bg-white flex flex-col justify-between space-y-4 shadow-sm border border-slate-300">
+    <!-- Spending Behavior & Category Breakdown Card -->
+    <div class="lg:col-span-7 card p-5 sm:p-6 bg-white flex flex-col justify-between space-y-4">
       <div>
-        <div class="flex items-center justify-between pb-3 border-b border-slate-200">
-          <div class="flex items-center gap-2">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-1.5">
+          <div class="flex items-center gap-2.5">
             <div class="w-3 h-3 rounded-full bg-indigo-600 shadow-xs"></div>
-            <h3 class="text-base font-extrabold text-slate-900 tracking-tight">หมวดใช้จ่ายสูงสุดรอบนี้</h3>
+            <h3 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">สัดส่วนพฤติกรรมการใช้จ่ายจริง (Category Share)</h3>
           </div>
-          <span class="text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-2.5 py-0.5 rounded-full">Top 3</span>
+          <span class="text-xs text-slate-500 font-medium">คลิกหมวดหมู่เพื่อกรองดูรายการ</span>
         </div>
-        <div id="heroTopCats" class="mt-4 space-y-3.5">
-          <!-- Populated in renderCards() -->
+
+        <!-- Visual Multi-segment Distribution Bar -->
+        <div class="mt-4 space-y-1.5">
+          <div id="categoryDistBar" class="h-3.5 rounded-full bg-slate-100 overflow-hidden flex shadow-inner">
+            <!-- Populated dynamically in renderCards() -->
+          </div>
+          <div class="flex items-center justify-between text-[11px] text-slate-400 font-medium px-1">
+            <span>กระจายตัวตามหมวดหมู่</span>
+            <span id="catCountText">0 หมวดหมู่</span>
+          </div>
+        </div>
+
+        <!-- Ranked Category Cards Grid -->
+        <div id="categoryRankGrid" class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <!-- Populated dynamically in renderCards() -->
         </div>
       </div>
 
-      <div class="pt-3 border-t border-slate-200 flex items-center justify-between text-xs sm:text-sm text-slate-500 font-medium">
-        <span>สถานะข้อมูล:</span>
-        <span class="font-bold text-emerald-600 inline-flex items-center gap-1.5">
-          <i data-lucide="check-circle-2" class="w-4 h-4"></i> ตรวจสอบตรงบิลครบ
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+        <span>วิเคราะห์พฤติกรรม:</span>
+        <span class="font-bold text-indigo-700 inline-flex items-center gap-1">
+          <i data-lucide="pie-chart" class="w-3.5 h-3.5"></i> คำนวณตามสัดส่วนการจ่ายจริง 100%
         </span>
       </div>
     </div>
@@ -339,12 +352,12 @@
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
       <div class="flex items-center gap-2.5">
         <div class="w-3 h-3 rounded-full bg-indigo-600 shadow-xs"></div>
-        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">แหล่งค่าใช้จ่าย & การกระทบยอด (5 ช่องทางหลัก)</h3>
+        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">แหล่งเงินที่ใช้จ่าย (Payment Sources)</h3>
       </div>
-      <span class="text-xs font-bold text-slate-600 bg-slate-200/80 px-3.5 py-1 rounded-full self-start sm:self-auto">คลิกการ์ดเพื่อกรองดูเฉพาะช่องทางนั้น</span>
+      <span class="text-xs font-bold text-slate-500 bg-white border border-slate-200 px-3.5 py-1 rounded-full shadow-2xs self-start sm:self-auto">คลิกการ์ดเพื่อกรองดูเฉพาะช่องทางนั้น</span>
     </div>
 
-    <div id="sourceCards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"></div>
+    <div id="sourceCards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5"></div>
   </section>
 
   <!-- ============ SECTION 2: VIEW MODE TOGGLE & QUICK FILTERS ============ -->
@@ -381,16 +394,16 @@
       </div>
     </div>
 
-    <!-- Quick Merchant / Brand Filter Pills (คลิกเลือกดูเฉพาะ Grab, Agoda, ฯลฯ) -->
+    <!-- Quick Merchant / Brand Filter Pills (Single-line horizontal scrollable) -->
     <div class="space-y-2">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-1.5 text-xs font-bold text-slate-600 uppercase tracking-wider">
           <i data-lucide="store" class="w-3.5 h-3.5 text-indigo-600"></i>
-          <span>กรองเฉพาะร้านค้า / บริการยอดนิยม (Quick Brand Filter):</span>
+          <span>ร้านค้า / บริการที่ใช้จ่ายบ่อย:</span>
         </div>
-        <span class="text-[11px] text-slate-400">คลิกเพื่อดูเฉพาะแบรนด์นั้นทันที</span>
+        <span class="text-[11px] text-slate-400">เลื่อนแถบเพื่อเลือกดูร้านค้า</span>
       </div>
-      <div id="brandChips" class="flex flex-wrap gap-1.5"></div>
+      <div id="brandChips" class="flex items-center gap-2 overflow-x-auto scroll-thin no-scrollbar py-1"></div>
     </div>
 
     <!-- Vibrant Category Pills -->
@@ -819,8 +832,8 @@ const YEAR = 2026, MONTH = 10;
 const TH_MONTH = ['', 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
 const TH_MONTH_FULL = ['', 'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
 const TH_DOW_FULL = ['วันอาทิตย์', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์', 'วันเสาร์'];
-const STORE_KEY = 'smart_expense_tx_v19';
-const TARGET_KEY = 'smart_expense_targets_v19';
+const STORE_KEY = 'smart_expense_tx_v21';
+const TARGET_KEY = 'smart_expense_targets_v21';
 const DEFAULT_GEMINI_KEY = atob('QVEuQWI4Uk42TE9RTE01XzVJanAzSEVPQWNVelRsYWlFbXBOYjVlbENLMWVoQl85M1hsbFE=');
 
 const MONTHLY_TARGETS = {
@@ -850,11 +863,11 @@ try {
 } catch(e){}
 
 const SOURCES = {
-  KTC:    { label: 'KTC',     sub: 'บัตรเครดิต',       color: '#2563eb', bg: '#eff6ff', badge: 'bg-blue-50 text-blue-700 ring-1 ring-blue-600/20', icon: 'credit-card' },
-  SHOPEE: { label: 'Shopee',  sub: 'SPayLater / Pay', color: '#ea580c', bg: '#fff7ed', badge: 'bg-orange-50 text-orange-700 ring-1 ring-orange-600/20', icon: 'shopping-bag' },
-  SCB:    { label: 'SCB',     sub: 'บัตรเครดิต',       color: '#7c3aed', bg: '#f5f3ff', badge: 'bg-purple-50 text-purple-700 ring-1 ring-purple-600/20', icon: 'landmark' },
-  TRUE:   { label: 'True',    sub: 'TrueMoney Wallet', color: '#e11d48', bg: '#fff1f2', badge: 'bg-rose-50 text-rose-700 ring-1 ring-rose-600/20', icon: 'wallet' },
-  FIXED:  { label: 'คงที่ (Fixed)', sub: 'รถ/คอนโด/แม่', color: '#059669', bg: '#ecfdf5', badge: 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-600/20', icon: 'lock' },
+  KTC:    { label: 'KTC',     sub: 'บัตรเครดิต',       color: '#2563eb', bg: '#eff6ff', badge: 'bg-blue-50 text-blue-700 ring-1 ring-blue-600/20', icon: 'credit-card', emoji: '💳' },
+  SHOPEE: { label: 'Shopee',  sub: 'SPayLater / Pay', color: '#ea580c', bg: '#fff7ed', badge: 'bg-orange-50 text-orange-700 ring-1 ring-orange-600/20', icon: 'shopping-bag', emoji: '🛍️' },
+  SCB:    { label: 'SCB',     sub: 'CardX บัตรเครดิต', color: '#7c3aed', bg: '#f5f3ff', badge: 'bg-purple-50 text-purple-700 ring-1 ring-purple-600/20', icon: 'landmark', emoji: '🏦' },
+  TRUE:   { label: 'True',    sub: 'TrueMoney Wallet', color: '#e11d48', bg: '#fff1f2', badge: 'bg-rose-50 text-rose-700 ring-1 ring-rose-600/20', icon: 'wallet', emoji: '📱' },
+  FIXED:  { label: 'คงที่ (Fixed)', sub: 'รถ/คอนโด/แม่', color: '#059669', bg: '#ecfdf5', badge: 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-600/20', icon: 'lock', emoji: '🔒' },
 };
 
 const CATS = {
@@ -1315,115 +1328,114 @@ function renderBrandPills() {
 function renderCards() {
   const m = state.activeMonth;
   const monthTxs = m === 'ALL' ? transactions : transactions.filter(t => (t.cycleMonth || (t.date ? t.date.slice(0, 7) : '2026-10')) === m);
-  const curTargets = getActiveTargets(m);
-  const billTotal = Object.values(curTargets).reduce((a, b) => a + b, 0);
   const trackedTotal = sum(monthTxs);
   const fixedTotal = sum(monthTxs.filter(t => t.source === 'FIXED'));
   const varTotal = trackedTotal - fixedTotal;
   const pFixed = trackedTotal ? (fixedTotal / trackedTotal) * 100 : 0;
   const pVar = trackedTotal ? 100 - pFixed : 0;
 
-  $('heroCycleText').textContent = m === 'ALL' ? 'ภาพรวมทุกรอบบิล (มิ.ย. - ต.ค. 2569)' : `รอบบิล: ${formatMonthLabel(m)}`;
+  $('heroCycleText').textContent = m === 'ALL' ? 'ทุกรอบบิลรวมกัน (มิ.ย. - ต.ค. 2569)' : `รอบบิล: ${formatMonthLabel(m)}`;
+  $('heroTxCountPill').textContent = `${monthTxs.length} รายการ`;
   $('heroTotalAmount').textContent = baht(trackedTotal);
-  $('heroTargetSubtext').textContent = `เป้าหมายยอดบิล: ${baht(billTotal)} · แกะแล้ว ${monthTxs.length} รายการ`;
+  $('heroSubtext').textContent = monthTxs.length ? `รวม ${monthTxs.length} รายการใช้จ่ายจริง (เฉลี่ย ${baht(trackedTotal / monthTxs.length)}/รายการ)` : 'ไม่มีรายการในรอบนี้';
   $('heroFixedAmount').textContent = baht(fixedTotal);
-  $('heroFixedPct').textContent = `${pFixed.toFixed(0)}% ของรอบบิล`;
+  $('heroFixedPct').textContent = `${pFixed.toFixed(0)}% ของรายจ่าย`;
   $('heroVarAmount').textContent = baht(varTotal);
-  $('heroVarPct').textContent = `${pVar.toFixed(0)}% ของรอบบิล`;
+  $('heroVarPct').textContent = `${pVar.toFixed(0)}% ของรายจ่าย`;
 
-  if (Math.abs(trackedTotal - billTotal) < 1) {
-    $('heroStatusPill').textContent = 'กระทบยอดครบ 100% ตรงเป๊ะ';
-    $('heroStatusPill').className = 'text-xs sm:text-sm font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30';
-  } else if (trackedTotal < billTotal) {
-    $('heroStatusPill').textContent = `ขาดอีก ${fmt(billTotal - trackedTotal)} บาท`;
-    $('heroStatusPill').className = 'text-xs sm:text-sm font-bold px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30';
-  } else {
-    $('heroStatusPill').textContent = `เกินบิล ${fmt(trackedTotal - billTotal)} บาท`;
-    $('heroStatusPill').className = 'text-xs sm:text-sm font-bold px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-400/30';
+  // Compute Category Proportions & Spending Behavior
+  const catSums = {};
+  const catCounts = {};
+  monthTxs.forEach(t => {
+    const k = t.cat || 'family';
+    const amt = t.amount > 0 ? t.amount : 0;
+    catSums[k] = (catSums[k] || 0) + amt;
+    catCounts[k] = (catCounts[k] || 0) + 1;
+  });
+
+  const rankedCats = Object.entries(catSums)
+    .sort((a, b) => b[1] - a[1])
+    .filter(([_, amt]) => amt > 0);
+
+  // 1. Visual Multi-segment Distribution Bar (Apple Wallet Style)
+  const distBarEl = $('categoryDistBar');
+  if (distBarEl) {
+    if (rankedCats.length === 0) {
+      distBarEl.innerHTML = '<div class="w-full h-full bg-slate-200"></div>';
+    } else {
+      const catColors = {
+        food: '#d97706', shopping: '#0284c7', transport: '#059669', medical: '#e11d48',
+        entertainment: '#7c3aed', utilities: '#0891b2', installment: '#4f46e5',
+        housing: '#475569', family: '#64748b'
+      };
+      distBarEl.innerHTML = rankedCats.map(([k, amt]) => {
+        const pct = ((amt / (trackedTotal || 1)) * 100);
+        const col = catColors[k] || '#64748b';
+        return `<div class="h-full transition-all duration-500 hover:opacity-80" style="width: ${pct}%; background-color: ${col};" title="${(CATS[k]?.label || k)}: ${baht(amt)} (${pct.toFixed(1)}%)"></div>`;
+      }).join('');
+    }
   }
 
-  // Populate Hero Top Categories Widget
-  const catSums = {};
-  monthTxs.forEach(t => {
-    catSums[t.cat] = (catSums[t.cat] || 0) + (t.amount > 0 ? t.amount : 0);
-  });
-  const topCats = Object.entries(catSums)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 3);
+  const catCountEl = $('catCountText');
+  if (catCountEl) catCountEl.textContent = `${rankedCats.length} หมวดหมู่`;
 
-  const heroTopCatsEl = $('heroTopCats');
-  if (heroTopCatsEl) {
-    if (topCats.length === 0) {
-      heroTopCatsEl.innerHTML = '<p class="text-xs text-slate-400 py-3">ยังไม่มีรายการค่าใช้จ่ายในรอบนี้</p>';
+  // 2. Ranked Category Grid
+  const rankGridEl = $('categoryRankGrid');
+  if (rankGridEl) {
+    if (rankedCats.length === 0) {
+      rankGridEl.innerHTML = '<p class="text-xs text-slate-400 py-3 col-span-2 text-center">ไม่มีข้อมูลค่าใช้จ่ายในรอบนี้</p>';
     } else {
-      const maxCatAmt = topCats[0][1] || 1;
-      heroTopCatsEl.innerHTML = topCats.map(([catKey, amt]) => {
+      rankGridEl.innerHTML = rankedCats.map(([catKey, amt]) => {
         const cObj = CATS[catKey] || CATS.family;
-        const pct = Math.round((amt / (trackedTotal || 1)) * 100);
+        const pct = ((amt / (trackedTotal || 1)) * 100).toFixed(1);
+        const isSelected = state.f.cat === catKey;
         return `
-          <div>
-            <div class="flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 mb-1">
-              <span class="inline-flex items-center gap-1.5">${cObj.emoji} ${cObj.label}</span>
-              <span class="font-mono text-slate-900 font-extrabold">${baht(amt)} (${pct}%)</span>
+          <div onclick="setCat('${catKey}')" class="p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${isSelected ? 'ring-2 ring-indigo-600 bg-indigo-50/50 border-indigo-400 shadow-xs' : 'bg-slate-50/80 border-slate-200/90 hover:bg-slate-100 hover:border-slate-300'}">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="text-lg shrink-0">${cObj.emoji}</span>
+              <div class="min-w-0">
+                <p class="font-bold text-slate-900 text-xs sm:text-sm truncate">${cObj.label}</p>
+                <p class="text-[11px] text-slate-500 font-medium">${catCounts[catKey] || 0} รายการ</p>
+              </div>
             </div>
-            <div class="h-2 rounded-full bg-slate-100 overflow-hidden">
-              <div class="h-full rounded-full bg-indigo-600 transition-all duration-300" style="width: ${(amt / maxCatAmt) * 100}%"></div>
+            <div class="text-right shrink-0">
+              <p class="font-black text-slate-900 text-xs sm:text-sm font-mono">${baht(amt)}</p>
+              <p class="text-[11px] font-bold text-indigo-700 font-mono">${pct}%</p>
             </div>
           </div>`;
       }).join('');
     }
   }
 
-  // Populate 5 Source Cards with large, legible typography and rich styling
+  // 3. Populate Clean 5 Source Cards (Minimalist Wallet Cards: No targets, no green bars, pure proportions)
   $('sourceCards').innerHTML = Object.entries(SOURCES).map(([k, s]) => {
-    const targetAmt = curTargets[k] || 0;
     const parsed = sum(monthTxs.filter(t => t.source === k));
     const count = monthTxs.filter(t => t.source === k).length;
-    const diff = Math.round((targetAmt - parsed) * 100) / 100;
-    const pct = targetAmt ? Math.min(100, (parsed / targetAmt) * 100) : 0;
+    const sharePct = trackedTotal > 0 ? ((parsed / trackedTotal) * 100).toFixed(1) : '0.0';
     const isSelected = state.f.source === k;
 
-    let statusBadge = '';
-    if (count === 0) {
-      statusBadge = '<span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-500 border border-slate-300">รอแนบ</span>';
-    } else if (Math.abs(diff) < 0.01) {
-      statusBadge = '<span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-300 shadow-xs">✓ ตรงบิล 100%</span>';
-    } else if (diff > 0) {
-      statusBadge = `<span class="text-xs font-bold px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-300 shadow-xs">ขาด ${fmt(diff)}.-</span>`;
-    } else {
-      statusBadge = `<span class="text-xs font-bold px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-300 shadow-xs">+${fmt(-diff)}.-</span>`;
-    }
-
     return `
-      <div onclick="setSource('${k}')" class="card card-hover p-4 sm:p-5 cursor-pointer relative transition-all ${isSelected ? 'ring-2 ring-indigo-600 border-indigo-500 bg-indigo-50/50 shadow-md' : 'bg-white hover:border-slate-300'}">
-        <div class="flex items-center justify-between gap-2 mb-3">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-2xl grid place-items-center text-lg shadow-xs shrink-0" style="background-color: ${s.bg}; color: ${s.color};">
-              <i data-lucide="${s.icon}" class="w-6 h-6"></i>
+      <div onclick="setSource('${k}')" class="card card-hover p-4 sm:p-5 cursor-pointer relative transition-all ${isSelected ? 'ring-2 ring-indigo-600 border-indigo-500 bg-indigo-50/40 shadow-md' : 'bg-white hover:border-slate-300'}">
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl grid place-items-center text-xl shadow-xs shrink-0 font-bold border border-slate-200/80" style="background-color: ${s.bg};">
+              ${s.emoji || '💳'}
             </div>
-            <div>
-              <p class="font-bold text-slate-900 text-sm sm:text-base leading-tight">${s.label}</p>
-              <p class="text-xs text-slate-500 font-semibold">${s.sub}</p>
+            <div class="min-w-0">
+              <p class="font-extrabold text-slate-900 text-sm sm:text-base leading-tight truncate">${s.label}</p>
+              <p class="text-[11px] text-slate-500 font-medium truncate">${s.sub}</p>
             </div>
           </div>
-          ${statusBadge}
+          <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 shrink-0 font-mono">
+            ${sharePct}%
+          </span>
         </div>
 
         <div class="mt-3 pt-3 border-t border-slate-100">
-          <div class="flex items-baseline justify-between mb-1">
-            <span class="text-xl sm:text-2xl font-black text-slate-900 font-mono tracking-tight">${baht(parsed)}</span>
-          </div>
-          <div class="flex items-center justify-between text-xs text-slate-500 font-semibold mb-2">
-            <span>เป้าหมายบิล:</span>
-            <span class="font-mono text-slate-800 font-bold">${fmt(targetAmt)} บาท</span>
-          </div>
-
-          <div class="h-2 rounded-full bg-slate-100 overflow-hidden">
-            <div class="h-full rounded-full transition-all duration-500 ${count === 0 ? 'bg-slate-200' : Math.abs(diff) < 0.01 ? 'bg-emerald-500' : 'bg-indigo-600'}" style="width: ${pct}%"></div>
-          </div>
-          <div class="flex items-center justify-between text-xs text-slate-500 font-medium mt-2">
-            <span class="font-semibold text-slate-700">${count} รายการ</span>
-            <span class="font-bold text-indigo-700 font-mono">${pct.toFixed(0)}%</span>
+          <div class="text-xl sm:text-2xl font-black text-slate-900 font-mono tracking-tight">${baht(parsed)}</div>
+          <div class="flex items-center justify-between text-xs text-slate-500 font-medium mt-1">
+            <span>${count} รายการ</span>
+            <span class="font-mono text-slate-400">${count ? `เฉลี่ย ฿${fmt(parsed / count)}/ครั้ง` : '-'}</span>
           </div>
         </div>
       </div>`;
