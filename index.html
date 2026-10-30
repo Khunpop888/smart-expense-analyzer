@@ -38,47 +38,47 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
   body {
-    background-color: #f8fafc;
-    color: #1e293b;
+    background-color: #f1f5f9; /* Slate-100: Richer contrast against pure white cards */
+    color: #0f172a; /* Slate-900: Crisp, dark high-contrast text */
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   .card {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #cbd5e1; /* Slate-300: High-contrast distinct borders */
     border-radius: 1.25rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .card-hover:hover {
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 16px 32px -4px rgba(15, 23, 42, 0.1), 0 6px 12px -3px rgba(15, 23, 42, 0.05);
     transform: translateY(-2px);
-    border-color: #cbd5e1;
+    border-color: #94a3b8;
   }
   .chip {
-    padding: 0.45rem 1rem;
+    padding: 0.55rem 1.15rem;
     border-radius: 9999px;
-    font-size: 0.825rem;
-    font-weight: 500;
-    border: 1px solid #e2e8f0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid #cbd5e1;
     background-color: #ffffff;
-    color: #475569;
+    color: #334155;
     transition: all 0.15s ease;
     white-space: nowrap;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.45rem;
   }
   .chip:hover {
-    border-color: #94a3b8;
-    background-color: #f1f5f9;
+    border-color: #64748b;
+    background-color: #f8fafc;
     color: #0f172a;
   }
   .chip.active {
-    background-color: #0f172a;
+    background-color: #4f46e5;
     color: #ffffff;
-    border-color: #0f172a;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+    border-color: #4f46e5;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
   }
   .inp {
     background: #ffffff;
@@ -254,74 +254,97 @@
 
 <main class="max-w-[1440px] mx-auto px-4 sm:px-6 py-6 space-y-6 flex-1">
 
-  <!-- ============ SECTION 1: HERO FINANCIAL SUMMARY CARD ============ -->
+  <!-- ============ SECTION 1: HERO FINANCIAL SUMMARY CARD & TOP INSIGHTS ============ -->
   <section class="grid grid-cols-1 lg:grid-cols-12 gap-5">
     
     <!-- Hero Total Spend Card (Apple Card/Revolut Style) -->
-    <div class="lg:col-span-5 rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white shadow-xl relative overflow-hidden flex flex-col justify-between">
-      <div class="absolute -right-10 -bottom-10 w-56 h-56 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none"></div>
-      <div class="absolute -left-10 -top-10 w-56 h-56 rounded-full bg-sky-500/10 blur-3xl pointer-events-none"></div>
+    <div class="lg:col-span-8 rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white shadow-xl relative overflow-hidden flex flex-col justify-between border border-slate-800">
+      <div class="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-10 -top-10 w-64 h-64 rounded-full bg-sky-500/10 blur-3xl pointer-events-none"></div>
 
       <div>
-        <div class="flex items-center justify-between mb-3">
-          <span id="heroCyclePill" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 border border-white/15 text-indigo-200 backdrop-blur-md">
-            <i data-lucide="calendar-check" class="w-3.5 h-3.5"></i>
+        <div class="flex items-center justify-between mb-4">
+          <span id="heroCyclePill" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-indigo-200 backdrop-blur-md">
+            <i data-lucide="calendar-check" class="w-4 h-4 text-indigo-300"></i>
             <span id="heroCycleText">รอบบิล ต.ค. 2569</span>
           </span>
-          <span id="heroStatusPill" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+          <span id="heroStatusPill" class="text-xs sm:text-sm font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
             กระทบยอดครบ 100%
           </span>
         </div>
 
-        <p class="text-xs text-slate-400 font-medium">ยอดใช้จ่ายจริงรวมรอบบิลนี้</p>
+        <p class="text-sm text-slate-300 font-medium">ยอดใช้จ่ายจริงรวมรอบบิลนี้ (Actual Spending)</p>
         <div class="flex items-baseline gap-2 mt-1">
-          <h2 id="heroTotalAmount" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">฿0.00</h2>
+          <h2 id="heroTotalAmount" class="text-4xl sm:text-5xl font-black tracking-tight text-white font-mono">฿0.00</h2>
         </div>
-        <p id="heroTargetSubtext" class="text-xs text-indigo-200/80 mt-1">เป้าหมายตามบิล: ฿0.00</p>
+        <p id="heroTargetSubtext" class="text-sm text-indigo-200/90 mt-1 font-semibold">เป้าหมายตามบิล: ฿0.00</p>
       </div>
 
-      <div class="mt-6 pt-5 border-t border-white/10 space-y-3">
-        <div class="grid grid-cols-2 gap-3 text-xs">
-          <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
-            <div class="flex items-center gap-1.5 text-slate-300 font-medium">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <div class="mt-6 pt-5 border-t border-white/10 space-y-4">
+        <div class="grid grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-2 text-slate-200 font-semibold">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
               <span>Fixed Cost (คงที่)</span>
             </div>
-            <p id="heroFixedAmount" class="text-base font-bold text-white mt-1">฿0.00</p>
-            <p id="heroFixedPct" class="text-[11px] text-emerald-300 mt-0.5">0% ของรอบบิล</p>
+            <p id="heroFixedAmount" class="text-xl sm:text-2xl font-black text-white mt-1 font-mono">฿0.00</p>
+            <p id="heroFixedPct" class="text-xs text-emerald-300 font-semibold mt-0.5">0% ของรอบบิล</p>
           </div>
 
-          <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
-            <div class="flex items-center gap-1.5 text-slate-300 font-medium">
-              <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-2 text-slate-200 font-semibold">
+              <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
               <span>Variable Cost (ผันแปร)</span>
             </div>
-            <p id="heroVarAmount" class="text-base font-bold text-white mt-1">฿0.00</p>
-            <p id="heroVarPct" class="text-[11px] text-sky-300 mt-0.5">100% ของรอบบิล</p>
+            <p id="heroVarAmount" class="text-xl sm:text-2xl font-black text-white mt-1 font-mono">฿0.00</p>
+            <p id="heroVarPct" class="text-xs text-sky-300 font-semibold mt-0.5">100% ของรอบบิล</p>
           </div>
         </div>
 
         <div class="flex items-center justify-between pt-1">
-          <button class="text-xs text-indigo-300 hover:text-white font-semibold inline-flex items-center gap-1 transition-colors" onclick="addFixedCostsQuickly()">
-            <i data-lucide="plus-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
-            <span>+ บันทึก Fixed Cost 3 รายการ (รถ/คอนโด/แม่)</span>
+          <button class="text-xs sm:text-sm text-indigo-300 hover:text-white font-semibold inline-flex items-center gap-1.5 transition-colors" onclick="addFixedCostsQuickly()">
+            <i data-lucide="plus-circle" class="w-4 h-4 text-emerald-400"></i>
+            <span>+ บันทึก Fixed Cost 3 รายการ (รถ/คอนโด/แม่ ฿42,577)</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- 5 Sources Mini-Cards Grid (KTC, Shopee, SCB, True, Fixed) -->
-    <div class="lg:col-span-7 flex flex-col justify-between space-y-3">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <div class="w-2.5 h-2.5 rounded-full bg-indigo-600"></div>
-          <h3 class="text-sm font-bold text-slate-800 tracking-tight uppercase">การกระทบยอดแยกตามช่องทาง (Statement Sources)</h3>
+    <!-- Quick Month Insights Card -->
+    <div class="lg:col-span-4 card p-6 bg-white flex flex-col justify-between space-y-4 shadow-sm border border-slate-300">
+      <div>
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-indigo-600 shadow-xs"></div>
+            <h3 class="text-base font-extrabold text-slate-900 tracking-tight">หมวดใช้จ่ายสูงสุดรอบนี้</h3>
+          </div>
+          <span class="text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-2.5 py-0.5 rounded-full">Top 3</span>
         </div>
-        <span class="text-xs text-slate-400 font-medium">คลิกการ์ดเพื่อกรองเฉพาะช่องทางนั้น</span>
+        <div id="heroTopCats" class="mt-4 space-y-3.5">
+          <!-- Populated in renderCards() -->
+        </div>
       </div>
 
-      <div id="sourceCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 flex-1"></div>
+      <div class="pt-3 border-t border-slate-200 flex items-center justify-between text-xs sm:text-sm text-slate-500 font-medium">
+        <span>สถานะข้อมูล:</span>
+        <span class="font-bold text-emerald-600 inline-flex items-center gap-1.5">
+          <i data-lucide="check-circle-2" class="w-4 h-4"></i> ตรวจสอบตรงบิลครบ
+        </span>
+      </div>
     </div>
+  </section>
+
+  <!-- ============ SECTION 1.5: 5 SOURCES MINI-CARDS GRID (FULL-WIDTH 5 COLUMNS) ============ -->
+  <section class="space-y-3">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5">
+        <div class="w-3 h-3 rounded-full bg-indigo-600 shadow-xs"></div>
+        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">แหล่งค่าใช้จ่าย & การกระทบยอด (5 ช่องทางหลัก)</h3>
+      </div>
+      <span class="text-xs font-bold text-slate-600 bg-slate-200/80 px-3.5 py-1 rounded-full self-start sm:self-auto">คลิกการ์ดเพื่อกรองดูเฉพาะช่องทางนั้น</span>
+    </div>
+
+    <div id="sourceCards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"></div>
   </section>
 
   <!-- ============ SECTION 2: VIEW MODE TOGGLE & QUICK FILTERS ============ -->
@@ -418,25 +441,25 @@
 
     <div class="overflow-x-auto scroll-thin no-scrollbar">
       <table class="w-full text-sm text-left">
-        <thead class="text-[11px] uppercase tracking-wider text-slate-500 bg-slate-50/90 border-b border-slate-200">
+        <thead class="text-xs uppercase tracking-wider text-slate-700 bg-slate-100/95 border-b border-slate-300">
           <tr>
-            <th class="px-3 py-3 font-semibold">วันที่ & เวลา</th>
-            <th class="px-2 py-3 font-semibold">แหล่งจ่าย</th>
-            <th class="px-3 py-3 font-semibold min-w-[240px]">ชื่อรายการ / ร้านค้า (พิมพ์แก้ไขได้)</th>
-            <th class="px-3 py-3 font-semibold min-w-[190px]">หมวดหมู่ (คลิกเปลี่ยนได้)</th>
-            <th class="px-2 py-3 font-semibold">ประเภท</th>
-            <th class="px-3 py-3 font-semibold text-right">จำนวนเงิน (บาท)</th>
-            <th class="px-3 py-3 font-semibold min-w-[180px]">หมายเหตุ (พิมพ์ระบุได้)</th>
-            <th class="px-2 py-3 font-semibold text-center w-10">จัดการ</th>
+            <th class="px-4 py-3.5 font-black">วันที่ & เวลา</th>
+            <th class="px-3 py-3.5 font-black">แหล่งจ่าย</th>
+            <th class="px-4 py-3.5 font-black min-w-[260px]">ชื่อรายการ / ร้านค้า (พิมพ์แก้ไขได้)</th>
+            <th class="px-3 py-3.5 font-black min-w-[200px]">หมวดหมู่ (คลิกเปลี่ยนได้)</th>
+            <th class="px-3 py-3.5 font-black">ประเภท</th>
+            <th class="px-4 py-3.5 font-black text-right">จำนวนเงิน (บาท)</th>
+            <th class="px-4 py-3.5 font-black min-w-[200px]">หมายเหตุ (พิมพ์ระบุได้)</th>
+            <th class="px-3 py-3.5 font-black text-center w-12">จัดการ</th>
           </tr>
 
           <!-- COLUMN-LEVEL FILTER ROW -->
-          <tr class="bg-indigo-50/40 border-b border-indigo-100 text-xs">
-            <th class="p-2">
-              <input id="colFDate" placeholder="กรองวัน..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-[11px] outline-none focus:border-indigo-500" />
+          <tr class="bg-indigo-50/50 border-b border-indigo-100 text-xs">
+            <th class="p-2.5">
+              <input id="colFDate" placeholder="กรองวัน..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-indigo-600 font-medium" />
             </th>
-            <th class="p-2">
-              <select id="colFSource" onchange="onColFilterChange()" class="w-full bg-white border border-slate-200 rounded px-1.5 py-1 text-[11px] outline-none focus:border-indigo-500 font-semibold">
+            <th class="p-2.5">
+              <select id="colFSource" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-indigo-600 font-bold">
                 <option value="">ทั้งหมด</option>
                 <option value="KTC">KTC</option>
                 <option value="SHOPEE">Shopee</option>
@@ -445,11 +468,11 @@
                 <option value="FIXED">Fixed</option>
               </select>
             </th>
-            <th class="p-2">
-              <input id="colFName" placeholder="กรองร้านค้า เช่น Agoda, Grab..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-[11px] outline-none focus:border-indigo-500" />
+            <th class="p-2.5">
+              <input id="colFName" placeholder="กรองร้านค้า..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-indigo-600 font-medium" />
             </th>
-            <th class="p-2">
-              <select id="colFCat" onchange="onColFilterChange()" class="w-full bg-white border border-slate-200 rounded px-1.5 py-1 text-[11px] outline-none focus:border-indigo-500 font-semibold">
+            <th class="p-2.5">
+              <select id="colFCat" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-indigo-600 font-bold">
                 <option value="">ทุกหมวด</option>
                 <option value="food">🍔 อาหาร</option>
                 <option value="transport">🚗 เดินทาง</option>
@@ -462,21 +485,21 @@
                 <option value="family">💖 ครอบครัว</option>
               </select>
             </th>
-            <th class="p-2">
-              <select id="colFType" onchange="onColFilterChange()" class="w-full bg-white border border-slate-200 rounded px-1 py-1 text-[11px] outline-none focus:border-indigo-500">
+            <th class="p-2.5">
+              <select id="colFType" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-indigo-600 font-bold">
                 <option value="">ทั้งหมด</option>
                 <option value="full">เต็ม</option>
                 <option value="inst">ผ่อน</option>
               </select>
             </th>
-            <th class="p-2">
-              <input id="colFAmount" placeholder="กรองยอด..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-[11px] text-right outline-none focus:border-indigo-500" />
+            <th class="p-2.5">
+              <input id="colFAmount" placeholder="กรองยอด..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-indigo-600 text-right font-mono" />
             </th>
-            <th class="p-2">
-              <input id="colFNote" placeholder="กรองหมายเหตุ..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-200 rounded px-2 py-1 text-[11px] outline-none focus:border-indigo-500" />
+            <th class="p-2.5">
+              <input id="colFNote" placeholder="กรองหมายเหตุ..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-indigo-600 font-medium" />
             </th>
-            <th class="p-2 text-center text-slate-400">
-              <i data-lucide="filter" class="w-3.5 h-3.5 mx-auto text-indigo-500"></i>
+            <th class="p-2.5 text-center text-slate-400">
+              <i data-lucide="filter" class="w-4 h-4 mx-auto text-indigo-500"></i>
             </th>
           </tr>
         </thead>
@@ -796,8 +819,8 @@ const YEAR = 2026, MONTH = 10;
 const TH_MONTH = ['', 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
 const TH_MONTH_FULL = ['', 'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
 const TH_DOW_FULL = ['วันอาทิตย์', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์', 'วันเสาร์'];
-const STORE_KEY = 'smart_expense_tx_v18';
-const TARGET_KEY = 'smart_expense_targets_v18';
+const STORE_KEY = 'smart_expense_tx_v19';
+const TARGET_KEY = 'smart_expense_targets_v19';
 const DEFAULT_GEMINI_KEY = atob('QVEuQWI4Uk42TE9RTE01XzVJanAzSEVPQWNVelRsYWlFbXBOYjVlbENLMWVoQl85M1hsbFE=');
 
 const MONTHLY_TARGETS = {
@@ -872,7 +895,7 @@ const state = {
   f: { ...DEFAULT_FILTER },
   colFilters: { date: '', source: '', name: '', cat: '', type: '', amount: '', note: '' },
   barFixed: false,
-  activeMonth: 'ALL',
+  activeMonth: '2026-10',
   viewMode: 'table'
 };
 const charts = {};
@@ -1213,15 +1236,17 @@ function renderMonthTabs() {
   container.innerHTML = allMonthsList.map(m => {
     const isActive = state.activeMonth === m;
     const count = m === 'ALL' ? transactions.length : transactions.filter(t => (t.cycleMonth || (t.date ? t.date.slice(0, 7) : '2026-10')) === m).length;
-    const label = m === 'ALL' ? 'รวมทุกรอบบิล' : formatMonthLabel(m);
+    let label = m === 'ALL' ? 'ทุกรอบบิลรวมกัน' : formatMonthLabel(m);
+    if (m === '2026-10') label += ' (ล่าสุด)';
+
     const cls = isActive 
-      ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/25 border-indigo-600' 
-      : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900';
+      ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/30 border-indigo-600 ring-2 ring-indigo-300' 
+      : 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100 hover:text-slate-900';
 
     return `
-      <button onclick="changeActiveMonth('${m}')" class="px-3.5 py-1.5 rounded-full text-xs font-bold border transition-all inline-flex items-center gap-1.5 shrink-0 ${cls}">
+      <button onclick="changeActiveMonth('${m}')" class="px-4 py-2 rounded-xl text-sm font-bold border transition-all inline-flex items-center gap-2 shrink-0 ${cls}">
         <span>${label}</span>
-        <span class="text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'}">
+        <span class="text-xs font-bold px-2 py-0.5 rounded-lg ${isActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'}">
           ${count}
         </span>
       </button>`;
@@ -1308,15 +1333,48 @@ function renderCards() {
 
   if (Math.abs(trackedTotal - billTotal) < 1) {
     $('heroStatusPill').textContent = 'กระทบยอดครบ 100% ตรงเป๊ะ';
-    $('heroStatusPill').className = 'text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30';
+    $('heroStatusPill').className = 'text-xs sm:text-sm font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30';
   } else if (trackedTotal < billTotal) {
     $('heroStatusPill').textContent = `ขาดอีก ${fmt(billTotal - trackedTotal)} บาท`;
-    $('heroStatusPill').className = 'text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30';
+    $('heroStatusPill').className = 'text-xs sm:text-sm font-bold px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30';
   } else {
     $('heroStatusPill').textContent = `เกินบิล ${fmt(trackedTotal - billTotal)} บาท`;
-    $('heroStatusPill').className = 'text-xs font-bold px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-400/30';
+    $('heroStatusPill').className = 'text-xs sm:text-sm font-bold px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-400/30';
   }
 
+  // Populate Hero Top Categories Widget
+  const catSums = {};
+  monthTxs.forEach(t => {
+    catSums[t.cat] = (catSums[t.cat] || 0) + (t.amount > 0 ? t.amount : 0);
+  });
+  const topCats = Object.entries(catSums)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3);
+
+  const heroTopCatsEl = $('heroTopCats');
+  if (heroTopCatsEl) {
+    if (topCats.length === 0) {
+      heroTopCatsEl.innerHTML = '<p class="text-xs text-slate-400 py-3">ยังไม่มีรายการค่าใช้จ่ายในรอบนี้</p>';
+    } else {
+      const maxCatAmt = topCats[0][1] || 1;
+      heroTopCatsEl.innerHTML = topCats.map(([catKey, amt]) => {
+        const cObj = CATS[catKey] || CATS.family;
+        const pct = Math.round((amt / (trackedTotal || 1)) * 100);
+        return `
+          <div>
+            <div class="flex items-center justify-between text-xs sm:text-sm font-bold text-slate-800 mb-1">
+              <span class="inline-flex items-center gap-1.5">${cObj.emoji} ${cObj.label}</span>
+              <span class="font-mono text-slate-900 font-extrabold">${baht(amt)} (${pct}%)</span>
+            </div>
+            <div class="h-2 rounded-full bg-slate-100 overflow-hidden">
+              <div class="h-full rounded-full bg-indigo-600 transition-all duration-300" style="width: ${(amt / maxCatAmt) * 100}%"></div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+  }
+
+  // Populate 5 Source Cards with large, legible typography and rich styling
   $('sourceCards').innerHTML = Object.entries(SOURCES).map(([k, s]) => {
     const targetAmt = curTargets[k] || 0;
     const parsed = sum(monthTxs.filter(t => t.source === k));
@@ -1327,103 +1385,51 @@ function renderCards() {
 
     let statusBadge = '';
     if (count === 0) {
-      statusBadge = '<span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 border border-slate-200">รอแนบเอกสาร</span>';
+      statusBadge = '<span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-500 border border-slate-300">รอแนบ</span>';
     } else if (Math.abs(diff) < 0.01) {
-      statusBadge = '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">✓ ตรงบิล 100%</span>';
+      statusBadge = '<span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-300 shadow-xs">✓ ตรงบิล 100%</span>';
     } else if (diff > 0) {
-      statusBadge = `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">ขาด ${fmt(diff)}.-</span>`;
+      statusBadge = `<span class="text-xs font-bold px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-300 shadow-xs">ขาด ${fmt(diff)}.-</span>`;
     } else {
-      statusBadge = `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200">+${fmt(-diff)}.-</span>`;
+      statusBadge = `<span class="text-xs font-bold px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-300 shadow-xs">+${fmt(-diff)}.-</span>`;
     }
 
     return `
-      <div onclick="setSource('${k}')" class="card card-hover p-4 cursor-pointer relative ${isSelected ? 'ring-2 ring-indigo-600 border-indigo-300 bg-indigo-50/20' : ''}">
-        <div class="flex items-center justify-between mb-2">
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-xl grid place-items-center text-sm" style="background-color: ${s.bg}; color: ${s.color};">
-              <i data-lucide="${s.icon}" class="w-4 h-4"></i>
+      <div onclick="setSource('${k}')" class="card card-hover p-4 sm:p-5 cursor-pointer relative transition-all ${isSelected ? 'ring-2 ring-indigo-600 border-indigo-500 bg-indigo-50/50 shadow-md' : 'bg-white hover:border-slate-300'}">
+        <div class="flex items-center justify-between gap-2 mb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl grid place-items-center text-lg shadow-xs shrink-0" style="background-color: ${s.bg}; color: ${s.color};">
+              <i data-lucide="${s.icon}" class="w-6 h-6"></i>
             </div>
             <div>
-              <p class="font-bold text-slate-900 text-xs">${s.label}</p>
-              <p class="text-[10px] text-slate-400 font-medium">${s.sub}</p>
+              <p class="font-bold text-slate-900 text-sm sm:text-base leading-tight">${s.label}</p>
+              <p class="text-xs text-slate-500 font-semibold">${s.sub}</p>
             </div>
           </div>
           ${statusBadge}
         </div>
 
-        <div class="mt-2">
-          <div class="flex items-baseline justify-between">
-            <span class="text-base font-extrabold text-slate-900">${baht(parsed)}</span>
-            <span class="text-[11px] text-slate-400 font-medium">เป้า: ${fmt(targetAmt)}</span>
+        <div class="mt-3 pt-3 border-t border-slate-100">
+          <div class="flex items-baseline justify-between mb-1">
+            <span class="text-xl sm:text-2xl font-black text-slate-900 font-mono tracking-tight">${baht(parsed)}</span>
+          </div>
+          <div class="flex items-center justify-between text-xs text-slate-500 font-semibold mb-2">
+            <span>เป้าหมายบิล:</span>
+            <span class="font-mono text-slate-800 font-bold">${fmt(targetAmt)} บาท</span>
           </div>
 
-          <div class="h-1.5 rounded-full bg-slate-100 mt-2 overflow-hidden">
+          <div class="h-2 rounded-full bg-slate-100 overflow-hidden">
             <div class="h-full rounded-full transition-all duration-500 ${count === 0 ? 'bg-slate-200' : Math.abs(diff) < 0.01 ? 'bg-emerald-500' : 'bg-indigo-600'}" style="width: ${pct}%"></div>
           </div>
-
-          <div class="flex justify-between items-center text-[10px] text-slate-400 mt-1.5 font-medium">
-            <span>แกะแล้ว ${count} รายการ (${pct.toFixed(0)}%)</span>
-            ${count > 0 ? `<button onclick="event.stopPropagation(); clearSource('${k}')" class="text-slate-400 hover:text-rose-600" title="ล้างเฉพาะช่องทางนี้"><i data-lucide="trash" class="w-3 h-3"></i></button>` : ''}
+          <div class="flex items-center justify-between text-xs text-slate-500 font-medium mt-2">
+            <span class="font-semibold text-slate-700">${count} รายการ</span>
+            <span class="font-bold text-indigo-700 font-mono">${pct.toFixed(0)}%</span>
           </div>
         </div>
       </div>`;
   }).join('');
 }
 
-/* =====================================================================
-   RENDER SECTION: CATEGORY PILLS
-   ===================================================================== */
-function renderCategoryPills() {
-  const container = $('catChips');
-  if (!container) return;
-  const m = state.activeMonth;
-  const monthTxs = m === 'ALL' ? transactions : transactions.filter(t => (t.cycleMonth || (t.date ? t.date.slice(0, 7) : '2026-10')) === m);
-
-  const catSums = {};
-  const catCounts = {};
-  monthTxs.forEach(t => {
-    catSums[t.cat] = (catSums[t.cat] || 0) + Number(t.amount || 0);
-    catCounts[t.cat] = (catCounts[t.cat] || 0) + 1;
-  });
-
-  const isAll = state.f.cat === 'ALL';
-  const allCls = isAll
-    ? 'bg-slate-900 text-white shadow-md border-slate-900'
-    : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50';
-
-  let html = `
-    <button onclick="setCat('ALL')" class="chip ${allCls}">
-      <span>✨ ทุกหมวดหมู่</span>
-      <span class="text-[10px] px-1.5 py-0.2 rounded-full ${isAll ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'}">
-        ${monthTxs.length}
-      </span>
-    </button>`;
-
-  Object.entries(CATS).forEach(([k, c]) => {
-    const isAct = state.f.cat === k;
-    const count = catCounts[k] || 0;
-    const catTotal = catSums[k] || 0;
-    if (count === 0 && !isAct) return;
-
-    const style = isAct
-      ? `background-color: ${c.color}; color: #ffffff; border-color: ${c.color}; box-shadow: 0 4px 12px ${c.color}40;`
-      : `background-color: ${c.bg}; color: ${c.text}; border-color: ${c.border};`;
-
-    html += `
-      <button onclick="setCat('${k}')" class="chip" style="${style}">
-        <span>${c.emoji}</span>
-        <span class="font-bold">${c.label}</span>
-        <span class="text-[11px] font-semibold opacity-90">(${count} บิล · ${baht(catTotal)})</span>
-      </button>`;
-  });
-
-  container.innerHTML = html;
-  $('catSummaryText').textContent = `แสดง ${filtered().length} จาก ${monthTxs.length} รายการ`;
-}
-
-/* =====================================================================
-   RENDER SECTION: DAILY FEED
-   ===================================================================== */
 function renderDailyFeed() {
   const container = $('feedContainer');
   if (!container) return;
@@ -1567,51 +1573,51 @@ function renderTable() {
     const timeStr = t.time ? `${t.time} น.` : '-';
 
     return `
-      <tr class="hover:bg-slate-50/90 transition-colors">
-        <td class="px-3 py-2.5 text-xs whitespace-nowrap">
-          <div class="font-bold text-slate-900">${formatShortThaiDate(t.date)}</div>
-          <div class="text-[10px] ${t.time ? 'text-indigo-600 font-semibold' : 'text-slate-400 font-medium'} font-mono">${timeStr}</div>
+      <tr class="hover:bg-indigo-50/40 even:bg-slate-50/50 transition-colors border-b border-slate-100">
+        <td class="px-4 py-3.5 text-xs whitespace-nowrap">
+          <div class="font-bold text-slate-900 text-sm">${formatShortThaiDate(t.date)}</div>
+          <div class="text-xs ${t.time ? 'text-indigo-600 font-bold' : 'text-slate-400 font-medium'} font-mono mt-0.5">${timeStr}</div>
         </td>
         
-        <td class="px-2 py-2.5 whitespace-nowrap">
-          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${s.badge}">${s.label}</span>
+        <td class="px-3 py-3.5 whitespace-nowrap">
+          <span class="text-xs font-black px-2.5 py-1 rounded-lg ${s.badge}">${s.label}</span>
         </td>
 
         <!-- Editable Name Column -->
-        <td class="px-3 py-2.5">
-          <div class="flex items-center gap-2">
-            <span class="text-base shrink-0">${t.brandLogo || '💳'}</span>
+        <td class="px-4 py-3.5">
+          <div class="flex items-center gap-2.5">
+            <span class="text-xl shrink-0">${t.brandLogo || '💳'}</span>
             <div class="flex-1 min-w-0">
-              <input value="${esc(t.name)}" onchange="updateTxField('${t.id}', 'name', this.value)" onclick="event.stopPropagation()" class="editable-input font-bold text-slate-900 text-xs w-full" title="คลิกเพื่อแก้ไขชื่อ" />
-              <p class="text-[10px] text-slate-400 font-mono truncate px-2" title="${esc(t.raw)}">${esc(t.raw)}</p>
+              <input value="${esc(t.name)}" onchange="updateTxField('${t.id}', 'name', this.value)" onclick="event.stopPropagation()" class="editable-input font-bold text-slate-900 text-sm sm:text-base w-full py-0.5" title="คลิกเพื่อแก้ไขชื่อ" />
+              <p class="text-xs text-slate-500 font-mono truncate px-1 mt-0.5" title="${esc(t.raw)}">${esc(t.raw)}</p>
             </div>
           </div>
         </td>
 
         <!-- Editable Category Column -->
-        <td class="px-3 py-2.5 whitespace-nowrap">
-          <select onchange="updateTxField('${t.id}', 'cat', this.value)" onclick="event.stopPropagation()" class="text-[11px] font-bold px-2.5 py-1 rounded-full border cursor-pointer outline-none w-full" style="background-color: ${c.bg}; color: ${c.text}; border-color: ${c.border};">
+        <td class="px-3 py-3.5 whitespace-nowrap">
+          <select onchange="updateTxField('${t.id}', 'cat', this.value)" onclick="event.stopPropagation()" class="text-xs font-bold px-3 py-1.5 rounded-lg border cursor-pointer outline-none w-full shadow-2xs" style="background-color: ${c.bg}; color: ${c.text}; border-color: ${c.border};">
             ${Object.entries(CATS).map(([k, catObj]) => `<option value="${k}" ${t.cat === k ? 'selected' : ''}>${catObj.emoji} ${catObj.label}</option>`).join('')}
           </select>
         </td>
 
-        <td class="px-2 py-2.5 whitespace-nowrap text-xs">
-          ${t.inst ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-200">ผ่อน ${pad2(t.inst.n)}/${pad2(t.inst.m)}</span>` : '<span class="text-slate-400 text-xs">เต็ม</span>'}
+        <td class="px-3 py-3.5 whitespace-nowrap text-xs">
+          ${t.inst ? `<span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-violet-50 text-violet-700 border border-violet-200">ผ่อน ${pad2(t.inst.n)}/${pad2(t.inst.m)}</span>` : '<span class="text-slate-500 text-xs font-semibold">จ่ายเต็ม</span>'}
         </td>
 
-        <td class="px-3 py-2.5 text-right font-extrabold whitespace-nowrap text-xs font-mono ${isRefund ? 'text-emerald-600' : 'text-slate-900'}">
+        <td class="px-4 py-3.5 text-right font-black whitespace-nowrap text-base sm:text-lg font-mono ${isRefund ? 'text-emerald-600' : 'text-slate-900'}">
           ${isRefund ? '+' : ''}${fmt(t.amount)}
         </td>
 
         <!-- Editable Note Column -->
-        <td class="px-3 py-2.5 text-xs">
-          <input value="${esc(t.note || '')}" placeholder="+ เพิ่มหมายเหตุ..." onchange="updateTxField('${t.id}', 'note', this.value)" class="editable-input text-xs text-slate-600 w-full" />
+        <td class="px-4 py-3.5 text-xs sm:text-sm">
+          <input value="${esc(t.note || '')}" placeholder="+ หมายเหตุ..." onchange="updateTxField('${t.id}', 'note', this.value)" class="editable-input text-xs sm:text-sm text-slate-600 w-full" />
         </td>
 
-        <td class="px-2 py-2.5 text-center whitespace-nowrap">
-          <div class="flex items-center justify-center gap-1">
-            <button onclick="openDetailModal('${t.id}')" class="text-slate-400 hover:text-indigo-600 transition-colors p-1 rounded hover:bg-indigo-50" title="ดูรายละเอียดเต็ม"><i data-lucide="info" class="w-3.5 h-3.5"></i></button>
-            <button onclick="deleteTx('${t.id}')" class="text-slate-300 hover:text-rose-600 transition-colors p-1 rounded hover:bg-rose-50" title="ลบรายการนี้"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>
+        <td class="px-3 py-3.5 text-center whitespace-nowrap">
+          <div class="flex items-center justify-center gap-1.5">
+            <button onclick="openDetailModal('${t.id}')" class="text-slate-400 hover:text-indigo-600 transition-colors p-1.5 rounded-lg hover:bg-indigo-50" title="ดูรายละเอียดเต็ม"><i data-lucide="info" class="w-4 h-4"></i></button>
+            <button onclick="deleteTx('${t.id}')" class="text-slate-300 hover:text-rose-600 transition-colors p-1.5 rounded-lg hover:bg-rose-50" title="ลบรายการนี้"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
           </div>
         </td>
       </tr>`;
@@ -1619,10 +1625,10 @@ function renderTable() {
 
   const totalSum = sum(fl);
   $('tfoot').innerHTML = `
-    <tr>
-      <td colspan="5" class="px-4 py-3 text-xs font-bold text-slate-700">ยอดรวมตามตัวกรอง (${fl.length} รายการ)</td>
-      <td class="px-3 py-3 text-right text-sm font-extrabold text-slate-900 font-mono">${fmt(totalSum)} บาท</td>
-      <td colspan="2"></td>
+    <tr class="bg-slate-100/95 border-t-2 border-slate-300">
+      <td colspan="5" class="px-4 py-3.5 text-sm font-bold text-slate-800">ยอดรวมตามตัวกรอง (${fl.length} รายการ)</td>
+      <td class="px-4 py-3.5 text-right text-lg font-black text-indigo-700 font-mono">${fmt(totalSum)} บาท</td>
+      <td colspan="2" class="px-4 py-3.5 text-xs text-slate-500 font-sans">คำนวณจากรายการที่มองเห็น</td>
     </tr>`;
   icons();
 }
