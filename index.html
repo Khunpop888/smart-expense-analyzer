@@ -38,19 +38,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
   body {
-    background-color: #080c16; /* Deep Obsidian Slate: Ultra-clean, high-contrast dark canvas */
-    color: #f8fafc; /* Crisp Slate-50: Highly legible white text */
+    background-color: #0a0e17; /* Deep Carbon Obsidian */
+    color: #f1f5f9; /* Slate-100 crisp typography */
+    font-family: 'Inter', 'IBM Plex Sans Thai', 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   .card {
-    background: #111827; /* Elevated Slate-900 / Dark Navy */
-    border: 1px solid #1f293d; /* Sharp crisp dark border */
+    background: #121826; /* Titanium Slate */
+    border: 1px solid #1e293b; /* Crisp dark border */
     border-radius: 1.25rem;
     box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .card-hover:hover {
-    box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.55);
     transform: translateY(-2px);
     border-color: #334155;
   }
@@ -60,8 +61,8 @@
     font-size: 0.85rem;
     font-weight: 600;
     border: 1px solid #1e293b;
-    background-color: #0f172a;
-    color: #cbd5e1;
+    background-color: #0d131f;
+    color: #94a3b8;
     transition: all 0.15s ease;
     white-space: nowrap;
     cursor: pointer;
@@ -70,19 +71,19 @@
     gap: 0.4rem;
   }
   .chip:hover {
-    border-color: #475569;
-    background-color: #1e293b;
+    border-color: #38bdf8;
+    background-color: #162032;
     color: #ffffff;
   }
   .chip.active {
-    background-color: #4f46e5;
+    background-color: #2563eb;
     color: #ffffff;
-    border-color: #6366f1;
-    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+    border-color: #3b82f6;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
   }
   .inp {
-    background: #090e1a;
-    border: 1px solid #27354a;
+    background: #0d131f;
+    border: 1px solid #273549;
     border-radius: 0.75rem;
     padding: 0.5rem 0.85rem;
     font-size: 0.875rem;
@@ -91,8 +92,8 @@
     transition: all 0.15s;
   }
   .inp:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
   }
   .editable-input {
     background: transparent;
@@ -104,13 +105,13 @@
     color: #ffffff;
   }
   .editable-input:hover {
-    background: #1e293b;
+    background: #1b263b;
     border-color: #334155;
   }
   .editable-input:focus {
-    background: #090e1a;
-    border-color: #6366f1;
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
+    background: #0d131f;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
   }
   .btn {
     display: inline-flex;
@@ -125,21 +126,21 @@
     cursor: pointer;
   }
   .btn-primary {
-    background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     color: #ffffff;
-    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
   }
   .btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
     transform: translateY(-1px);
   }
   .btn-ghost {
-    background: #111827;
+    background: #121826;
     color: #cbd5e1;
-    border: 1px solid #1f293d;
+    border: 1px solid #1e293b;
   }
   .btn-ghost:hover {
-    background: #1e293b;
+    background: #1b263b;
     color: #ffffff;
     border-color: #334155;
   }
@@ -156,7 +157,7 @@
     gap: 0.45rem;
   }
   .tab-btn.active {
-    background: #1e293b;
+    background: #1b263b;
     color: #ffffff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.4);
     border: 1px solid #334155;
@@ -176,11 +177,34 @@
     background: #475569;
   }
   .fade-in {
-    animation: fadeIn 0.25s ease-out;
+    animation: fadeIn 0.2s ease-out;
   }
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(4px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  .currency-thb {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    font-feature-settings: "tnum";
+  }
+  .currency-thb .thb-symbol {
+    font-family: 'IBM Plex Sans Thai', 'Prompt', sans-serif;
+    font-weight: 700;
+    color: #94a3b8;
+  }
+  .currency-thb .thb-amount {
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+  .currency-thb .thb-unit {
+    font-size: 0.75em;
+    font-weight: 500;
+    color: #94a3b8;
   }
 
   /* Mobile Bottom Navigation & Touch Optimizations */
@@ -191,14 +215,13 @@
     padding-bottom: max(0.6rem, env(safe-area-inset-bottom));
   }
 
-  /* Tap feedback */
   .tap-active:active {
-    transform: scale(0.97);
+    transform: scale(0.98);
   }
 
   @media (max-width: 768px) {
     body {
-      padding-bottom: 5.5rem; /* Space for bottom nav */
+      padding-bottom: 5.5rem;
     }
   }
 </style>
@@ -255,6 +278,25 @@
     </div>
   </div>
 </header>
+    <!-- Month Cycle Info & Date Range Explainer -->
+    <div id="cycleInfoBar" class="bg-[#0b101d] border-t border-b border-slate-800/80 px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2 text-xs">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+        <span id="cycleDescText" class="font-medium text-slate-300">
+          รอบบิล ต.ค. 2569 (ครอบคลุมรายการรูดบัตร 17 ก.ย. – 24 ต.ค. 2569 ตามรอบตัดสเตทเม้นต์)
+        </span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="openDatePickerModal()" class="px-2.5 py-1 rounded-lg bg-blue-950/60 hover:bg-blue-900/60 text-blue-300 border border-blue-700/50 flex items-center gap-1.5 transition-colors font-medium">
+          <i data-lucide="calendar" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span id="cycleDateBtnText">📅 กรองตามช่วงวันปฏิทิน</span>
+        </button>
+        <button id="clearDateBtn" onclick="clearDateRangeFilter()" class="hidden px-2 py-1 rounded-lg bg-rose-950/60 hover:bg-rose-900/60 text-rose-300 border border-rose-800/50 text-[11px] transition-colors" title="กลับไปดูตามรอบบิล">
+          ✕ ล้างช่วงวัน
+        </button>
+      </div>
+    </div>
+
 
 <main class="max-w-[1440px] mx-auto px-4 sm:px-6 py-6 space-y-6 flex-1">
 
@@ -364,6 +406,34 @@
     <div id="sourceCards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5"></div>
   </section>
 
+  
+  <!-- ============ ACTIVE SELECTION DETAIL BAR (กดเลือกอะไร รายละเอียดต้องขึ้น) ============ -->
+  <div id="activeDetailBar" class="hidden card p-4 bg-gradient-to-r from-[#14233c] to-[#121826] border-blue-500/50 text-white shadow-lg fade-in">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div id="adIcon" class="w-10 h-10 rounded-xl bg-blue-600/30 text-blue-300 grid place-items-center text-xl shrink-0 border border-blue-500/40">
+          🎯
+        </div>
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-400">มุมมองที่เลือกอยู่:</span>
+            <span id="adTitle" class="font-extrabold text-white text-sm sm:text-base">💳 แหล่งเงิน: บัตรเครดิต KTC</span>
+            <span id="adBadge" class="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-950 text-blue-300 border border-blue-700/50"></span>
+          </div>
+          <p id="adDesc" class="text-xs text-slate-300 font-medium">
+            รอบบิล ต.ค. 2569 · พบ 66 รายการ · ยอดรวม ฿47,225.74 บาท (คิดเป็น 35.8% ของรายจ่ายทั้งหมดในเดือนนี้)
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button onclick="clearAllActiveFilters()" class="btn btn-ghost text-xs text-rose-300 bg-rose-950/40 border-rose-800/60 hover:bg-rose-900/50 !py-1.5 px-3">
+          <i data-lucide="x" class="w-3.5 h-3.5 text-rose-400"></i>
+          <span>ล้างตัวกรองนี้ (ดูทั้งหมด)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- ============ SECTION 2: VIEW MODE TOGGLE & QUICK FILTERS ============ -->
   <section class="card p-4 sm:p-5 shadow-xs space-y-4 bg-[#111827] border-slate-800 text-white">
     <!-- View Switcher & Search Bar -->
@@ -460,63 +530,86 @@
       <table class="w-full text-sm text-left">
         <thead class="text-xs uppercase tracking-wider text-slate-300 bg-[#070a12] border-b border-slate-700">
           <tr>
-            <th class="px-4 py-3.5 font-black">วันที่ & เวลา</th>
-            <th class="px-3 py-3.5 font-black">แหล่งจ่าย</th>
+            <th class="px-4 py-3.5 font-black min-w-[150px]">วันที่ & เวลา</th>
+            <th class="px-3 py-3.5 font-black min-w-[125px]">แหล่งจ่าย</th>
             <th class="px-4 py-3.5 font-black min-w-[260px]">ชื่อรายการ / ร้านค้า (พิมพ์แก้ไขได้)</th>
-            <th class="px-3 py-3.5 font-black min-w-[200px]">หมวดหมู่ (คลิกเปลี่ยนได้)</th>
-            <th class="px-3 py-3.5 font-black">ประเภท</th>
-            <th class="px-4 py-3.5 font-black text-right">จำนวนเงิน (บาท)</th>
+            <th class="px-3 py-3.5 font-black min-w-[180px]">หมวดหมู่ (คลิกเปลี่ยนได้)</th>
+            <th class="px-3 py-3.5 font-black min-w-[115px]">ประเภท</th>
+            <th class="px-4 py-3.5 font-black text-right min-w-[140px]">จำนวนเงิน (บาท)</th>
             <th class="px-4 py-3.5 font-black min-w-[200px]">หมายเหตุ (พิมพ์ระบุได้)</th>
             <th class="px-3 py-3.5 font-black text-center w-12">จัดการ</th>
           </tr>
 
           <!-- COLUMN-LEVEL FILTER ROW -->
-          <tr class="bg-[#0c1222] border-b border-slate-800 text-xs">
+          <tr class="bg-[#0b101d] border-b border-slate-800 text-xs">
+            <!-- Calendar Date Picker Trigger Button -->
             <th class="p-2.5">
-              <input id="colFDate" placeholder="กรองวัน..." oninput="onColFilterChange()" class="w-full bg-[#090e1a] border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-indigo-500 font-medium text-white" />
+              <button id="colFDateBtn" type="button" onclick="openDatePickerModal()" class="w-full bg-[#0d131f] border border-slate-700 hover:border-blue-500 rounded-lg px-2.5 py-1.5 text-xs text-left text-slate-300 flex items-center justify-between font-medium transition-all group shadow-2xs" title="คลิกเพื่อเลือกช่วงวันที่จากปฏิทิน">
+                <span id="colFDateLabel" class="truncate font-semibold text-slate-300">📅 ทุกวันในรอบ</span>
+                <i data-lucide="calendar" class="w-3.5 h-3.5 text-blue-400 group-hover:text-blue-300 shrink-0 ml-1"></i>
+              </button>
             </th>
+
+            <!-- Payment Source Filter -->
             <th class="p-2.5">
-              <select id="colFSource" onchange="onColFilterChange()" class="w-full bg-[#090e1a] border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-indigo-500 font-bold text-white">
-                <option value="">ทั้งหมด</option>
-                <option value="KTC">KTC</option>
-                <option value="SHOPEE">Shopee</option>
-                <option value="SCB">SCB</option>
-                <option value="TRUE">True</option>
-                <option value="FIXED">Fixed</option>
+              <select id="colFSource" onchange="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
+                <option value="">ทุกช่องทาง</option>
+                <option value="KTC">💳 KTC</option>
+                <option value="SHOPEE">🛍️ Shopee</option>
+                <option value="SCB">🏦 SCB</option>
+                <option value="TRUE">📱 True</option>
+                <option value="FIXED">🔒 คงที่ (Fixed)</option>
               </select>
             </th>
+
+            <!-- Merchant Name Search Filter -->
             <th class="p-2.5">
-              <input id="colFName" placeholder="กรองร้านค้า..." oninput="onColFilterChange()" class="w-full bg-[#090e1a] border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-indigo-500 font-medium text-white" />
+              <div class="relative">
+                <input id="colFName" placeholder="🔍 กรองร้านค้า เช่น น้ำมัน..." oninput="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg pl-2.5 pr-6 py-1.5 text-xs outline-none focus:border-blue-500 font-medium text-white placeholder-slate-500 shadow-2xs" />
+                <button type="button" onclick="$('colFName').value=''; onColFilterChange();" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 text-xs" title="ล้าง">✕</button>
+              </div>
             </th>
+
+            <!-- Category Filter -->
             <th class="p-2.5">
-              <select id="colFCat" onchange="onColFilterChange()" class="w-full bg-[#090e1a] border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-indigo-500 font-bold text-white">
-                <option value="">ทุกหมวด</option>
-                <option value="food">🍔 อาหาร</option>
-                <option value="transport">🚗 เดินทาง</option>
-                <option value="shopping">🛍️ ช้อปปิ้ง</option>
-                <option value="medical">🏥 รักษาพยาบาล</option>
-                <option value="housing">🏠 ที่พัก/คอนโด</option>
-                <option value="entertainment">🎬 บันเทิง</option>
-                <option value="utilities">⚡ บิล/เน็ต</option>
-                <option value="installment">📅 ผ่อนชำระ</option>
-                <option value="family">💖 ครอบครัว</option>
+              <select id="colFCat" onchange="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
+                <option value="">ทุกหมวดหมู่</option>
+                <option value="food">🍔 อาหาร & เครื่องดื่ม</option>
+                <option value="transport">🚗 ยานพาหนะ & เดินทาง</option>
+                <option value="shopping">🛍️ ช้อปปิ้ง & ของใช้</option>
+                <option value="medical">🏥 สุขภาพ & แพทย์</option>
+                <option value="housing">🏠 ที่พัก & คอนโด</option>
+                <option value="entertainment">🎬 บันเทิง & แอป</option>
+                <option value="utilities">⚡ บิล & สาธารณูปโภค</option>
+                <option value="installment">📅 ผ่อนชำระ & ดอกเบี้ย</option>
+                <option value="family">💖 ครอบครัว & อื่นๆ</option>
               </select>
             </th>
+
+            <!-- Payment Type Filter -->
             <th class="p-2.5">
-              <select id="colFType" onchange="onColFilterChange()" class="w-full bg-[#090e1a] border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-indigo-500 font-bold text-white">
-                <option value="">ทั้งหมด</option>
-                <option value="full">เต็ม</option>
-                <option value="inst">ผ่อน</option>
+              <select id="colFType" onchange="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
+                <option value="">ทุกประเภท</option>
+                <option value="full">จ่ายเต็ม</option>
+                <option value="inst">ผ่อนชำระ</option>
               </select>
             </th>
+
+            <!-- Amount Filter -->
             <th class="p-2.5">
-              <input id="colFAmount" placeholder="กรองยอด..." oninput="onColFilterChange()" class="w-full bg-[#090e1a] border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-indigo-500 text-right font-mono text-white" />
+              <input id="colFAmount" placeholder="กรองยอด..." oninput="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-blue-500 text-right font-mono text-white placeholder-slate-500 shadow-2xs" />
             </th>
+
+            <!-- Note Filter -->
             <th class="p-2.5">
-              <input id="colFNote" placeholder="กรองหมายเหตุ..." oninput="onColFilterChange()" class="w-full bg-[#090e1a] border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-indigo-500 font-medium text-white" />
+              <input id="colFNote" placeholder="กรองหมายเหตุ..." oninput="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-blue-500 font-medium text-white placeholder-slate-500 shadow-2xs" />
             </th>
-            <th class="p-2.5 text-center text-slate-400">
-              <i data-lucide="filter" class="w-4 h-4 mx-auto text-indigo-500"></i>
+
+            <!-- Reset Filter Button -->
+            <th class="p-2.5 text-center">
+              <button type="button" onclick="clearColFilters()" class="w-full py-1.5 rounded-lg bg-slate-800/80 hover:bg-rose-950/50 hover:text-rose-400 text-slate-400 flex items-center justify-center transition-colors border border-slate-700/80" title="ล้างตัวกรองทั้งหมด">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+              </button>
             </th>
           </tr>
         </thead>
@@ -836,8 +929,8 @@ const YEAR = 2026, MONTH = 10;
 const TH_MONTH = ['', 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
 const TH_MONTH_FULL = ['', 'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
 const TH_DOW_FULL = ['วันอาทิตย์', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์', 'วันเสาร์'];
-const STORE_KEY = 'smart_expense_tx_v22';
-const TARGET_KEY = 'smart_expense_targets_v22';
+const STORE_KEY = 'smart_expense_tx_v23';
+const TARGET_KEY = 'smart_expense_targets_v23';
 const DEFAULT_GEMINI_KEY = atob('QVEuQWI4Uk42TE9RTE01XzVJanAzSEVPQWNVelRsYWlFbXBOYjVlbENLMWVoQl85M1hsbFE=');
 
 const MONTHLY_TARGETS = {
@@ -910,19 +1003,29 @@ if (!localStorage.getItem('sea_gemini_key')) {
 const DEFAULT_FILTER = { source: 'ALL', cat: 'ALL', brand: 'ALL', day: 'all', q: '', sort: 'date' };
 const state = {
   f: { ...DEFAULT_FILTER },
-  colFilters: { date: '', source: '', name: '', cat: '', type: '', amount: '', note: '' },
+  colFilters: { date: '', dateStart: '', dateEnd: '', source: '', name: '', cat: '', type: '', amount: '', note: '' },
   barFixed: false,
   activeMonth: '2026-10',
   viewMode: 'table'
 };
 const charts = {};
 
+// Billing cycle date ranges mapping for clarity
+const CYCLE_RANGES = {
+  '2026-10': { label: 'ต.ค. 2569 (ล่าสุด)', start: '2026-09-17', end: '2026-10-24', desc: 'ครอบคลุมรายการรูดบัตร 17 ก.ย. – 24 ต.ค. 2569 ตามรอบตัดสเตทเม้นต์' },
+  '2026-09': { label: 'ก.ย. 2569', start: '2026-08-16', end: '2026-09-18', desc: 'ครอบคลุมรายการรูดบัตร 16 ส.ค. – 18 ก.ย. 2569 ตามรอบตัดสเตทเม้นต์' },
+  '2026-08': { label: 'ส.ค. 2569', start: '2026-07-19', end: '2026-08-15', desc: 'ครอบคลุมรายการรูดบัตร 19 ก.ค. – 15 ส.ค. 2569 ตามรอบตัดสเตทเม้นต์' },
+  '2026-07': { label: 'ก.ย. 2569', start: '2026-06-18', end: '2026-07-18', desc: 'ครอบคลุมรายการรูดบัตร 18 มิ.ย. – 18 ก.ค. 2569 ตามรอบตัดสเตทเม้นต์' },
+  '2026-06': { label: 'มิ.ย. 2569', start: '2026-05-19', end: '2026-06-18', desc: 'ครอบคลุมรายการรูดบัตร 19 พ.ค. – 18 มิ.ย. 2569 ตามรอบตัดสเตทเม้นต์' },
+  'ALL':     { label: 'ทุกรอบบิลรวมกัน', start: '2026-05-19', end: '2026-10-24', desc: 'ทุกรอบบิลรวมกัน (มิ.ย. – ต.ค. 2569)' }
+};
+
 function saveTx() {
   localStorage.setItem(STORE_KEY, JSON.stringify(transactions));
 }
 
 /* =====================================================================
-   HELPERS & FORMATTERS
+   HELPERS & FORMATTERS (FINTECH STANDARD)
    ===================================================================== */
 const $ = id => document.getElementById(id);
 const sum = arr => arr.reduce((a, t) => a + Number(t.amount || 0), 0);
@@ -934,7 +1037,10 @@ const fmt = n => {
     maximumFractionDigits: 2
   });
 };
-const baht = n => '฿' + fmt(n);
+
+// Explicit Thai Baht with space and unit to eliminate dollar confusion
+const baht = n => '฿ ' + fmt(n) + ' บาท';
+const bahtShort = n => '฿ ' + fmt(n);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const pad2 = n => String(n).padStart(2, '0');
 
@@ -950,176 +1056,54 @@ function formatFullThaiDate(s) {
   const dow = TH_DOW_FULL[d.getDay()];
   const day = d.getDate();
   const m = TH_MONTH_FULL[d.getMonth() + 1];
-  const y = d.getFullYear() > 2400 ? d.getFullYear() : d.getFullYear() + 543;
+  const y = d.getFullYear() + 543;
   return `${dow}ที่ ${day} ${m} ${y}`;
 }
 
 function formatShortThaiDate(s) {
   if (!s) return '-';
   const d = parseDate(s);
-  return `${d.getDate()} ${TH_MONTH[d.getMonth() + 1]}`;
+  const day = d.getDate();
+  const m = TH_MONTH_ABBR[d.getMonth() + 1];
+  const y = String(d.getFullYear() + 543).slice(2);
+  return `${day} ${m} ${y}`;
 }
 
-function formatMonthLabel(ym) {
-  if (!ym || ym === 'ALL') return 'ทุกรอบบิล (รวมทั้งหมด)';
-  const parts = ym.split('-').map(Number);
-  const y = parts[0];
-  const m = parts[1];
-  const thaiYear = y > 2400 ? y : y + 543;
-  return `${TH_MONTH[m]} ${thaiYear}`;
+function formatMonthLabel(m) {
+  if (m === 'ALL') return 'ทุกรอบบิลรวมกัน';
+  const parts = m.split('-');
+  const y = Number(parts[0]) + 543;
+  const mIdx = Number(parts[1]);
+  return `${TH_MONTH_ABBR[mIdx]} ${y}`;
 }
 
 function getAvailableMonths() {
-  const set = new Set(['2026-10', '2026-09', '2026-08', '2026-07', '2026-06']);
+  const set = new Set();
   transactions.forEach(t => {
-    const m = t.cycleMonth || (t.date ? t.date.slice(0, 7) : null);
-    if (m && /^\d{4}-\d{2}$/.test(m)) set.add(m);
+    const ym = t.cycleMonth || (t.date ? t.date.slice(0, 7) : '2026-10');
+    set.add(ym);
   });
   return Array.from(set).sort().reverse();
 }
 
-function icons() {
-  if (window.lucide) lucide.createIcons();
-}
-
-function toast(msg, type = 'ok') {
-  const el = $('toast');
-  if (!el) return;
-  const bg = type === 'ok' ? 'bg-slate-900 text-white' : type === 'warn' ? 'bg-amber-600 text-white' : 'bg-rose-600 text-white';
-  el.innerHTML = `
-    <div class="${bg} text-xs font-semibold px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2 fade-in">
-      <i data-lucide="${type === 'ok' ? 'check-circle' : 'alert-triangle'}" class="w-4 h-4"></i>
-      <span>${msg}</span>
-    </div>`;
-  el.classList.remove('hidden');
-  icons();
-  clearTimeout(el._t);
-  el._t = setTimeout(() => el.classList.add('hidden'), 3500);
-}
-
-/* =====================================================================
-   VIEW MODE SWITCHER (Feed / Table / Analytics)
-   ===================================================================== */
-function switchView(mode) {
-  state.viewMode = mode;
-  // Update desktop tab buttons
-  ['feed', 'table', 'analytics'].forEach(m => {
-    const btn = $(`viewBtn${m.charAt(0).toUpperCase() + m.slice(1)}`);
-    const view = $(`${m}View`);
-    if (btn) btn.classList.toggle('active', m === mode);
-    if (view) view.classList.toggle('hidden', m !== mode);
-  });
-  
-  // Update mobile bottom nav
-  ['Feed', 'Table', 'Analytics'].forEach(m => {
-    const mBtn = $(`mNav${m}`);
-    if (mBtn) {
-      const isAct = m.toLowerCase() === mode;
-      mBtn.className = isAct 
-        ? 'flex flex-col items-center gap-1 text-indigo-600 font-bold text-[10px] p-1.5 tap-active'
-        : 'flex flex-col items-center gap-1 text-slate-400 font-medium text-[10px] p-1.5 tap-active';
-    }
-  });
-
-  if (mode === 'feed') renderDailyFeed();
-  else if (mode === 'table') renderTable();
-  else if (mode === 'analytics') { setTimeout(() => { renderDonut(); renderBar(); renderInstallments(); }, 30); }
-  icons();
-}
-
-let activeDetailTxId = null;
-
-function openDetailModal(id) {
-  const t = transactions.find(x => x.id === id);
-  if (!t) return;
-  activeDetailTxId = id;
-
-  const c = CATS[t.cat] || CATS.family;
-  const s = SOURCES[t.source] || SOURCES.KTC;
-
-  $('dtBrandIcon').textContent = t.brandLogo || '💳';
-  $('dtBrandIcon').style.backgroundColor = t.brandBg || '#f1f5f9';
-  $('dtBrandIcon').style.color = t.brandColor || '#475569';
-
-  $('dtTitle').textContent = t.name;
-  $('dtSub').textContent = t.raw || 'ข้อความตามบิล';
-  $('dtAmount').textContent = `${t.amount < 0 ? '+' : ''}${fmt(t.amount)} บาท`;
-  
-  $('dtSourceBadge').innerHTML = `
-    <span class="text-xs font-bold px-3 py-1 rounded-full ${s.badge}">
-      ${s.label} (${s.sub})
-    </span>`;
-
-  $('dtInputName').value = t.name;
-  $('dtInputAmount').value = t.amount;
-  $('dtInputDate').value = t.date || '2026-10-15';
-  $('dtInputInst').value = t.inst ? `ผ่อน ${pad2(t.inst.n)}/${pad2(t.inst.m)}` : 'เต็มจำนวน';
-  $('dtRawText').textContent = t.raw || '-';
-  $('dtInputNote').value = t.note || '';
-
-  // Render Category Select
-  $('dtSelectCat').innerHTML = Object.entries(CATS).map(([k, catObj]) => 
-    `<option value="${k}" ${t.cat === k ? 'selected' : ''}>${catObj.emoji} ${catObj.label}</option>`
-  ).join('');
-
-  $('dtSelectSource').value = t.source || 'KTC';
-
-  $('detailModal').classList.remove('hidden');
-  icons();
-}
-
-function closeDetailModal() {
-  $('detailModal').classList.add('hidden');
-  activeDetailTxId = null;
-}
-
-function dtSaveCurrent() {
-  if (!activeDetailTxId) return;
-  const t = transactions.find(x => x.id === activeDetailTxId);
-  if (!t) return;
-
-  const newName = $('dtInputName').value.trim();
-  const newAmt = parseFloat($('dtInputAmount').value);
-  if (!newName || isNaN(newAmt)) {
-    alert('กรุณากรอกชื่อและจำนวนเงินให้ถูกต้อง');
-    return;
-  }
-
-  t.name = newName;
-  t.amount = newAmt;
-  t.cat = $('dtSelectCat').value;
-  t.source = $('dtSelectSource').value;
-  t.date = $('dtInputDate').value;
-  t.note = $('dtInputNote').value.trim();
-  t.cycleMonth = t.date ? t.date.slice(0, 7) : t.cycleMonth;
-
-  saveTx();
-  closeDetailModal();
-  renderAll();
-  toast('บันทึกรายละเอียดรายการแล้ว');
-}
-
-function dtDeleteCurrent() {
-  if (!activeDetailTxId) return;
-  if (!confirm('ยืนยันลบรายการนี้ใช่หรือไม่?')) return;
-  transactions = transactions.filter(x => x.id !== activeDetailTxId);
-  saveTx();
-  closeDetailModal();
-  renderAll();
-  toast('ลบรายการแล้ว', 'warn');
-}
-
-/* =====================================================================
-   FILTERING & DATA LOGIC (INCLUDES COLUMN FILTERS & BRAND FILTERS)
-   ===================================================================== */
 function filtered() {
   const f = state.f, q = f.q.trim().toLowerCase();
   const m = state.activeMonth;
   const cf = state.colFilters;
+  const hasCustomRange = Boolean(cf.dateStart || cf.dateEnd);
 
   const r = transactions.filter(t => {
     const tMonth = t.cycleMonth || (t.date ? t.date.slice(0, 7) : '2026-10');
-    const matchMonth = (m === 'ALL' || tMonth === m);
+    
+    // If a custom calendar date range is selected, filter strictly by actual date
+    let matchMonth = true;
+    if (hasCustomRange) {
+      if (cf.dateStart && t.date < cf.dateStart) return false;
+      if (cf.dateEnd && t.date > cf.dateEnd) return false;
+    } else {
+      matchMonth = (m === 'ALL' || tMonth === m);
+    }
+
     const matchSource = (f.source === 'ALL' || t.source === f.source);
     const matchCat = (f.cat === 'ALL' || t.cat === f.cat);
     
@@ -1137,7 +1121,7 @@ function filtered() {
     let matchCol = true;
     if (cf.date && !t.date.includes(cf.date.trim())) matchCol = false;
     if (cf.source && t.source !== cf.source) matchCol = false;
-    if (cf.name && !`${t.name} ${t.raw}`.toLowerCase().includes(cf.name.toLowerCase().trim())) matchCol = false;
+    if (cf.name && !`${t.name} ${t.raw} ${t.brand || ''}`.toLowerCase().includes(cf.name.toLowerCase().trim())) matchCol = false;
     if (cf.cat && t.cat !== cf.cat) matchCol = false;
     if (cf.type) {
       const isInst = Boolean(t.inst);
@@ -1162,7 +1146,6 @@ function filtered() {
 }
 
 function onColFilterChange() {
-  state.colFilters.date = $('colFDate')?.value || '';
   state.colFilters.source = $('colFSource')?.value || '';
   state.colFilters.name = $('colFName')?.value || '';
   state.colFilters.cat = $('colFCat')?.value || '';
@@ -1171,24 +1154,43 @@ function onColFilterChange() {
   state.colFilters.note = $('colFNote')?.value || '';
   renderTable();
   renderCards();
+  updateActiveDetailBar();
 }
 
 function clearColFilters() {
-  state.colFilters = { date: '', source: '', name: '', cat: '', type: '', amount: '', note: '' };
-  if ($('colFDate')) $('colFDate').value = '';
+  state.colFilters = { date: '', dateStart: '', dateEnd: '', source: '', name: '', cat: '', type: '', amount: '', note: '' };
   if ($('colFSource')) $('colFSource').value = '';
   if ($('colFName')) $('colFName').value = '';
   if ($('colFCat')) $('colFCat').value = '';
   if ($('colFType')) $('colFType').value = '';
   if ($('colFAmount')) $('colFAmount').value = '';
   if ($('colFNote')) $('colFNote').value = '';
-  renderTable();
-  renderCards();
+  updateDateButtonLabel();
+  renderAll();
   toast('ล้างตัวกรองคอลัมน์แล้ว');
+}
+
+function clearAllActiveFilters() {
+  state.f = { ...DEFAULT_FILTER };
+  state.colFilters = { date: '', dateStart: '', dateEnd: '', source: '', name: '', cat: '', type: '', amount: '', note: '' };
+  if ($('fSearch')) $('fSearch').value = '';
+  if ($('colFSource')) $('colFSource').value = '';
+  if ($('colFName')) $('colFName').value = '';
+  if ($('colFCat')) $('colFCat').value = '';
+  if ($('colFType')) $('colFType').value = '';
+  if ($('colFAmount')) $('colFAmount').value = '';
+  if ($('colFNote')) $('colFNote').value = '';
+  updateDateButtonLabel();
+  renderAll();
+  toast('ล้างตัวกรองทั้งหมดแล้ว แสดงข้อมูลเต็มรอบบิล');
 }
 
 function changeActiveMonth(m) {
   state.activeMonth = m;
+  // When switching billing cycle, clear custom date range so the cycle items show properly
+  state.colFilters.dateStart = '';
+  state.colFilters.dateEnd = '';
+  updateDateButtonLabel();
   renderAll();
   toast(`สลับรอบบิล: ${formatMonthLabel(m)}`);
 }
@@ -1196,11 +1198,15 @@ function changeActiveMonth(m) {
 function setSource(k) {
   state.f.source = state.f.source === k ? 'ALL' : k;
   renderAll();
+  const el = $('tableView');
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function setCat(c) {
   state.f.cat = state.f.cat === c ? 'ALL' : c;
   renderAll();
+  const el = $('tableView');
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function setBrandFilter(b) {
@@ -1233,12 +1239,195 @@ function cycleSort() {
 }
 
 function clearFilters() {
-  state.f = { ...DEFAULT_FILTER };
-  state.colFilters = { date: '', source: '', name: '', cat: '', type: '', amount: '', note: '' };
-  $('fSearch').value = '';
-  clearColFilters();
+  clearAllActiveFilters();
+}
+
+/* =====================================================================
+   ACTIVE SELECTION DETAIL BAR (กดเลือกอะไร รายละเอียดต้องขึ้น)
+   ===================================================================== */
+function updateActiveDetailBar() {
+  const bar = $('activeDetailBar');
+  if (!bar) return;
+
+  const f = state.f;
+  const cf = state.colFilters;
+  const fl = filtered();
+  const totalAmt = sum(fl);
+
+  let activeTitle = '';
+  let activeIcon = '🎯';
+  let activeBadge = '';
+  let activeDesc = '';
+
+  const mLabel = formatMonthLabel(state.activeMonth);
+
+  if (f.source !== 'ALL') {
+    const s = SOURCES[f.source] || SOURCES.KTC;
+    activeIcon = s.emoji || '💳';
+    activeTitle = `แหล่งเงิน: ${s.label} (${s.sub})`;
+    const mTotal = sum(transactions.filter(t => (t.cycleMonth || (t.date ? t.date.slice(0,7) : '2026-10')) === state.activeMonth));
+    const pct = mTotal ? ((totalAmt / mTotal) * 100).toFixed(1) : '0.0';
+    activeBadge = `${pct}% ของเดือนนี้`;
+    activeDesc = `รอบบิล ${mLabel} · พบ ${fl.length} รายการ · ยอดรวม ${baht(totalAmt)} (เฉลี่ย ฿${fmt(fl.length ? totalAmt/fl.length : 0)}/รายการ)`;
+  } else if (f.cat !== 'ALL') {
+    const c = CATS[f.cat] || CATS.family;
+    activeIcon = c.emoji || '🏷️';
+    activeTitle = `หมวดหมู่: ${c.label}`;
+    const mTotal = sum(transactions.filter(t => (t.cycleMonth || (t.date ? t.date.slice(0,7) : '2026-10')) === state.activeMonth));
+    const pct = mTotal ? ((totalAmt / mTotal) * 100).toFixed(1) : '0.0';
+    activeBadge = `${pct}% ของรายจ่าย`;
+    activeDesc = `รอบบิล ${mLabel} · พบ ${fl.length} รายการ · ยอดรวม ${baht(totalAmt)}`;
+  } else if (f.brand !== 'ALL') {
+    activeIcon = '🏪';
+    activeTitle = `ร้านค้า / แบรนด์: ${f.brand}`;
+    activeBadge = `${fl.length} รายการ`;
+    activeDesc = `รอบบิล ${mLabel} · พบ ${fl.length} รายการ · ยอดรวม ${baht(totalAmt)}`;
+  } else if (cf.name) {
+    activeIcon = '🔍';
+    activeTitle = `กรองคำว่า: "${cf.name}"`;
+    activeBadge = `${fl.length} รายการ`;
+    activeDesc = `รอบบิล ${mLabel} · พบ ${fl.length} รายการที่ตรงกับข้อความนี้ · ยอดรวม ${baht(totalAmt)}`;
+  } else if (cf.dateStart || cf.dateEnd) {
+    activeIcon = '📅';
+    activeTitle = `ช่วงวันที่: ${formatShortThaiDate(cf.dateStart)} – ${formatShortThaiDate(cf.dateEnd)}`;
+    activeBadge = `${fl.length} รายการ`;
+    activeDesc = `กรองเฉพาะรายการที่ทำรายการจริงระหว่าง ${formatShortThaiDate(cf.dateStart)} ถึง ${formatShortThaiDate(cf.dateEnd)} · ยอดรวม ${baht(totalAmt)}`;
+  } else if (f.q) {
+    activeIcon = '🔍';
+    activeTitle = `คำค้นหา: "${f.q}"`;
+    activeBadge = `${fl.length} รายการ`;
+    activeDesc = `พบ ${fl.length} รายการ · รวม ${baht(totalAmt)}`;
+  }
+
+  if (activeTitle) {
+    bar.classList.remove('hidden');
+    $('adIcon').textContent = activeIcon;
+    $('adTitle').textContent = activeTitle;
+    $('adBadge').textContent = activeBadge;
+    $('adDesc').textContent = activeDesc;
+  } else {
+    bar.classList.add('hidden');
+  }
+}
+
+/* =====================================================================
+   CYCLE INFO & CALENDAR MODAL LOGIC
+   ===================================================================== */
+function updateCycleInfoBar() {
+  const descEl = $('cycleDescText');
+  const dateBtnText = $('cycleDateBtnText');
+  const clearBtn = $('clearDateBtn');
+  if (!descEl) return;
+
+  const m = state.activeMonth;
+  const cf = state.colFilters;
+  const info = CYCLE_RANGES[m] || { label: m, start: '', end: '', desc: '' };
+
+  if (cf.dateStart || cf.dateEnd) {
+    const sLabel = cf.dateStart ? formatShortThaiDate(cf.dateStart) : 'เริ่มต้น';
+    const eLabel = cf.dateEnd ? formatShortThaiDate(cf.dateEnd) : 'ล่าสุด';
+    descEl.innerHTML = `<span class="text-blue-400 font-bold">📅 กำลังกรองช่วงวันปฏิทิน:</span> ${sLabel} – ${eLabel} (${filtered().length} รายการ)`;
+    if (dateBtnText) dateBtnText.textContent = `📅 ${sLabel} – ${eLabel}`;
+    if (clearBtn) clearBtn.classList.remove('hidden');
+  } else {
+    descEl.innerHTML = `<strong>รอบบิล ${formatMonthLabel(m)}:</strong> ${info.desc}`;
+    if (dateBtnText) dateBtnText.textContent = `📅 กรองตามช่วงวันปฏิทิน`;
+    if (clearBtn) clearBtn.classList.add('hidden');
+  }
+}
+
+function updateDateButtonLabel() {
+  const btnLabel = $('colFDateLabel');
+  const cf = state.colFilters;
+  if (!btnLabel) return;
+
+  if (cf.dateStart || cf.dateEnd) {
+    const sLabel = cf.dateStart ? formatShortThaiDate(cf.dateStart) : 'เริ่ม';
+    const eLabel = cf.dateEnd ? formatShortThaiDate(cf.dateEnd) : 'สิ้นสุด';
+    btnLabel.innerHTML = `<span class="text-blue-400 font-bold">${sLabel} – ${eLabel}</span>`;
+    $('colFDateBtn')?.classList.add('bg-blue-950/70', 'border-blue-500', 'text-blue-200');
+  } else {
+    btnLabel.textContent = '📅 ทุกวันในรอบ';
+    $('colFDateBtn')?.classList.remove('bg-blue-950/70', 'border-blue-500', 'text-blue-200');
+  }
+}
+
+function openDatePickerModal() {
+  const modal = $('datePickerModal');
+  if (!modal) return;
+  const m = state.activeMonth;
+  const info = CYCLE_RANGES[m] || { start: '2026-09-17', end: '2026-10-24' };
+
+  $('dpStartDate').value = state.colFilters.dateStart || info.start;
+  $('dpEndDate').value = state.colFilters.dateEnd || info.end;
+  if ($('dpPresetCycleText')) $('dpPresetCycleText').textContent = `${formatShortThaiDate(info.start)} - ${formatShortThaiDate(info.end)}`;
+
+  onDateModalChange();
+  modal.classList.remove('hidden');
+}
+
+function closeDatePickerModal() {
+  const modal = $('datePickerModal');
+  if (modal) modal.classList.add('hidden');
+}
+
+function onDateModalChange() {
+  const s = $('dpStartDate')?.value || '';
+  const e = $('dpEndDate')?.value || '';
+  const matched = transactions.filter(t => (!s || t.date >= s) && (!e || t.date <= e));
+  const total = sum(matched);
+  if ($('dpMatchedText')) {
+    $('dpMatchedText').textContent = `พบ ${matched.length} รายการ · รวม ${baht(total)}`;
+  }
+}
+
+function applyDatePreset(preset) {
+  const m = state.activeMonth;
+  const info = CYCLE_RANGES[m] || { start: '2026-09-17', end: '2026-10-24' };
+
+  if (preset === 'cycle') {
+    $('dpStartDate').value = info.start;
+    $('dpEndDate').value = info.end;
+  } else if (preset === 'oct_full') {
+    $('dpStartDate').value = '2026-10-01';
+    $('dpEndDate').value = '2026-10-31';
+  } else if (preset === 'sep_full') {
+    $('dpStartDate').value = '2026-09-01';
+    $('dpEndDate').value = '2026-09-30';
+  } else if (preset === 'last7') {
+    const endD = new Date(info.end);
+    const startD = new Date(endD);
+    startD.setDate(startD.getDate() - 7);
+    $('dpStartDate').value = startD.toISOString().slice(0, 10);
+    $('dpEndDate').value = info.end;
+  } else if (preset === 'last15') {
+    const endD = new Date(info.end);
+    const startD = new Date(endD);
+    startD.setDate(startD.getDate() - 15);
+    $('dpStartDate').value = startD.toISOString().slice(0, 10);
+    $('dpEndDate').value = info.end;
+  } else if (preset === 'all') {
+    $('dpStartDate').value = '2026-05-01';
+    $('dpEndDate').value = '2026-10-31';
+  }
+  onDateModalChange();
+}
+
+function applyDateRangeFromModal() {
+  state.colFilters.dateStart = $('dpStartDate')?.value || '';
+  state.colFilters.dateEnd = $('dpEndDate')?.value || '';
+  closeDatePickerModal();
+  updateDateButtonLabel();
   renderAll();
-  toast('ล้างตัวกรองทั้งหมดแล้ว');
+  toast(`กรองวันที่: ${formatShortThaiDate(state.colFilters.dateStart)} ถึง ${formatShortThaiDate(state.colFilters.dateEnd)}`);
+}
+
+function clearDateRangeFilter() {
+  state.colFilters.dateStart = '';
+  state.colFilters.dateEnd = '';
+  updateDateButtonLabel();
+  renderAll();
+  toast('ล้างช่วงวันที่แล้ว กลับมาแสดงตามรอบบิลสเตทเม้นต์');
 }
 
 /* =====================================================================
@@ -1391,7 +1580,7 @@ function renderCards() {
         const pct = ((amt / (trackedTotal || 1)) * 100).toFixed(1);
         const isSelected = state.f.cat === catKey;
         return `
-          <div onclick="setCat('${catKey}')" class="p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${isSelected ? 'ring-2 ring-indigo-500 bg-indigo-950/60 border-indigo-400 shadow-md' : 'bg-[#090e1a] border-slate-800 hover:bg-[#111827] hover:border-slate-700'}">
+          <div onclick="setCat('${catKey}')" class="p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${isSelected ? 'ring-2 ring-blue-500 bg-blue-950/70 border-blue-400 shadow-lg shadow-blue-500/20' : 'bg-[#0d131f] border-slate-800 hover:bg-[#162032] hover:border-slate-700'}">
             <div class="flex items-center gap-2.5 min-w-0">
               <span class="text-lg shrink-0">${cObj.emoji}</span>
               <div class="min-w-0">
@@ -1400,15 +1589,15 @@ function renderCards() {
               </div>
             </div>
             <div class="text-right shrink-0">
-              <p class="font-black text-white text-xs sm:text-sm font-mono">${baht(amt)}</p>
-              <p class="text-[11px] font-bold text-indigo-400 font-mono">${pct}%</p>
+              <p class="font-black text-white text-xs sm:text-sm font-mono">${bahtShort(amt)}</p>
+              <p class="text-[11px] font-bold text-blue-400 font-mono">${pct}%</p>
             </div>
           </div>`;
       }).join('');
     }
   }
 
-  // 3. Populate 5 Source Cards (No targets, no green bars, pure proportions)
+  // 3. Populate 5 Source Cards (Executive Standard - Unambiguous Thai Baht)
   $('sourceCards').innerHTML = Object.entries(SOURCES).map(([k, s]) => {
     const parsed = sum(monthTxs.filter(t => t.source === k));
     const count = monthTxs.filter(t => t.source === k).length;
@@ -1416,10 +1605,10 @@ function renderCards() {
     const isSelected = state.f.source === k;
 
     return `
-      <div onclick="setSource('${k}')" class="card card-hover p-4 sm:p-5 cursor-pointer relative transition-all ${isSelected ? 'ring-2 ring-indigo-500 border-indigo-400 bg-indigo-950/50 shadow-lg shadow-indigo-500/20' : 'bg-[#111827] border-slate-800 hover:border-slate-700'}">
+      <div onclick="setSource('${k}')" class="card card-hover p-4 sm:p-5 cursor-pointer relative transition-all ${isSelected ? 'ring-2 ring-blue-500 border-blue-400 bg-[#162238] shadow-lg shadow-blue-500/25' : 'bg-[#121826] border-slate-800 hover:border-slate-700'}">
         <div class="flex items-center justify-between gap-2 mb-2">
           <div class="flex items-center gap-2.5 min-w-0">
-            <div class="w-10 h-10 rounded-xl grid place-items-center text-xl shadow-xs shrink-0 font-bold border border-slate-800" style="background-color: ${s.bg};">
+            <div class="w-10 h-10 rounded-xl grid place-items-center text-xl shadow-xs shrink-0 font-bold border border-slate-700" style="background-color: ${s.bg};">
               ${s.emoji || '💳'}
             </div>
             <div class="min-w-0">
@@ -1427,16 +1616,20 @@ function renderCards() {
               <p class="text-[11px] text-slate-400 font-medium truncate">${s.sub}</p>
             </div>
           </div>
-          <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-900 text-slate-300 border border-slate-800 shrink-0 font-mono">
+          <span class="text-xs font-bold px-2.5 py-1 rounded-full ${isSelected ? 'bg-blue-600 text-white' : 'bg-[#0d131f] text-slate-300 border border-slate-800'} shrink-0 font-mono">
             ${sharePct}%
           </span>
         </div>
 
         <div class="mt-3 pt-3 border-t border-slate-800">
-          <div class="text-xl sm:text-2xl font-black text-white font-mono tracking-tight">${baht(parsed)}</div>
-          <div class="flex items-center justify-between text-xs text-slate-400 font-medium mt-1">
+          <div class="currency-thb">
+            <span class="thb-symbol text-xs sm:text-sm">฿</span>
+            <span class="thb-amount text-xl sm:text-2xl">${fmt(parsed)}</span>
+            <span class="thb-unit">บาท</span>
+          </div>
+          <div class="flex items-center justify-between text-xs text-slate-400 font-medium mt-1.5">
             <span>${count} รายการ</span>
-            <span class="font-mono text-slate-500">${count ? `เฉลี่ย ฿${fmt(parsed / count)}/ครั้ง` : '-'}</span>
+            <span class="font-mono text-slate-400">${count ? `เฉลี่ย ฿${fmt(parsed / count)}/ครั้ง` : '-'}</span>
           </div>
         </div>
       </div>`;
@@ -1568,12 +1761,33 @@ function renderDailyFeed() {
    ===================================================================== */
 function renderTable() {
   const fl = filtered();
-  $('tblSubtitle').textContent = `แสดง ${fl.length} จาก ${transactions.length} รายการ (พิมพ์แก้ไขชื่อรายการ หมวดหมู่ หรือหมายเหตุได้ที่ช่องโดยตรง)`;
+  const m = state.activeMonth;
+  const cf = state.colFilters;
+  
+  // Calculate total transactions in the current scope
+  const monthTxs = m === 'ALL' ? transactions : transactions.filter(t => (t.cycleMonth || (t.date ? t.date.slice(0, 7) : '2026-10')) === m);
+  const totalSum = sum(fl);
+  
+  let subtitleText = '';
+  if (cf.dateStart || cf.dateEnd) {
+    subtitleText = `ช่วงวันที่ <strong>${formatShortThaiDate(cf.dateStart)} – ${formatShortThaiDate(cf.dateEnd)}</strong> · พบ <strong>${fl.length}</strong> รายการ (ยอดรวม <strong>${baht(totalSum)}</strong>)`;
+  } else if (cf.name) {
+    subtitleText = `รอบบิล <strong>${formatMonthLabel(m)}</strong> · กรองร้านค้า "<strong>${esc(cf.name)}</strong>" · พบ <strong>${fl.length}</strong> จาก <strong>${monthTxs.length}</strong> รายการในรอบนี้ (ยอดรวม <strong>${baht(totalSum)}</strong>)`;
+  } else {
+    subtitleText = `รอบบิล <strong>${formatMonthLabel(m)}</strong> · กำลังแสดง <strong>${fl.length}</strong> จาก <strong>${monthTxs.length}</strong> รายการ (ยอดรวม <strong>${baht(totalSum)}</strong>)`;
+  }
+  $('tblSubtitle').innerHTML = subtitleText;
 
   if (!fl.length) {
     $('tbody').innerHTML = `
       <tr>
-        <td colspan="8" class="p-12 text-center text-slate-400">ไม่พบรายการที่ตรงกับตัวกรอง</td>
+        <td colspan="8" class="p-12 text-center text-slate-400">
+          <div class="max-w-sm mx-auto space-y-2">
+            <p class="text-sm font-bold text-slate-300">ไม่พบรายการที่ตรงกับเงื่อนไขในรอบบิลนี้</p>
+            <p class="text-xs text-slate-500">ลองล้างคำค้นหา หรือกด "ล้างตัวกรอง" เพื่อดูรายการทั้งหมด</p>
+            <button onclick="clearColFilters()" class="btn btn-ghost text-xs mt-2 text-blue-400 border-blue-800/50">ล้างตัวกรองคอลัมน์</button>
+          </div>
+        </td>
       </tr>`;
     $('tfoot').innerHTML = '';
     return;
@@ -1586,36 +1800,36 @@ function renderTable() {
     const timeStr = t.time ? `${t.time} น.` : '-';
 
     return `
-      <tr class="hover:bg-slate-800/60 even:bg-[#0c1222]/60 transition-colors border-b border-slate-800/80">
+      <tr onclick="openDetailModal('${t.id}')" class="hover:bg-blue-950/40 even:bg-[#0c1222]/60 transition-colors border-b border-slate-800/80 cursor-pointer">
         <td class="px-4 py-3.5 text-xs whitespace-nowrap">
           <div class="font-bold text-white text-sm">${formatShortThaiDate(t.date)}</div>
-          <div class="text-xs ${t.time ? 'text-indigo-400 font-bold' : 'text-slate-500 font-medium'} font-mono mt-0.5">${timeStr}</div>
+          <div class="text-xs ${t.time ? 'text-blue-400 font-bold' : 'text-slate-500 font-medium'} font-mono mt-0.5">${timeStr}</div>
         </td>
         
-        <td class="px-3 py-3.5 whitespace-nowrap">
+        <td class="px-3 py-3.5 whitespace-nowrap" onclick="event.stopPropagation()">
           <span class="text-xs font-black px-2.5 py-1 rounded-lg ${s.badge}">${s.label}</span>
         </td>
 
         <!-- Editable Name Column -->
-        <td class="px-4 py-3.5">
+        <td class="px-4 py-3.5" onclick="event.stopPropagation()">
           <div class="flex items-center gap-2.5">
             <span class="text-xl shrink-0">${t.brandLogo || '💳'}</span>
             <div class="flex-1 min-w-0">
-              <input value="${esc(t.name)}" onchange="updateTxField('${t.id}', 'name', this.value)" onclick="event.stopPropagation()" class="editable-input font-bold text-white text-sm sm:text-base w-full py-0.5" title="คลิกเพื่อแก้ไขชื่อ" />
+              <input value="${esc(t.name)}" onchange="updateTxField('${t.id}', 'name', this.value)" class="editable-input font-bold text-white text-sm sm:text-base w-full py-0.5" title="คลิกเพื่อแก้ไขชื่อ" />
               <p class="text-xs text-slate-400 font-mono truncate px-1 mt-0.5" title="${esc(t.raw)}">${esc(t.raw)}</p>
             </div>
           </div>
         </td>
 
         <!-- Editable Category Column -->
-        <td class="px-3 py-3.5 whitespace-nowrap">
-          <select onchange="updateTxField('${t.id}', 'cat', this.value)" onclick="event.stopPropagation()" class="text-xs font-bold px-3 py-1.5 rounded-lg border cursor-pointer outline-none w-full shadow-xs" style="background-color: ${c.bg}; color: ${c.text}; border-color: ${c.border};">
+        <td class="px-3 py-3.5 whitespace-nowrap" onclick="event.stopPropagation()">
+          <select onchange="updateTxField('${t.id}', 'cat', this.value)" class="text-xs font-bold px-3 py-1.5 rounded-lg border cursor-pointer outline-none w-full shadow-xs" style="background-color: ${c.bg}; color: ${c.text}; border-color: ${c.border};">
             ${Object.entries(CATS).map(([k, catObj]) => `<option value="${k}" ${t.cat === k ? 'selected' : ''}>${catObj.emoji} ${catObj.label}</option>`).join('')}
           </select>
         </td>
 
         <td class="px-3 py-3.5 whitespace-nowrap text-xs">
-          ${t.inst ? `<span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-indigo-950/80 text-indigo-300 border border-indigo-700/60">ผ่อน ${pad2(t.inst.n)}/${pad2(t.inst.m)}</span>` : '<span class="text-slate-400 text-xs font-semibold">จ่ายเต็ม</span>'}
+          ${t.inst ? `<span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-blue-950/80 text-blue-300 border border-blue-700/60">ผ่อน ${pad2(t.inst.n)}/${pad2(t.inst.m)}</span>` : '<span class="text-slate-400 text-xs font-semibold">จ่ายเต็ม</span>'}
         </td>
 
         <td class="px-4 py-3.5 text-right font-black whitespace-nowrap text-base sm:text-lg font-mono ${isRefund ? 'text-emerald-400' : 'text-white'}">
@@ -1623,32 +1837,27 @@ function renderTable() {
         </td>
 
         <!-- Editable Note Column -->
-        <td class="px-4 py-3.5 text-xs sm:text-sm">
+        <td class="px-4 py-3.5 text-xs sm:text-sm" onclick="event.stopPropagation()">
           <input value="${esc(t.note || '')}" placeholder="+ หมายเหตุ..." onchange="updateTxField('${t.id}', 'note', this.value)" class="editable-input text-xs sm:text-sm text-slate-300 placeholder-slate-600 w-full" />
         </td>
 
-        <td class="px-3 py-3.5 text-center whitespace-nowrap">
+        <td class="px-3 py-3.5 text-center whitespace-nowrap" onclick="event.stopPropagation()">
           <div class="flex items-center justify-center gap-1.5">
-            <button onclick="openDetailModal('${t.id}')" class="text-slate-400 hover:text-indigo-400 transition-colors p-1.5 rounded-lg hover:bg-slate-800" title="ดูรายละเอียดเต็ม"><i data-lucide="info" class="w-4 h-4"></i></button>
+            <button onclick="openDetailModal('${t.id}')" class="text-slate-400 hover:text-blue-400 transition-colors p-1.5 rounded-lg hover:bg-slate-800" title="ดูรายละเอียดเต็ม"><i data-lucide="info" class="w-4 h-4"></i></button>
             <button onclick="deleteTx('${t.id}')" class="text-slate-500 hover:text-rose-400 transition-colors p-1.5 rounded-lg hover:bg-slate-800" title="ลบรายการนี้"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
           </div>
         </td>
       </tr>`;
   }).join('');
 
-  const totalSum = sum(fl);
   $('tfoot').innerHTML = `
     <tr class="bg-[#070a12] border-t-2 border-slate-700">
       <td colspan="5" class="px-4 py-3.5 text-sm font-bold text-slate-200">ยอดรวมตามตัวกรอง (${fl.length} รายการ)</td>
-      <td class="px-4 py-3.5 text-right text-lg font-black text-indigo-400 font-mono">${fmt(totalSum)} บาท</td>
+      <td class="px-4 py-3.5 text-right text-lg font-black text-blue-400 font-mono">${baht(totalSum)}</td>
       <td colspan="2" class="px-4 py-3.5 text-xs text-slate-400 font-sans">คำนวณจากรายการที่มองเห็น</td>
     </tr>`;
-  icons();
 }
 
-/* =====================================================================
-   RENDER SECTION: CHARTS (Donut & Daily Bar)
-   ===================================================================== */
 function renderDonut() {
   const ctx = $('donut')?.getContext('2d');
   if (!ctx) return;
@@ -1791,6 +2000,9 @@ function renderAll() {
   renderCards();
   renderBrandPills();
   renderCategoryPills();
+  updateCycleInfoBar();
+  updateActiveDetailBar();
+  updateDateButtonLabel();
   if (state.viewMode === 'feed') renderDailyFeed();
   else if (state.viewMode === 'table') renderTable();
   else if (state.viewMode === 'analytics') { renderDonut(); renderBar(); renderInstallments(); }
@@ -2614,5 +2826,88 @@ renderAll();
   </div>
 </div>
 
+
+<!-- ============ DATE RANGE CALENDAR MODAL (เลือกช่วงแบบปฏิทิน) ============ -->
+<div id="datePickerModal" class="fixed inset-0 z-[65] bg-black/80 backdrop-blur-xs hidden flex items-center justify-center p-4 transition-all">
+  <div class="bg-[#121826] w-full max-w-lg rounded-2xl shadow-2xl border border-slate-700 overflow-hidden fade-in text-white space-y-4 p-5 sm:p-6">
+    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-blue-600/30 text-blue-400 grid place-items-center">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-base">เลือกช่วงวันที่ทำรายการ (Calendar Date Filter)</h3>
+          <p class="text-xs text-slate-400">กรองเฉพาะรายการที่รูดบัตรหรือจ่ายเงินในช่วงวันที่กำหนด</p>
+        </div>
+      </div>
+      <button onclick="closeDatePickerModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 grid place-items-center transition-colors">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <!-- Quick Presets -->
+    <div class="space-y-2">
+      <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">เลือกด่วน (Quick Presets):</span>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+        <button onclick="applyDatePreset('cycle')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
+          <div class="font-bold text-blue-400">⚡ ทั้งรอบบิลนี้</div>
+          <div class="text-[11px] text-slate-400 mt-0.5" id="dpPresetCycleText">ตามสเตทเม้นต์</div>
+        </button>
+        <button onclick="applyDatePreset('oct_full')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
+          <div class="font-bold text-white">📅 เดือน ต.ค. เต็มเดือน</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">1 ต.ค. - 31 ต.ค. 69</div>
+        </button>
+        <button onclick="applyDatePreset('sep_full')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
+          <div class="font-bold text-white">📅 เดือน ก.ย. เต็มเดือน</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">1 ก.ย. - 30 ก.ย. 69</div>
+        </button>
+        <button onclick="applyDatePreset('last7')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
+          <div class="font-bold text-white">🕒 7 วันล่าสุดในรอบ</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">ช่วงท้ายรอบบิล</div>
+        </button>
+        <button onclick="applyDatePreset('last15')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
+          <div class="font-bold text-white">🕒 15 วันล่าสุดในรอบ</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">ครึ่งหลังของรอบบิล</div>
+        </button>
+        <button onclick="applyDatePreset('all')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
+          <div class="font-bold text-white">🌐 ทุกช่วงวัน</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">ไม่จำกัดวันที่</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Custom Date Range Inputs -->
+    <div class="space-y-2 pt-2 border-t border-slate-800">
+      <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">หรือระบุวันที่เจาะจง (Custom Range):</span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">จากวันที่ (Start Date)</label>
+          <input type="date" id="dpStartDate" onchange="onDateModalChange()" class="inp w-full font-mono text-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">ถึงวันที่ (End Date)</label>
+          <input type="date" id="dpEndDate" onchange="onDateModalChange()" class="inp w-full font-mono text-sm" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Preview matched count -->
+    <div id="dpPreviewBox" class="p-3 rounded-xl bg-[#0d131f] border border-slate-800 flex items-center justify-between text-xs">
+      <span class="text-slate-400">ผลการกรอง:</span>
+      <span id="dpMatchedText" class="font-bold text-blue-400 font-mono">พบ 0 รายการ · รวม ฿0.00</span>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-800">
+      <button onclick="clearDateRangeFilter(); closeDatePickerModal();" class="btn btn-ghost text-xs text-rose-300 hover:bg-rose-950/50">
+        ล้างตัวกรองวันที่
+      </button>
+      <button onclick="applyDateRangeFromModal()" class="btn btn-primary text-xs">
+        <i data-lucide="check" class="w-4 h-4"></i>
+        <span>นำไปใช้ (Apply Filter)</span>
+      </button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
