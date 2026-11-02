@@ -530,7 +530,7 @@
             <th class="px-4 py-3.5 font-black min-w-[150px]">วันที่ & เวลา</th>
             <th class="px-3 py-3.5 font-black min-w-[125px]">แหล่งจ่าย</th>
             <th class="px-4 py-3.5 font-black min-w-[260px]">ชื่อรายการ / ร้านค้า (พิมพ์แก้ไขได้)</th>
-            <th class="px-3 py-3.5 font-black min-w-[180px]">หมวดหมู่ (คลิกเปลี่ยนได้)</th>
+            <th class="px-3 py-3.5 font-bold min-w-[210px] w-[210px]">หมวดหมู่ (คลิกเปลี่ยนได้)</th>
             <th class="px-3 py-3.5 font-black min-w-[115px]">ประเภท</th>
             <th class="px-4 py-3.5 font-black text-right min-w-[140px]">จำนวนเงิน (บาท)</th>
             <th class="px-4 py-3.5 font-black min-w-[200px]">หมายเหตุ (พิมพ์ระบุได้)</th>
@@ -540,16 +540,16 @@
           <!-- COLUMN-LEVEL FILTER ROW -->
           <tr class="bg-slate-50/70 border-b border-slate-200 text-xs">
             <!-- Calendar Date Picker Trigger Button -->
-            <th class="p-2.5">
-              <button id="colFDateBtn" type="button" onclick="openDatePickerModal()" class="w-full bg-white border border-slate-200 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs text-left text-slate-700 flex items-center justify-between font-medium transition-all group shadow-2xs" title="คลิกเพื่อเลือกช่วงวันที่จากปฏิทิน">
-                <span id="colFDateLabel" class="truncate font-semibold text-slate-300">📅 ทุกวันในรอบ</span>
-                <i data-lucide="calendar" class="w-3.5 h-3.5 text-blue-400 group-hover:text-blue-300 shrink-0 ml-1"></i>
+            <th class="p-2.5 min-w-[150px]">
+              <button id="colFDateBtn" type="button" onclick="openDatePickerModal()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs text-left text-slate-700 flex items-center justify-between font-medium transition-all group shadow-2xs" title="คลิกเพื่อเลือกช่วงวันที่จากปฏิทิน">
+                <span id="colFDateLabel" class="truncate font-semibold text-slate-700">📅 ทุกวันในรอบ</span>
+                <i data-lucide="calendar" class="w-3.5 h-3.5 text-slate-500 group-hover:text-slate-800 shrink-0 ml-1"></i>
               </button>
             </th>
 
             <!-- Payment Source Filter -->
-            <th class="p-2.5">
-              <select id="colFSource" onchange="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
+            <th class="p-2.5 min-w-[125px]">
+              <select id="colFSource" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-semibold text-slate-800 cursor-pointer shadow-2xs">
                 <option value="">ทุกช่องทาง</option>
                 <option value="KTC">💳 KTC</option>
                 <option value="SHOPEE">🛍️ Shopee</option>
@@ -560,16 +560,16 @@
             </th>
 
             <!-- Merchant Name Search Filter -->
-            <th class="p-2.5">
+            <th class="p-2.5 min-w-[260px]">
               <div class="relative">
-                <input id="colFName" placeholder="🔍 กรองร้านค้า เช่น น้ำมัน..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg pl-2.5 pr-6 py-1.5 text-xs outline-none focus:border-blue-500 font-medium text-white placeholder-slate-500 shadow-2xs" />
-                <button type="button" onclick="$('colFName').value=''; onColFilterChange();" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 text-xs" title="ล้าง">✕</button>
+                <input id="colFName" placeholder="🔍 กรองร้านค้า เช่น น้ำมัน..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg pl-2.5 pr-6 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-medium text-slate-800 placeholder-slate-400 shadow-2xs" />
+                <button type="button" onclick="$('colFName').value=''; onColFilterChange();" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs" title="ล้าง">✕</button>
               </div>
             </th>
 
             <!-- Category Filter -->
-            <th class="p-2.5">
-              <select id="colFCat" onchange="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
+            <th class="p-2.5 min-w-[210px] w-[210px]">
+              <select id="colFCat" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-semibold text-slate-800 cursor-pointer shadow-2xs">
                 <option value="">ทุกหมวดหมู่</option>
                 <option value="food">🍔 อาหาร & เครื่องดื่ม</option>
                 <option value="transport">🚗 ยานพาหนะ & เดินทาง</option>
@@ -584,8 +584,8 @@
             </th>
 
             <!-- Payment Type Filter -->
-            <th class="p-2.5">
-              <select id="colFType" onchange="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
+            <th class="p-2.5 min-w-[115px]">
+              <select id="colFType" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-semibold text-slate-800 cursor-pointer shadow-2xs">
                 <option value="">ทุกประเภท</option>
                 <option value="full">จ่ายเต็ม</option>
                 <option value="inst">ผ่อนชำระ</option>
@@ -593,18 +593,18 @@
             </th>
 
             <!-- Amount Filter -->
-            <th class="p-2.5">
-              <input id="colFAmount" placeholder="กรองยอด..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-blue-500 text-right font-mono text-white placeholder-slate-500 shadow-2xs" />
+            <th class="p-2.5 min-w-[140px]">
+              <input id="colFAmount" placeholder="กรองยอด..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-right font-mono font-medium text-slate-800 placeholder-slate-400 shadow-2xs" />
             </th>
 
             <!-- Note Filter -->
-            <th class="p-2.5">
-              <input id="colFNote" placeholder="กรองหมายเหตุ..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-blue-500 font-medium text-white placeholder-slate-500 shadow-2xs" />
+            <th class="p-2.5 min-w-[200px]">
+              <input id="colFNote" placeholder="กรองหมายเหตุ..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-medium text-slate-800 placeholder-slate-400 shadow-2xs" />
             </th>
 
             <!-- Reset Filter Button -->
-            <th class="p-2.5 text-center">
-              <button type="button" onclick="clearColFilters()" class="w-full py-1.5 rounded-lg bg-slate-800/80 hover:bg-rose-950/50 hover:text-rose-400 text-slate-500 flex items-center justify-center transition-colors border border-slate-700/80" title="ล้างตัวกรองทั้งหมด">
+            <th class="p-2.5 text-center w-12">
+              <button type="button" onclick="clearColFilters()" class="w-full py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors border border-slate-200 shadow-2xs" title="ล้างตัวกรองทั้งหมด">
                 <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
               </button>
             </th>
@@ -857,7 +857,7 @@
   <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-xs" onclick="closeAddManualModal()"></div>
   <div class="relative max-w-lg mx-auto my-12 card bg-white shadow-2xl p-6 fade-in border border-slate-200 space-y-4 text-slate-900">
     <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-      <h3 class="font-bold text-white text-sm flex items-center gap-2">
+      <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
         <i data-lucide="plus-circle" class="w-4 h-4 text-indigo-600"></i>
         <span>เพิ่มรายการค่าใช้จ่ายเอง</span>
       </h3>
@@ -866,12 +866,12 @@
 
     <div class="space-y-3 text-xs">
       <div>
-        <label class="font-semibold text-slate-300 block mb-1">วันที่ทำรายการ</label>
+        <label class="font-semibold text-slate-700 block mb-1">วันที่ทำรายการ</label>
         <input type="date" id="mDate" class="inp w-full" />
       </div>
       <div class="grid grid-cols-2 gap-2">
         <div>
-          <label class="font-semibold text-slate-300 block mb-1">ช่องทาง</label>
+          <label class="font-semibold text-slate-700 block mb-1">ช่องทาง</label>
           <select id="mSource" class="inp w-full font-semibold">
             <option value="KTC">KTC (บัตรเครดิต)</option>
             <option value="SHOPEE">Shopee (SPayLater)</option>
@@ -881,21 +881,21 @@
           </select>
         </div>
         <div>
-          <label class="font-semibold text-slate-300 block mb-1">หมวดหมู่</label>
+          <label class="font-semibold text-slate-700 block mb-1">หมวดหมู่</label>
           <select id="mCat" class="inp w-full font-semibold"></select>
         </div>
       </div>
       <div>
-        <label class="font-semibold text-slate-300 block mb-1">ชื่อร้านค้า / รายการ</label>
+        <label class="font-semibold text-slate-700 block mb-1">ชื่อร้านค้า / รายการ</label>
         <input type="text" id="mName" class="inp w-full" placeholder="เช่น GrabFood, กาแฟ, บิลค่าน้ำ..." />
       </div>
       <div class="grid grid-cols-2 gap-2">
         <div>
-          <label class="font-semibold text-slate-300 block mb-1">จำนวนเงิน (บาท)</label>
+          <label class="font-semibold text-slate-700 block mb-1">จำนวนเงิน (บาท)</label>
           <input type="number" step="0.01" id="mAmt" class="inp w-full font-bold" placeholder="0.00" />
         </div>
         <div>
-          <label class="font-semibold text-slate-300 block mb-1">ประเภทการจ่าย</label>
+          <label class="font-semibold text-slate-700 block mb-1">ประเภทการจ่าย</label>
           <select id="mType" class="inp w-full">
             <option value="full">จ่ายเต็มจำนวน</option>
             <option value="inst">ผ่อนชำระ (เช่น 03/10)</option>
@@ -903,7 +903,7 @@
         </div>
       </div>
       <div>
-        <label class="font-semibold text-slate-300 block mb-1">หมายเหตุ</label>
+        <label class="font-semibold text-slate-700 block mb-1">หมายเหตุ</label>
         <input type="text" id="mNote" class="inp w-full" placeholder="ระบุเพิ่มเติม (ถ้ามี)" />
       </div>
     </div>
@@ -927,7 +927,7 @@ const TH_MONTH = ['', 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ
 const TH_MONTH_ABBR = TH_MONTH;
 const TH_MONTH_FULL = ['', 'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
 const TH_DOW_FULL = ['วันอาทิตย์', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์', 'วันเสาร์'];
-const STORE_KEY = 'smart_expense_tx_v26';
+const STORE_KEY = 'smart_expense_tx_v27';
 const TARGET_KEY = 'smart_expense_targets_v25';
 const DEFAULT_GEMINI_KEY = atob('QVEuQWI4Uk42TE9RTE01XzVJanAzSEVPQWNVelRsYWlFbXBOYjVlbENLMWVoQl85M1hsbFE=');
 
@@ -958,23 +958,23 @@ try {
 } catch(e){}
 
 const SOURCES = {
-  KTC:    { label: 'KTC',     sub: 'บัตรเครดิต',       color: '#60a5fa', bg: '#172554', badge: 'bg-blue-950/80 text-blue-300 border border-blue-500/40', icon: 'credit-card', emoji: '💳' },
-  SHOPEE: { label: 'Shopee',  sub: 'SPayLater / Pay', color: '#fb923c', bg: '#431407', badge: 'bg-orange-950/80 text-orange-300 border border-orange-500/40', icon: 'shopping-bag', emoji: '🛍️' },
-  SCB:    { label: 'SCB',     sub: 'CardX บัตรเครดิต', color: '#c084fc', bg: '#3b0764', badge: 'bg-purple-950/80 text-purple-300 border border-purple-500/40', icon: 'landmark', emoji: '🏦' },
-  TRUE:   { label: 'True',    sub: 'TrueMoney Wallet', color: '#f87171', bg: '#4c0519', badge: 'bg-rose-950/80 text-rose-300 border border-rose-500/40', icon: 'wallet', emoji: '📱' },
-  FIXED:  { label: 'คงที่ (Fixed)', sub: 'รถ/คอนโด/แม่', color: '#34d399', bg: '#064e3b', badge: 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/40', icon: 'lock', emoji: '🔒' },
+  KTC:    { label: 'KTC',     sub: 'บัตรเครดิต',       color: '#2563eb', bg: '#eff6ff', border: '#bfdbfe', badge: 'bg-blue-50 text-blue-700 border border-blue-200 font-bold', icon: 'credit-card', emoji: '💳' },
+  SHOPEE: { label: 'Shopee',  sub: 'SPayLater / Pay', color: '#ea580c', bg: '#fff7ed', border: '#fed7aa', badge: 'bg-orange-50 text-orange-700 border border-orange-200 font-bold', icon: 'shopping-bag', emoji: '🛍️' },
+  SCB:    { label: 'SCB',     sub: 'CardX บัตรเครดิต', color: '#7e22ce', bg: '#faf5ff', border: '#e9d5ff', badge: 'bg-purple-50 text-purple-700 border border-purple-200 font-bold', icon: 'landmark', emoji: '🏦' },
+  TRUE:   { label: 'True',    sub: 'TrueMoney Wallet', color: '#e11d48', bg: '#fff1f2', border: '#fecdd3', badge: 'bg-rose-50 text-rose-700 border border-rose-200 font-bold', icon: 'wallet', emoji: '📱' },
+  FIXED:  { label: 'คงที่ (Fixed)', sub: 'รถ/คอนโด/แม่', color: '#059669', bg: '#ecfdf5', border: '#a7f3d0', badge: 'bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold', icon: 'lock', emoji: '🔒' },
 };
 
 const CATS = {
-  food:          { label: 'อาหาร & เครื่องดื่ม',   emoji: '🍔', color: '#fbbf24', bg: '#451a03', border: '#78350f', text: '#fde68a' },
-  shopping:      { label: 'ช้อปปิ้ง & ของใช้',    emoji: '🛍️', color: '#38bdf8', bg: '#082f49', border: '#0369a1', text: '#bae6fd' },
-  transport:     { label: 'ยานพาหนะ & เดินทาง',   emoji: '🚗', color: '#34d399', bg: '#064e3b', border: '#047857', text: '#a7f3d0' },
-  utilities:     { label: 'บิล & สาธารณูปโภค',    emoji: '⚡', color: '#22d3ee', bg: '#164e63', border: '#0e7490', text: '#a5f3fc' },
-  medical:       { label: 'สุขภาพ & ความงาม',     emoji: '🏥', color: '#fb7185', bg: '#4c0519', border: '#be123c', text: '#fecdd3' },
-  entertainment: { label: 'บันเทิง & บริการแอป',  emoji: '🎬', color: '#c084fc', bg: '#3b0764', border: '#7e22ce', text: '#e9d5ff' },
-  installment:   { label: 'ผ่อนชำระ & ดอกเบี้ย',   emoji: '📅', color: '#818cf8', bg: '#1e1b4b', border: '#4338ca', text: '#c7d2fe' },
-  housing:       { label: 'ที่อยู่อาศัย & คอนโด',  emoji: '🏠', color: '#94a3b8', bg: '#1e293b', border: '#475569', text: '#e2e8f0' },
-  family:        { label: 'ครอบครัว & อื่นๆ',     emoji: '💖', color: '#f472b6', bg: '#500724', border: '#9d174d', text: '#fbcfe8' },
+  food:          { label: 'อาหาร & เครื่องดื่ม',   emoji: '🍔', color: '#f59e0b', bg: '#fef3c7', border: '#fde68a', text: '#92400e' },
+  shopping:      { label: 'ช้อปปิ้ง & ของใช้',    emoji: '🛍️', color: '#0ea5e9', bg: '#e0f2fe', border: '#bae6fd', text: '#0369a1' },
+  transport:     { label: 'ยานพาหนะ & เดินทาง',   emoji: '🚗', color: '#10b981', bg: '#ecfdf5', border: '#a7f3d0', text: '#065f46' },
+  utilities:     { label: 'บิล & สาธารณูปโภค',    emoji: '⚡', color: '#06b6d4', bg: '#cffafe', border: '#a5f3fc', text: '#155e75' },
+  medical:       { label: 'สุขภาพ & ความงาม',     emoji: '🏥', color: '#f43f5e', bg: '#ffe4e6', border: '#fecdd3', text: '#9f1239' },
+  entertainment: { label: 'บันเทิง & บริการแอป',  emoji: '🎬', color: '#a855f7', bg: '#f3e8ff', border: '#e9d5ff', text: '#6b21a8' },
+  installment:   { label: 'ผ่อนชำระ & ดอกเบี้ย',   emoji: '📅', color: '#6366f1', bg: '#eef2ff', border: '#c7d2fe', text: '#3730a3' },
+  housing:       { label: 'ที่อยู่อาศัย & คอนโด',  emoji: '🏠', color: '#64748b', bg: '#f1f5f9', border: '#cbd5e1', text: '#334155' },
+  family:        { label: 'ครอบครัว & อื่นๆ',     emoji: '💖', color: '#ec4899', bg: '#fce7f3', border: '#fbcfe8', text: '#9d174d' },
 };
 
 /* =====================================================================
@@ -1576,7 +1576,7 @@ function renderMonthTabs() {
     return `
       <button onclick="changeActiveMonth('${m}')" class="px-4 py-2 rounded-xl text-sm font-bold border transition-all inline-flex items-center gap-2 shrink-0 ${cls}">
         <span>${label}</span>
-        <span class="text-xs font-bold px-2 py-0.5 rounded-lg ${isActive ? 'bg-white/20 text-white' : 'bg-slate-800 text-slate-500'}">
+        <span class="text-xs font-bold px-2 py-0.5 rounded-lg ${isActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'}">
           ${count}
         </span>
       </button>`;
@@ -1730,8 +1730,8 @@ function renderCards() {
       distBarEl.innerHTML = '<div class="w-full h-full bg-slate-100"></div>';
     } else {
       const catColors = {
-        food: '#f59e0b', shopping: '#0ea5e9', transport: '#10b981', medical: '#f43f5e',
-        entertainment: '#a855f7', utilities: '#06b6d4', installment: '#6366f1',
+        food: '#f59e0b', shopping: '#0ea5e9', transport: '#10b981', utilities: '#06b6d4',
+        medical: '#f43f5e', entertainment: '#a855f7', installment: '#6366f1',
         housing: '#64748b', family: '#ec4899'
       };
       distBarEl.innerHTML = rankedCats.map(([k, amt]) => {
@@ -1823,7 +1823,7 @@ function renderDailyFeed() {
         <div class="w-14 h-14 rounded-3xl bg-indigo-950/80 text-indigo-400 grid place-items-center mx-auto border border-indigo-800/40">
           <i data-lucide="inbox" class="w-7 h-7"></i>
         </div>
-        <h4 class="font-bold text-white text-base">ไม่พบรายการที่ตรงกับเงื่อนไข</h4>
+        <h4 class="font-bold text-slate-900 text-base">ไม่พบรายการที่ตรงกับเงื่อนไข</h4>
         <p class="text-xs text-slate-500">ลองเปลี่ยนหมวดหมู่ ร้านค้า หรือล้างคำค้นหา</p>
         <button class="btn btn-primary text-xs mx-auto" onclick="clearFilters()">ล้างตัวกรองทั้งหมด</button>
       </div>`;
@@ -1913,7 +1913,7 @@ function renderDailyFeed() {
             <div class="w-7 h-7 rounded-xl bg-indigo-600 text-white grid place-items-center shadow-xs">
               <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
             </div>
-            <h3 class="font-bold text-white text-sm sm:text-base">${dateFormatted}</h3>
+            <h3 class="font-bold text-slate-900 text-sm sm:text-base">${dateFormatted}</h3>
           </div>
           <div class="flex items-center gap-2">
             <span class="text-xs font-semibold text-slate-500">${dayTxs.length} รายการ</span>
@@ -1998,8 +1998,8 @@ function renderTable() {
         </td>
 
         <!-- Editable Category Column -->
-        <td class="px-3 py-3.5 whitespace-nowrap" onclick="event.stopPropagation()">
-          <select onchange="updateTxField('${t.id}', 'cat', this.value)" class="text-xs font-bold px-3 py-1.5 rounded-lg border cursor-pointer outline-none w-full shadow-xs" style="background-color: ${c.bg}; color: ${c.text}; border-color: ${c.border};">
+        <td class="px-3 py-3.5 min-w-[210px] w-[210px] whitespace-nowrap" onclick="event.stopPropagation()">
+          <select onchange="updateTxField('${t.id}', 'cat', this.value)" class="text-xs font-bold px-2.5 py-1.5 rounded-xl border cursor-pointer outline-none w-full shadow-2xs transition-all hover:opacity-90" style="background-color: ${c.bg}; color: ${c.text}; border-color: ${c.border};">
             ${Object.entries(CATS).map(([k, catObj]) => `<option value="${k}" ${t.cat === k ? 'selected' : ''}>${catObj.emoji} ${catObj.label}</option>`).join('')}
           </select>
         </td>
@@ -2079,10 +2079,10 @@ function renderDonut() {
       <div onclick="setCat('${k}')" class="flex items-center justify-between p-2 rounded-xl hover:bg-[#1f293d] cursor-pointer text-xs transition-colors p-2 rounded-xl">
         <div class="flex items-center gap-2 min-w-0">
           <span class="text-base">${c.emoji}</span>
-          <span class="font-bold text-white truncate">${c.label}</span>
+          <span class="font-bold text-slate-800 truncate">${c.label}</span>
         </div>
         <div class="text-right shrink-0">
-          <span class="font-bold text-white font-mono">${baht(amt)}</span>
+          <span class="font-bold text-slate-900 font-mono">${baht(amt)}</span>
           <span class="text-[10px] text-slate-500 ml-1">(${pct.toFixed(0)}%)</span>
         </div>
       </div>`;
@@ -2131,7 +2131,7 @@ function renderBar() {
   const maxVal = Math.max(...data, 0);
   const maxDay = days[data.indexOf(maxVal)] || '01';
   $('barInsight').innerHTML = `
-    <span class="text-slate-500">วันที่มียอดใช้จ่ายสูงสุดคือวันที่ <strong class="text-white">${maxDay}</strong> ยอดรวม <strong class="text-indigo-400 font-mono">${baht(maxVal)}</strong></span>`;
+    <span class="text-slate-500">วันที่มียอดใช้จ่ายสูงสุดคือวันที่ <strong class="text-slate-900 font-bold">${maxDay}</strong> ยอดรวม <strong class="text-indigo-400 font-mono">${baht(maxVal)}</strong></span>`;
 }
 
 function renderInstallments() {
@@ -2154,8 +2154,8 @@ function renderInstallments() {
     return `
       <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
         <div class="flex items-center justify-between">
-          <span class="font-bold text-white text-xs truncate">${esc(t.name)}</span>
-          <span class="text-xs font-bold text-white font-mono">${baht(t.amount)}</span>
+          <span class="font-bold text-slate-800 text-xs truncate">${esc(t.name)}</span>
+          <span class="text-xs font-bold text-slate-900 font-mono">${baht(t.amount)}</span>
         </div>
         <div class="flex items-center justify-between text-[10px] text-slate-500">
           <span>งวดที่ ${cur}/${total} (เหลือ ${total - cur} งวด)</span>
