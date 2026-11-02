@@ -226,7 +226,7 @@
 <body class="min-h-screen flex flex-col font-sans antialiased selection:bg-indigo-500 selection:text-white">
 
 <!-- ============ TOP NAVBAR ============ -->
-<header class="sticky top-0 z-40 bg-[#080c16]/95 backdrop-blur-md border-b border-slate-800 shadow-lg shadow-black/30 text-white">
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs text-slate-900">
   <div class="max-w-[1440px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
     
     <!-- Logo & Brand -->
@@ -236,12 +236,12 @@
       </div>
       <div>
         <div class="flex items-center gap-2">
-          <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-none">Smart Expense Analyzer</h1>
+          <h1 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight leading-none">Smart Expense Analyzer</h1>
           <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
             KTC 5 เดือนครบ
           </span>
         </div>
-        <p class="text-xs text-slate-400 font-medium">ระบบวิเคราะห์ไส้ในใบแจ้งหนี้บัตรเครดิต & กระทบยอดอัตโนมัติ</p>
+        <p class="text-xs text-slate-500 font-medium">ระบบวิเคราะห์ไส้ในใบแจ้งหนี้บัตรเครดิต & กระทบยอดอัตโนมัติ</p>
       </div>
     </div>
 
@@ -265,9 +265,9 @@
   </div>
 
   <!-- ============ INTERACTIVE MONTH TABS (รอบบิล) ============ -->
-  <div class="bg-[#0c1222]/95 border-t border-slate-800 px-4 sm:px-6 py-2.5 overflow-x-auto scroll-thin no-scrollbar">
+  <div class="bg-slate-50 border-t border-b border-slate-200 px-4 sm:px-6 py-2.5 overflow-x-auto scroll-thin no-scrollbar">
     <div class="max-w-[1440px] mx-auto flex items-center justify-between gap-3">
-      <div class="flex items-center gap-1.5 text-xs font-bold text-slate-400 uppercase tracking-wider shrink-0">
+      <div class="flex items-center gap-1.5 text-xs font-bold text-slate-500 uppercase tracking-wider shrink-0">
         <i data-lucide="calendar" class="w-4 h-4 text-indigo-600"></i>
         <span>เลือกรอบบิล:</span>
       </div>
@@ -354,22 +354,22 @@
     </div>
 
     <!-- Spending Behavior & Category Breakdown Card -->
-    <div class="lg:col-span-7 card p-5 sm:p-6 bg-[#111827] border border-slate-800 flex flex-col justify-between space-y-4 text-white">
+    <div class="lg:col-span-7 card p-5 sm:p-6 bg-white border border-slate-200 flex flex-col justify-between space-y-4 text-slate-900 shadow-xs">
       <div>
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-1.5">
           <div class="flex items-center gap-2.5">
             <div class="w-3 h-3 rounded-full bg-indigo-600 shadow-xs"></div>
-            <h3 class="text-base sm:text-lg font-extrabold text-white tracking-tight">สัดส่วนพฤติกรรมการใช้จ่ายจริง (Category Share)</h3>
+            <h3 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">สัดส่วนพฤติกรรมการใช้จ่ายจริง (Category Share)</h3>
           </div>
-          <span class="text-xs text-slate-400 font-medium">คลิกหมวดหมู่เพื่อกรองดูรายการ</span>
+          <span class="text-xs text-slate-500 font-medium">คลิกหมวดหมู่เพื่อกรองดูรายการ</span>
         </div>
 
         <!-- Visual Multi-segment Distribution Bar -->
         <div class="mt-4 space-y-1.5">
-          <div id="categoryDistBar" class="h-3.5 rounded-full bg-slate-950 overflow-hidden flex shadow-inner border border-slate-800">
+          <div id="categoryDistBar" class="h-3.5 rounded-full bg-slate-100 overflow-hidden flex border border-slate-200">
             <!-- Populated dynamically in renderCards() -->
           </div>
-          <div class="flex items-center justify-between text-[11px] text-slate-400 font-medium px-1">
+          <div class="flex items-center justify-between text-[11px] text-slate-500 font-medium px-1">
             <span>กระจายตัวตามหมวดหมู่</span>
             <span id="catCountText">0 หมวดหมู่</span>
           </div>
@@ -395,9 +395,9 @@
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
       <div class="flex items-center gap-2.5">
         <div class="w-3 h-3 rounded-full bg-indigo-600 shadow-xs"></div>
-        <h3 class="text-base sm:text-lg font-extrabold text-white tracking-tight">แหล่งเงินที่ใช้จ่าย (Payment Sources)</h3>
+        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">แหล่งเงินที่ใช้จ่าย (Payment Sources)</h3>
       </div>
-      <span class="text-xs font-bold text-slate-300 bg-[#111827] border border-slate-800 px-3.5 py-1 rounded-full shadow-xs self-start sm:self-auto">คลิกการ์ดเพื่อกรองดูเฉพาะช่องทางนั้น</span>
+      <span class="text-xs font-bold text-slate-600 bg-slate-100 border border-slate-200 px-3.5 py-1 rounded-full shadow-xs self-start sm:self-auto">คลิกการ์ดเพื่อกรองดูเฉพาะช่องทางนั้น</span>
     </div>
 
     <div id="sourceCards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5"></div>
@@ -432,12 +432,12 @@
   </div>
 
   <!-- ============ SECTION 2: VIEW MODE TOGGLE & QUICK FILTERS ============ -->
-  <section class="card p-4 sm:p-5 shadow-xs space-y-4 bg-[#111827] border-slate-800 text-white">
+  <section class="card p-4 sm:p-5 shadow-xs space-y-4 bg-white border border-slate-200 text-slate-900">
     <!-- View Switcher & Search Bar -->
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-100">
       
       <!-- View Mode Buttons -->
-      <div class="inline-flex p-1 rounded-xl bg-[#090e1a] border border-slate-800">
+      <div class="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200">
         <button id="viewBtnFeed" class="tab-btn" onclick="switchView('feed')">
           <i data-lucide="layout-list" class="w-4 h-4 text-indigo-600"></i>
           <span>📱 ไทม์ไลน์รายวัน (Daily Feed)</span>
@@ -455,11 +455,11 @@
       <!-- Search & Sort -->
       <div class="flex items-center gap-2 flex-1 max-w-md">
         <div class="relative flex-1">
-          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
-          <input id="fSearch" class="inp w-full pl-9 text-xs !py-2 bg-[#090e1a] border-slate-700 text-white placeholder-slate-500" placeholder="ค้นหา เช่น Agoda, Grab, ตั๋วเครื่องบิน, ค่าผ่อนรถ, คอนโด..." />
+          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
+          <input id="fSearch" class="inp w-full pl-9 text-xs !py-2 bg-white border-slate-200 text-slate-900 placeholder-slate-400 focus:border-slate-400" placeholder="ค้นหา เช่น Agoda, Grab, ตั๋วเครื่องบิน, ค่าผ่อนรถ, คอนโด..." />
         </div>
         <button id="sortBtn" class="btn btn-ghost text-xs !py-2 shrink-0" onclick="cycleSort()"></button>
-        <button class="btn btn-ghost text-xs !py-2 text-slate-400 hover:text-rose-600 shrink-0" onclick="clearFilters()" title="ล้างตัวกรองทั้งหมด">
+        <button class="btn btn-ghost text-xs !py-2 text-slate-500 hover:text-rose-600 shrink-0" onclick="clearFilters()" title="ล้างตัวกรองทั้งหมด">
           <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
         </button>
       </div>
@@ -472,7 +472,7 @@
           <i data-lucide="store" class="w-3.5 h-3.5 text-indigo-600"></i>
           <span>ร้านค้า / บริการที่ใช้จ่ายบ่อย:</span>
         </div>
-        <span class="text-[11px] text-slate-400">เลื่อนแถบเพื่อเลือกดูร้านค้า</span>
+        <span class="text-[11px] text-slate-500">เลื่อนแถบเพื่อเลือกดูร้านค้า</span>
       </div>
       <div id="brandChips" class="flex items-center gap-2 overflow-x-auto scroll-thin no-scrollbar py-1"></div>
     </div>
@@ -484,7 +484,7 @@
           <i data-lucide="tags" class="w-3.5 h-3.5 text-indigo-600"></i>
           <span>หมวดหมู่ค่าใช้จ่ายจริง:</span>
         </div>
-        <span id="catSummaryText" class="text-xs text-slate-400 font-medium"></span>
+        <span id="catSummaryText" class="text-xs text-slate-500 font-medium"></span>
       </div>
       <div id="catChips" class="flex flex-wrap gap-2"></div>
     </div>
@@ -496,15 +496,15 @@
   </section>
 
   <!-- ============ VIEW 2: DETAILED TABLE VIEW (WITH COLUMN FILTERS & INLINE EDITING) ============ -->
-  <section id="tableView" class="card overflow-hidden fade-in bg-[#111827] border-slate-800">
-    <div class="p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 bg-[#0c1222] text-white">
+  <section id="tableView" class="card overflow-hidden fade-in bg-white border border-slate-200 shadow-xs">
+    <div class="p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 bg-white text-slate-900">
       <div class="flex items-center gap-3">
         <div class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 grid place-items-center">
           <i data-lucide="table-2" class="w-4 h-4"></i>
         </div>
         <div>
-          <h3 class="font-bold text-white text-sm sm:text-base">ตารางรายการไส้ใน (สามารถพิมพ์กรอกแก้ไข & กรองคอลัมน์ได้)</h3>
-          <p id="tblSubtitle" class="text-xs text-slate-400 font-normal">คลิกที่ชื่อรายการ หมวดหมู่ หรือหมายเหตุ เพื่อพิมพ์แก้ไขรายละเอียดได้ทันที ระบบจะบันทึกอัตโนมัติ</p>
+          <h3 class="font-bold text-slate-900 text-sm sm:text-base">ตารางรายการไส้ใน (สามารถพิมพ์กรอกแก้ไข & กรองคอลัมน์ได้)</h3>
+          <p id="tblSubtitle" class="text-xs text-slate-600 font-normal">คลิกที่ชื่อรายการ หมวดหมู่ หรือหมายเหตุ เพื่อพิมพ์แก้ไขรายละเอียดได้ทันที ระบบจะบันทึกอัตโนมัติ</p>
         </div>
       </div>
       <div class="flex items-center gap-2">
@@ -525,7 +525,7 @@
 
     <div class="overflow-x-auto scroll-thin no-scrollbar">
       <table class="w-full text-sm text-left">
-        <thead class="text-xs uppercase tracking-wider text-slate-300 bg-[#070a12] border-b border-slate-700">
+        <thead class="text-xs uppercase tracking-wider text-slate-600 bg-slate-50 border-b border-slate-200">
           <tr>
             <th class="px-4 py-3.5 font-black min-w-[150px]">วันที่ & เวลา</th>
             <th class="px-3 py-3.5 font-black min-w-[125px]">แหล่งจ่าย</th>
@@ -538,10 +538,10 @@
           </tr>
 
           <!-- COLUMN-LEVEL FILTER ROW -->
-          <tr class="bg-[#0b101d] border-b border-slate-800 text-xs">
+          <tr class="bg-slate-50/70 border-b border-slate-200 text-xs">
             <!-- Calendar Date Picker Trigger Button -->
             <th class="p-2.5">
-              <button id="colFDateBtn" type="button" onclick="openDatePickerModal()" class="w-full bg-[#0d131f] border border-slate-700 hover:border-blue-500 rounded-lg px-2.5 py-1.5 text-xs text-left text-slate-300 flex items-center justify-between font-medium transition-all group shadow-2xs" title="คลิกเพื่อเลือกช่วงวันที่จากปฏิทิน">
+              <button id="colFDateBtn" type="button" onclick="openDatePickerModal()" class="w-full bg-white border border-slate-200 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs text-left text-slate-700 flex items-center justify-between font-medium transition-all group shadow-2xs" title="คลิกเพื่อเลือกช่วงวันที่จากปฏิทิน">
                 <span id="colFDateLabel" class="truncate font-semibold text-slate-300">📅 ทุกวันในรอบ</span>
                 <i data-lucide="calendar" class="w-3.5 h-3.5 text-blue-400 group-hover:text-blue-300 shrink-0 ml-1"></i>
               </button>
@@ -549,7 +549,7 @@
 
             <!-- Payment Source Filter -->
             <th class="p-2.5">
-              <select id="colFSource" onchange="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
+              <select id="colFSource" onchange="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
                 <option value="">ทุกช่องทาง</option>
                 <option value="KTC">💳 KTC</option>
                 <option value="SHOPEE">🛍️ Shopee</option>
@@ -562,14 +562,14 @@
             <!-- Merchant Name Search Filter -->
             <th class="p-2.5">
               <div class="relative">
-                <input id="colFName" placeholder="🔍 กรองร้านค้า เช่น น้ำมัน..." oninput="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg pl-2.5 pr-6 py-1.5 text-xs outline-none focus:border-blue-500 font-medium text-white placeholder-slate-500 shadow-2xs" />
+                <input id="colFName" placeholder="🔍 กรองร้านค้า เช่น น้ำมัน..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg pl-2.5 pr-6 py-1.5 text-xs outline-none focus:border-blue-500 font-medium text-white placeholder-slate-500 shadow-2xs" />
                 <button type="button" onclick="$('colFName').value=''; onColFilterChange();" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 text-xs" title="ล้าง">✕</button>
               </div>
             </th>
 
             <!-- Category Filter -->
             <th class="p-2.5">
-              <select id="colFCat" onchange="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
+              <select id="colFCat" onchange="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
                 <option value="">ทุกหมวดหมู่</option>
                 <option value="food">🍔 อาหาร & เครื่องดื่ม</option>
                 <option value="transport">🚗 ยานพาหนะ & เดินทาง</option>
@@ -585,7 +585,7 @@
 
             <!-- Payment Type Filter -->
             <th class="p-2.5">
-              <select id="colFType" onchange="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
+              <select id="colFType" onchange="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-bold text-white cursor-pointer shadow-2xs">
                 <option value="">ทุกประเภท</option>
                 <option value="full">จ่ายเต็ม</option>
                 <option value="inst">ผ่อนชำระ</option>
@@ -594,24 +594,24 @@
 
             <!-- Amount Filter -->
             <th class="p-2.5">
-              <input id="colFAmount" placeholder="กรองยอด..." oninput="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-blue-500 text-right font-mono text-white placeholder-slate-500 shadow-2xs" />
+              <input id="colFAmount" placeholder="กรองยอด..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-blue-500 text-right font-mono text-white placeholder-slate-500 shadow-2xs" />
             </th>
 
             <!-- Note Filter -->
             <th class="p-2.5">
-              <input id="colFNote" placeholder="กรองหมายเหตุ..." oninput="onColFilterChange()" class="w-full bg-[#0d131f] border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-blue-500 font-medium text-white placeholder-slate-500 shadow-2xs" />
+              <input id="colFNote" placeholder="กรองหมายเหตุ..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-blue-500 font-medium text-white placeholder-slate-500 shadow-2xs" />
             </th>
 
             <!-- Reset Filter Button -->
             <th class="p-2.5 text-center">
-              <button type="button" onclick="clearColFilters()" class="w-full py-1.5 rounded-lg bg-slate-800/80 hover:bg-rose-950/50 hover:text-rose-400 text-slate-400 flex items-center justify-center transition-colors border border-slate-700/80" title="ล้างตัวกรองทั้งหมด">
+              <button type="button" onclick="clearColFilters()" class="w-full py-1.5 rounded-lg bg-slate-800/80 hover:bg-rose-950/50 hover:text-rose-400 text-slate-500 flex items-center justify-center transition-colors border border-slate-700/80" title="ล้างตัวกรองทั้งหมด">
                 <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
               </button>
             </th>
           </tr>
         </thead>
-        <tbody id="tbody" class="divide-y divide-slate-800/80 text-slate-200"></tbody>
-        <tfoot id="tfoot" class="bg-[#070a12] font-semibold text-slate-200 border-t-2 border-slate-700"></tfoot>
+        <tbody id="tbody" class="divide-y divide-slate-100 text-slate-900"></tbody>
+        <tfoot id="tfoot" class="bg-slate-50 font-semibold text-slate-700 border-t border-slate-200"></tfoot>
       </table>
     </div>
   </section>
@@ -628,7 +628,7 @@
             </div>
             <div>
               <h3 class="font-bold text-slate-800 text-sm">สัดส่วนตามหมวดหมู่จริง</h3>
-              <p class="text-[11px] text-slate-400">คลิกที่หมวดหมู่เพื่อกรองข้อมูล</p>
+              <p class="text-[11px] text-slate-500">คลิกที่หมวดหมู่เพื่อกรองข้อมูล</p>
             </div>
           </div>
           <span id="catTotalBadge" class="text-xs font-semibold text-slate-600 px-2 py-0.5 rounded-full bg-slate-100">0 บาท</span>
@@ -654,7 +654,7 @@
             </div>
             <div>
               <h3 class="font-bold text-slate-800 text-sm">ยอดใช้จ่ายรายวันของรอบบิลนี้</h3>
-              <p class="text-[11px] text-slate-400">สีแท่งจำแนกตามช่องทางบัตร / แหล่งจ่าย</p>
+              <p class="text-[11px] text-slate-500">สีแท่งจำแนกตามช่องทางบัตร / แหล่งจ่าย</p>
             </div>
           </div>
           <label class="flex items-center gap-2 text-xs text-slate-500 cursor-pointer select-none font-medium">
@@ -676,7 +676,7 @@
             </div>
             <div>
               <h3 class="font-bold text-slate-800 text-sm">Installment Tracker — ติดตามยอดผ่อนชำระ</h3>
-              <p class="text-[11px] text-slate-400">สรุปภาระผ่อนรายเดือนและงวดที่เหลือ</p>
+              <p class="text-[11px] text-slate-500">สรุปภาระผ่อนรายเดือนและงวดที่เหลือ</p>
             </div>
           </div>
           <div id="instSummary" class="flex flex-wrap gap-2 text-xs"></div>
@@ -688,7 +688,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="text-center py-6 text-xs text-slate-400 space-y-1 border-t border-slate-200">
+  <footer class="text-center py-6 text-xs text-slate-500 space-y-1 border-t border-slate-200">
     <p>Smart Personal Expense & Statement Analyzer · ข้อมูลเก็บรักษาในเบราว์เซอร์เครื่องนี้อย่างปลอดภัย</p>
     <p class="text-[11px] text-slate-300">โฟลเดอร์ระบบติดตั้งบนเดสท็อป: <span class="font-mono">Desktop\Smart_Expense_Analyzer</span></p>
   </footer>
@@ -697,9 +697,9 @@
 <!-- ============ MODAL: SCAN / IMPORT STATEMENT ============ -->
 <div id="modal" class="fixed inset-0 z-50 hidden">
   <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-xs transition-opacity" onclick="closeModal()"></div>
-  <div class="relative max-w-4xl mx-auto my-8 max-h-[calc(100vh-4rem)] overflow-y-auto scroll-thin card bg-[#111827] shadow-2xl p-0 fade-in border-slate-800 text-white">
+  <div class="relative max-w-4xl mx-auto my-8 max-h-[calc(100vh-4rem)] overflow-y-auto scroll-thin card bg-white shadow-2xl p-0 fade-in border border-slate-200 text-slate-900">
     <!-- Modal Header -->
-    <div class="p-5 sm:p-6 border-b border-slate-800 flex items-center justify-between bg-[#0c1222]">
+    <div class="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between bg-white text-slate-900">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 grid place-items-center">
           <i data-lucide="scan-line" class="w-5 h-5"></i>
@@ -709,7 +709,7 @@
           <p class="text-xs text-slate-500">รองรับ PDF ใบแจ้งหนี้ธนาคาร, ภาพสลิป/บิล หรือวางข้อความดิบ</p>
         </div>
       </div>
-      <button onclick="closeModal()" class="w-8 h-8 rounded-full hover:bg-slate-100 grid place-items-center text-slate-400 hover:text-slate-700">
+      <button onclick="closeModal()" class="w-8 h-8 rounded-full hover:bg-slate-100 grid place-items-center text-slate-500 hover:text-slate-700">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
     </div>
@@ -717,7 +717,7 @@
     <!-- Modal Body -->
     <div class="p-5 sm:p-6 space-y-5">
       <div class="flex flex-wrap items-center justify-between gap-3">
-        <div class="inline-flex p-1 rounded-xl bg-[#090e1a] border border-slate-800">
+        <div class="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200">
           <button id="tabFile" class="tab-btn active text-xs !py-1.5" onclick="switchImportTab('file')">
             <i data-lucide="file-up" class="w-4 h-4"></i>
             <span>อัปโหลดไฟล์ (PDF / ภาพ)</span>
@@ -751,7 +751,7 @@
             </div>
             <div>
               <p class="font-bold text-slate-700 text-sm">คลิกเลือกไฟล์ หรือลากไฟล์มาวางที่นี่</p>
-              <p class="text-xs text-slate-400 mt-1">รองรับ PDF ใบแจ้งหนี้ทุกธนาคาร · ไฟล์ภาพ JPG/PNG (OCR ภาษาไทย)</p>
+              <p class="text-xs text-slate-500 mt-1">รองรับ PDF ใบแจ้งหนี้ทุกธนาคาร · ไฟล์ภาพ JPG/PNG (OCR ภาษาไทย)</p>
             </div>
             <div id="fileInfo" class="hidden text-xs font-semibold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg inline-block border border-emerald-200"></div>
           </div>
@@ -819,7 +819,7 @@
             <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">รายการที่แกะได้ (Preview)</span>
             <span id="prevCount" class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700"></span>
           </div>
-          <span id="prevSkipped" class="text-xs text-slate-400"></span>
+          <span id="prevSkipped" class="text-xs text-slate-500"></span>
         </div>
 
         <div class="max-h-64 overflow-y-auto scroll-thin border border-slate-200 rounded-xl">
@@ -855,13 +855,13 @@
 <!-- ============ MODAL: ADD MANUAL ITEM ============ -->
 <div id="manualModal" class="fixed inset-0 z-50 hidden">
   <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-xs" onclick="closeAddManualModal()"></div>
-  <div class="relative max-w-lg mx-auto my-12 card bg-[#111827] shadow-2xl p-6 fade-in border-slate-800 space-y-4 text-white">
-    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+  <div class="relative max-w-lg mx-auto my-12 card bg-white shadow-2xl p-6 fade-in border border-slate-200 space-y-4 text-slate-900">
+    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
       <h3 class="font-bold text-white text-sm flex items-center gap-2">
         <i data-lucide="plus-circle" class="w-4 h-4 text-indigo-600"></i>
         <span>เพิ่มรายการค่าใช้จ่ายเอง</span>
       </h3>
-      <button onclick="closeAddManualModal()" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-4 h-4"></i></button>
+      <button onclick="closeAddManualModal()" class="text-slate-500 hover:text-slate-600"><i data-lucide="x" class="w-4 h-4"></i></button>
     </div>
 
     <div class="space-y-3 text-xs">
@@ -924,9 +924,10 @@
    ===================================================================== */
 const YEAR = 2026, MONTH = 10;
 const TH_MONTH = ['', 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+const TH_MONTH_ABBR = TH_MONTH;
 const TH_MONTH_FULL = ['', 'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
 const TH_DOW_FULL = ['วันอาทิตย์', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์', 'วันเสาร์'];
-const STORE_KEY = 'smart_expense_tx_v25';
+const STORE_KEY = 'smart_expense_tx_v26';
 const TARGET_KEY = 'smart_expense_targets_v25';
 const DEFAULT_GEMINI_KEY = atob('QVEuQWI4Uk42TE9RTE01XzVJanAzSEVPQWNVelRsYWlFbXBOYjVlbENLMWVoQl85M1hsbFE=');
 
@@ -1118,7 +1119,7 @@ function switchView(mode) {
       const isAct = m.toLowerCase() === mode;
       mBtn.className = isAct 
         ? 'flex flex-col items-center gap-1 text-slate-900 font-bold text-[10px] p-1.5 tap-active'
-        : 'flex flex-col items-center gap-1 text-slate-400 font-medium text-[10px] p-1.5 tap-active';
+        : 'flex flex-col items-center gap-1 text-slate-500 font-medium text-[10px] p-1.5 tap-active';
     }
   });
 
@@ -1569,17 +1570,69 @@ function renderMonthTabs() {
     if (m === '2026-10') label += ' (ล่าสุด)';
 
     const cls = isActive 
-      ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/40 border-indigo-500 ring-2 ring-indigo-400' 
-      : 'bg-[#111827] text-slate-300 border-slate-800 hover:bg-[#1e293b] hover:text-white hover:border-slate-700';
+      ? 'bg-slate-900 text-white shadow-xs border-slate-900 ring-2 ring-slate-900/10' 
+      : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900';
 
     return `
       <button onclick="changeActiveMonth('${m}')" class="px-4 py-2 rounded-xl text-sm font-bold border transition-all inline-flex items-center gap-2 shrink-0 ${cls}">
         <span>${label}</span>
-        <span class="text-xs font-bold px-2 py-0.5 rounded-lg ${isActive ? 'bg-white/20 text-white' : 'bg-slate-800 text-slate-400'}">
+        <span class="text-xs font-bold px-2 py-0.5 rounded-lg ${isActive ? 'bg-white/20 text-white' : 'bg-slate-800 text-slate-500'}">
           ${count}
         </span>
       </button>`;
   }).join('');
+}
+
+
+function renderCategoryPills() {
+  const container = $('catChips');
+  if (!container) return;
+  const m = state.activeMonth;
+  const monthTxs = m === 'ALL' ? transactions : transactions.filter(t => (t.cycleMonth || (t.date ? t.date.slice(0, 7) : '2026-10')) === m);
+
+  const catSums = {};
+  const catCounts = {};
+  monthTxs.forEach(t => {
+    catSums[t.cat] = (catSums[t.cat] || 0) + Number(t.amount || 0);
+    catCounts[t.cat] = (catCounts[t.cat] || 0) + 1;
+  });
+
+  const isAll = state.f.cat === 'ALL';
+  const allCls = isAll
+    ? 'bg-slate-900 text-white shadow-xs border-slate-900'
+    : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50';
+
+  let html = `
+    <button onclick="setCat('ALL')" class="chip ${allCls}">
+      <span>ทุกหมวดหมู่</span>
+      <span class="text-[10px] px-1.5 py-0.5 rounded-full ${isAll ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'}">
+        ${monthTxs.length}
+      </span>
+    </button>`;
+
+  Object.entries(CATS).forEach(([k, c]) => {
+    const isAct = state.f.cat === k;
+    const count = catCounts[k] || 0;
+    const catTotal = catSums[k] || 0;
+    if (count === 0 && !isAct) return;
+
+    const style = isAct
+      ? `background-color: #0f172a; color: #ffffff; border-color: #0f172a; box-shadow: 0 2px 8px rgba(15,23,42,0.15);`
+      : `background-color: ${c.bg}; color: ${c.text}; border-color: ${c.border};`;
+
+    html += `
+      <button onclick="setCat('${k}')" class="chip" style="${style}">
+        <span>${c.emoji}</span>
+        <span class="font-bold">${c.label}</span>
+        <span class="text-[11px] font-semibold opacity-90">(${count} • ฿${catTotal.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})})</span>
+      </button>`;
+  });
+
+  container.innerHTML = html;
+  const summaryEl = $('catSummaryText');
+  if (summaryEl) {
+    summaryEl.textContent = `แสดง ${filtered().length} จาก ${monthTxs.length} รายการ`;
+  }
 }
 
 function renderBrandPills() {
@@ -1674,7 +1727,7 @@ function renderCards() {
   const distBarEl = $('categoryDistBar');
   if (distBarEl) {
     if (rankedCats.length === 0) {
-      distBarEl.innerHTML = '<div class="w-full h-full bg-slate-800"></div>';
+      distBarEl.innerHTML = '<div class="w-full h-full bg-slate-100"></div>';
     } else {
       const catColors = {
         food: '#f59e0b', shopping: '#0ea5e9', transport: '#10b981', medical: '#f43f5e',
@@ -1696,24 +1749,24 @@ function renderCards() {
   const rankGridEl = $('categoryRankGrid');
   if (rankGridEl) {
     if (rankedCats.length === 0) {
-      rankGridEl.innerHTML = '<p class="text-xs text-slate-400 py-3 col-span-2 text-center">ไม่มีข้อมูลค่าใช้จ่ายในรอบนี้</p>';
+      rankGridEl.innerHTML = '<p class="text-xs text-slate-500 py-3 col-span-2 text-center">ไม่มีข้อมูลค่าใช้จ่ายในรอบนี้</p>';
     } else {
       rankGridEl.innerHTML = rankedCats.map(([catKey, amt]) => {
         const cObj = CATS[catKey] || CATS.family;
         const pct = ((amt / (trackedTotal || 1)) * 100).toFixed(1);
         const isSelected = state.f.cat === catKey;
         return `
-          <div onclick="setCat('${catKey}')" class="p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${isSelected ? 'ring-2 ring-blue-500 bg-blue-950/70 border-blue-400 shadow-lg shadow-blue-500/20' : 'bg-[#0d131f] border-slate-800 hover:bg-[#162032] hover:border-slate-700'}">
+          <div onclick="setCat('${catKey}')" class="p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${isSelected ? 'ring-2 ring-slate-900 bg-slate-100 border-slate-900 shadow-xs' : 'bg-slate-50/70 border-slate-200/90 hover:bg-slate-100 hover:border-slate-300'}">
             <div class="flex items-center gap-2.5 min-w-0">
               <span class="text-lg shrink-0">${cObj.emoji}</span>
               <div class="min-w-0">
-                <p class="font-bold text-white text-xs sm:text-sm truncate">${cObj.label}</p>
-                <p class="text-[11px] text-slate-400 font-medium">${catCounts[catKey] || 0} รายการ</p>
+                <p class="font-bold text-slate-900 text-xs sm:text-sm truncate">${cObj.label}</p>
+                <p class="text-[11px] text-slate-500 font-medium">${catCounts[catKey] || 0} รายการ</p>
               </div>
             </div>
             <div class="text-right shrink-0">
-              <p class="font-black text-white text-xs sm:text-sm font-mono">${bahtShort(amt)}</p>
-              <p class="text-[11px] font-bold text-blue-400 font-mono">${pct}%</p>
+              <p class="font-black text-slate-900 text-xs sm:text-sm font-mono">${bahtShort(amt)}</p>
+              <p class="text-[11px] font-bold text-slate-600 font-mono">${pct}%</p>
             </div>
           </div>`;
       }).join('');
@@ -1728,31 +1781,31 @@ function renderCards() {
     const isSelected = state.f.source === k;
 
     return `
-      <div onclick="setSource('${k}')" class="card card-hover p-4 sm:p-5 cursor-pointer relative transition-all ${isSelected ? 'ring-2 ring-blue-500 border-blue-400 bg-[#162238] shadow-lg shadow-blue-500/25' : 'bg-[#121826] border-slate-800 hover:border-slate-700'}">
+      <div onclick="setSource('${k}')" class="card card-hover p-4 sm:p-5 cursor-pointer relative transition-all ${isSelected ? 'ring-2 ring-slate-900 border-slate-900 bg-slate-50/70 shadow-xs' : 'bg-white border-slate-200 hover:border-slate-300'}">
         <div class="flex items-center justify-between gap-2 mb-2">
           <div class="flex items-center gap-2.5 min-w-0">
-            <div class="w-10 h-10 rounded-xl grid place-items-center text-xl shadow-xs shrink-0 font-bold border border-slate-700" style="background-color: ${s.bg};">
+            <div class="w-10 h-10 rounded-xl grid place-items-center text-xl shadow-xs shrink-0 font-bold border border-slate-200" style="background-color: ${s.bg};">
               ${s.emoji || '💳'}
             </div>
             <div class="min-w-0">
-              <p class="font-extrabold text-white text-sm sm:text-base leading-tight truncate">${s.label}</p>
-              <p class="text-[11px] text-slate-400 font-medium truncate">${s.sub}</p>
+              <p class="font-extrabold text-slate-900 text-sm sm:text-base leading-tight truncate">${s.label}</p>
+              <p class="text-[11px] text-slate-500 font-medium truncate">${s.sub}</p>
             </div>
           </div>
-          <span class="text-xs font-bold px-2.5 py-1 rounded-full ${isSelected ? 'bg-blue-600 text-white' : 'bg-[#0d131f] text-slate-300 border border-slate-800'} shrink-0 font-mono">
+          <span class="text-xs font-bold px-2.5 py-1 rounded-full ${isSelected ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-700 border border-slate-200'} shrink-0 font-mono">
             ${sharePct}%
           </span>
         </div>
 
-        <div class="mt-3 pt-3 border-t border-slate-800">
+        <div class="mt-3 pt-3 border-t border-slate-100">
           <div class="currency-thb">
             <span class="thb-symbol text-xs sm:text-sm">฿</span>
-            <span class="thb-amount text-xl sm:text-2xl">${fmt(parsed)}</span>
+            <span class="thb-amount text-xl sm:text-2xl text-slate-900">${fmt(parsed)}</span>
             <span class="thb-unit">บาท</span>
           </div>
-          <div class="flex items-center justify-between text-xs text-slate-400 font-medium mt-1.5">
+          <div class="flex items-center justify-between text-xs text-slate-500 font-medium mt-1.5">
             <span>${count} รายการ</span>
-            <span class="font-mono text-slate-400">${count ? `เฉลี่ย ฿${fmt(parsed / count)}/ครั้ง` : '-'}</span>
+            <span class="font-mono text-slate-500">${count ? `เฉลี่ย ฿${fmt(parsed / count)}/ครั้ง` : '-'}</span>
           </div>
         </div>
       </div>`;
@@ -1766,12 +1819,12 @@ function renderDailyFeed() {
 
   if (!fl.length) {
     container.innerHTML = `
-      <div class="card p-12 text-center max-w-md mx-auto space-y-3 bg-[#111827] border-slate-800">
+      <div class="card p-12 text-center max-w-md mx-auto space-y-3 bg-white border-slate-200">
         <div class="w-14 h-14 rounded-3xl bg-indigo-950/80 text-indigo-400 grid place-items-center mx-auto border border-indigo-800/40">
           <i data-lucide="inbox" class="w-7 h-7"></i>
         </div>
         <h4 class="font-bold text-white text-base">ไม่พบรายการที่ตรงกับเงื่อนไข</h4>
-        <p class="text-xs text-slate-400">ลองเปลี่ยนหมวดหมู่ ร้านค้า หรือล้างคำค้นหา</p>
+        <p class="text-xs text-slate-500">ลองเปลี่ยนหมวดหมู่ ร้านค้า หรือล้างคำค้นหา</p>
         <button class="btn btn-primary text-xs mx-auto" onclick="clearFilters()">ล้างตัวกรองทั้งหมด</button>
       </div>`;
     icons();
@@ -1802,7 +1855,7 @@ function renderDailyFeed() {
       const brandColor = t.brandColor || '#94a3b8';
 
       return `
-        <div onclick="openDetailModal('${t.id}')" class="p-3.5 sm:p-4 rounded-2xl bg-[#0c1222] border border-slate-800/80 hover:border-indigo-500 hover:bg-[#11192e] transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer tap-active">
+        <div onclick="openDetailModal('${t.id}')" class="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-xs transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer tap-active">
           
           <div class="flex items-start sm:items-center gap-3 flex-1 min-w-0">
             <div class="w-11 h-11 rounded-2xl grid place-items-center shrink-0 shadow-xs text-lg border border-slate-800" style="background-color: ${brandBg}; color: ${brandColor};">
@@ -1812,7 +1865,7 @@ function renderDailyFeed() {
             <div class="space-y-1 flex-1 min-w-0">
               <div class="flex flex-wrap items-center gap-1.5">
                 <!-- Editable Name Input -->
-                <input value="${esc(t.name)}" onchange="updateTxField('${t.id}', 'name', this.value)" onclick="event.stopPropagation()" class="editable-input font-bold text-white text-sm sm:text-base tracking-tight flex-1 min-w-[200px]" title="คลิกเพื่อแก้ไขชื่อรายการ" />
+                <input value="${esc(t.name)}" onchange="updateTxField('${t.id}', 'name', this.value)" onclick="event.stopPropagation()" class="editable-input font-bold text-slate-900 text-sm sm:text-base tracking-tight flex-1 min-w-[200px]" title="คลิกเพื่อแก้ไขชื่อรายการ" />
                 
                 <!-- Category Select Dropdown -->
                 <select onchange="updateTxField('${t.id}', 'cat', this.value)" onclick="event.stopPropagation()" class="text-[10px] font-bold px-2 py-0.5 rounded-full border cursor-pointer outline-none transition-colors" style="background-color: ${c.bg}; color: ${c.text}; border-color: ${c.border};">
@@ -1824,7 +1877,7 @@ function renderDailyFeed() {
               </div>
 
               <!-- Time & Posting Date & Raw Line & Editable Note -->
-              <div class="flex flex-wrap items-center gap-2 text-[11px] text-slate-400 font-medium">
+              <div class="flex flex-wrap items-center gap-2 text-[11px] text-slate-500 font-medium">
                 <span class="inline-flex items-center gap-1 text-indigo-300 font-bold bg-slate-800/80 px-2 py-0.5 rounded-md border border-slate-700">
                   <i data-lucide="clock" class="w-3 h-3 text-indigo-400"></i>
                   <span>${timeStr}</span>
@@ -1840,13 +1893,13 @@ function renderDailyFeed() {
 
           <div class="flex items-center justify-between sm:justify-end gap-3 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-800">
             <div class="text-right">
-              <p class="text-base sm:text-lg font-extrabold tracking-tight font-mono ${isRefund ? 'text-emerald-400' : 'text-white'}">
+              <p class="text-base sm:text-lg font-extrabold tracking-tight font-mono ${isRefund ? 'text-emerald-600' : 'text-slate-900'}">
                 ${isRefund ? '+' : '-'}${baht(Math.abs(t.amount))}
               </p>
               ${isRefund ? '<span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-1.5 py-0.2 rounded border border-emerald-800/50">เงินคืน / Refund</span>' : ''}
             </div>
 
-            <button onclick="deleteTx('${t.id}')" class="w-7 h-7 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-slate-800 grid place-items-center transition-colors" title="ลบรายการนี้">
+            <button onclick="deleteTx('${t.id}')" class="w-7 h-7 rounded-lg text-slate-500 hover:text-rose-400 hover:bg-slate-800 grid place-items-center transition-colors" title="ลบรายการนี้">
               <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
             </button>
           </div>
@@ -1854,7 +1907,7 @@ function renderDailyFeed() {
     }).join('');
 
     return `
-      <div class="card p-4 sm:p-5 shadow-xs space-y-3 bg-[#111827] border-slate-800">
+      <div class="card p-4 sm:p-5 shadow-xs space-y-3 bg-white border-slate-200">
         <div class="flex items-center justify-between pb-2 border-b border-slate-800">
           <div class="flex items-center gap-2">
             <div class="w-7 h-7 rounded-xl bg-indigo-600 text-white grid place-items-center shadow-xs">
@@ -1863,8 +1916,8 @@ function renderDailyFeed() {
             <h3 class="font-bold text-white text-sm sm:text-base">${dateFormatted}</h3>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-xs font-semibold text-slate-400">${dayTxs.length} รายการ</span>
-            <span class="text-xs font-extrabold px-2.5 py-1 rounded-xl bg-[#090e1a] border border-slate-800 text-white shadow-xs font-mono">
+            <span class="text-xs font-semibold text-slate-500">${dayTxs.length} รายการ</span>
+            <span class="text-xs font-extrabold px-2.5 py-1 rounded-xl bg-slate-100 border border-slate-200 text-slate-800 shadow-xs font-mono">
               รวม ${baht(daySum)}
             </span>
           </div>
@@ -1904,7 +1957,7 @@ function renderTable() {
   if (!fl.length) {
     $('tbody').innerHTML = `
       <tr>
-        <td colspan="8" class="p-12 text-center text-slate-400">
+        <td colspan="8" class="p-12 text-center text-slate-500">
           <div class="max-w-sm mx-auto space-y-2">
             <p class="text-sm font-bold text-slate-300">ไม่พบรายการที่ตรงกับเงื่อนไขในรอบบิลนี้</p>
             <p class="text-xs text-slate-500">ลองล้างคำค้นหา หรือกด "ล้างตัวกรอง" เพื่อดูรายการทั้งหมด</p>
@@ -1923,9 +1976,9 @@ function renderTable() {
     const timeStr = t.time ? `${t.time} น.` : '-';
 
     return `
-      <tr onclick="openDetailModal('${t.id}')" class="hover:bg-blue-950/40 even:bg-[#0c1222]/60 transition-colors border-b border-slate-800/80 cursor-pointer">
+      <tr onclick="openDetailModal('${t.id}')" class="hover:bg-slate-50 even:bg-slate-50/40 transition-colors border-b border-slate-100 cursor-pointer">
         <td class="px-4 py-3.5 text-xs whitespace-nowrap">
-          <div class="font-bold text-white text-sm">${formatShortThaiDate(t.date)}</div>
+          <div class="font-bold text-slate-900 text-sm">${formatShortThaiDate(t.date)}</div>
           <div class="text-xs ${t.time ? 'text-blue-400 font-bold' : 'text-slate-500 font-medium'} font-mono mt-0.5">${timeStr}</div>
         </td>
         
@@ -1938,8 +1991,8 @@ function renderTable() {
           <div class="flex items-center gap-2.5">
             <span class="text-xl shrink-0">${t.brandLogo || '💳'}</span>
             <div class="flex-1 min-w-0">
-              <input value="${esc(t.name)}" onchange="updateTxField('${t.id}', 'name', this.value)" class="editable-input font-bold text-white text-sm sm:text-base w-full py-0.5" title="คลิกเพื่อแก้ไขชื่อ" />
-              <p class="text-xs text-slate-400 font-mono truncate px-1 mt-0.5" title="${esc(t.raw)}">${esc(t.raw)}</p>
+              <input value="${esc(t.name)}" onchange="updateTxField('${t.id}', 'name', this.value)" class="editable-input font-bold text-slate-900 text-sm sm:text-base w-full py-0.5" title="คลิกเพื่อแก้ไขชื่อ" />
+              <p class="text-xs text-slate-500 font-mono truncate px-1 mt-0.5" title="${esc(t.raw)}">${esc(t.raw)}</p>
             </div>
           </div>
         </td>
@@ -1952,21 +2005,21 @@ function renderTable() {
         </td>
 
         <td class="px-3 py-3.5 whitespace-nowrap text-xs">
-          ${t.inst ? `<span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-blue-950/80 text-blue-300 border border-blue-700/60">ผ่อน ${pad2(t.inst.n)}/${pad2(t.inst.m)}</span>` : '<span class="text-slate-400 text-xs font-semibold">จ่ายเต็ม</span>'}
+          ${t.inst ? `<span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-200">ผ่อน ${pad2(t.inst.n)}/${pad2(t.inst.m)}</span>` : '<span class="text-slate-500 text-xs font-semibold">จ่ายเต็ม</span>'}
         </td>
 
-        <td class="px-4 py-3.5 text-right font-black whitespace-nowrap text-base sm:text-lg font-mono ${isRefund ? 'text-emerald-400' : 'text-white'}">
+        <td class="px-4 py-3.5 text-right font-black whitespace-nowrap text-base sm:text-lg font-mono ${isRefund ? 'text-emerald-600' : 'text-slate-900'}">
           ${isRefund ? '+' : ''}${fmt(t.amount)}
         </td>
 
         <!-- Editable Note Column -->
         <td class="px-4 py-3.5 text-xs sm:text-sm" onclick="event.stopPropagation()">
-          <input value="${esc(t.note || '')}" placeholder="+ หมายเหตุ..." onchange="updateTxField('${t.id}', 'note', this.value)" class="editable-input text-xs sm:text-sm text-slate-300 placeholder-slate-600 w-full" />
+          <input value="${esc(t.note || '')}" placeholder="+ หมายเหตุ..." onchange="updateTxField('${t.id}', 'note', this.value)" class="editable-input text-xs sm:text-sm text-slate-700 placeholder-slate-400 w-full" />
         </td>
 
         <td class="px-3 py-3.5 text-center whitespace-nowrap" onclick="event.stopPropagation()">
           <div class="flex items-center justify-center gap-1.5">
-            <button onclick="openDetailModal('${t.id}')" class="text-slate-400 hover:text-blue-400 transition-colors p-1.5 rounded-lg hover:bg-slate-800" title="ดูรายละเอียดเต็ม"><i data-lucide="info" class="w-4 h-4"></i></button>
+            <button onclick="openDetailModal('${t.id}')" class="text-slate-500 hover:text-blue-400 transition-colors p-1.5 rounded-lg hover:bg-slate-800" title="ดูรายละเอียดเต็ม"><i data-lucide="info" class="w-4 h-4"></i></button>
             <button onclick="deleteTx('${t.id}')" class="text-slate-500 hover:text-rose-400 transition-colors p-1.5 rounded-lg hover:bg-slate-800" title="ลบรายการนี้"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
           </div>
         </td>
@@ -1974,10 +2027,10 @@ function renderTable() {
   }).join('');
 
   $('tfoot').innerHTML = `
-    <tr class="bg-[#070a12] border-t-2 border-slate-700">
+    <tr class="bg-slate-50 border-t border-slate-200 font-bold">
       <td colspan="5" class="px-4 py-3.5 text-sm font-bold text-slate-200">ยอดรวมตามตัวกรอง (${fl.length} รายการ)</td>
       <td class="px-4 py-3.5 text-right text-lg font-black text-blue-400 font-mono">${baht(totalSum)}</td>
-      <td colspan="2" class="px-4 py-3.5 text-xs text-slate-400 font-sans">คำนวณจากรายการที่มองเห็น</td>
+      <td colspan="2" class="px-4 py-3.5 text-xs text-slate-500 font-sans">คำนวณจากรายการที่มองเห็น</td>
     </tr>`;
 }
 
@@ -1996,14 +2049,14 @@ function renderDonut() {
 
   $('catTotalBadge').textContent = baht(total);
   $('donutCenter').innerHTML = `
-    <span class="text-[10px] font-bold text-slate-400 uppercase">ยอดรวม</span>
+    <span class="text-[10px] font-bold text-slate-500 uppercase">ยอดรวม</span>
     <span class="text-base font-extrabold text-slate-800">${baht(total)}</span>
-    <span class="text-[10px] text-slate-400">${fl.length} รายการ</span>`;
+    <span class="text-[10px] text-slate-500">${fl.length} รายการ</span>`;
 
   if (charts.donut) charts.donut.destroy();
   charts.donut = new Chart(ctx, {
     type: 'doughnut',
-    data: { labels, datasets: [{ data, backgroundColor: bg, borderWidth: 2, borderColor: '#111827' }] },
+    data: { labels, datasets: [{ data, backgroundColor: bg, borderWidth: 2, borderColor: '#ffffff' }] },
     options: {
       responsive: true,
       maintainAspectRatio: false,
@@ -2030,7 +2083,7 @@ function renderDonut() {
         </div>
         <div class="text-right shrink-0">
           <span class="font-bold text-white font-mono">${baht(amt)}</span>
-          <span class="text-[10px] text-slate-400 ml-1">(${pct.toFixed(0)}%)</span>
+          <span class="text-[10px] text-slate-500 ml-1">(${pct.toFixed(0)}%)</span>
         </div>
       </div>`;
   }).join('');
@@ -2078,7 +2131,7 @@ function renderBar() {
   const maxVal = Math.max(...data, 0);
   const maxDay = days[data.indexOf(maxVal)] || '01';
   $('barInsight').innerHTML = `
-    <span class="text-slate-400">วันที่มียอดใช้จ่ายสูงสุดคือวันที่ <strong class="text-white">${maxDay}</strong> ยอดรวม <strong class="text-indigo-400 font-mono">${baht(maxVal)}</strong></span>`;
+    <span class="text-slate-500">วันที่มียอดใช้จ่ายสูงสุดคือวันที่ <strong class="text-white">${maxDay}</strong> ยอดรวม <strong class="text-indigo-400 font-mono">${baht(maxVal)}</strong></span>`;
 }
 
 function renderInstallments() {
@@ -2091,7 +2144,7 @@ function renderInstallments() {
   summaryEl.innerHTML = `<span class="font-bold text-violet-700 bg-violet-50 px-2 py-0.5 rounded-full border border-violet-200">รวมภาระผ่อน ${insts.length} รายการ · ${baht(totalMonthly)}/เดือน</span>`;
 
   if (!insts.length) {
-    listEl.innerHTML = '<p class="text-xs text-slate-400 col-span-2 text-center py-4">ไม่พบรายการผ่อนชำระในรอบบิลนี้</p>';
+    listEl.innerHTML = '<p class="text-xs text-slate-500 col-span-2 text-center py-4">ไม่พบรายการผ่อนชำระในรอบบิลนี้</p>';
     return;
   }
 
@@ -2099,12 +2152,12 @@ function renderInstallments() {
     const cur = t.inst.n, total = t.inst.m;
     const pct = (cur / total) * 100;
     return `
-      <div class="p-3 rounded-2xl bg-[#090e1a] border border-slate-800 space-y-1.5">
+      <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
         <div class="flex items-center justify-between">
           <span class="font-bold text-white text-xs truncate">${esc(t.name)}</span>
           <span class="text-xs font-bold text-white font-mono">${baht(t.amount)}</span>
         </div>
-        <div class="flex items-center justify-between text-[10px] text-slate-400">
+        <div class="flex items-center justify-between text-[10px] text-slate-500">
           <span>งวดที่ ${cur}/${total} (เหลือ ${total - cur} งวด)</span>
           <span class="font-semibold text-violet-600">${pct.toFixed(0)}%</span>
         </div>
@@ -2832,12 +2885,12 @@ renderAll();
 </script>
 
 <!-- ============ MOBILE FIXED BOTTOM NAVIGATION BAR ============ -->
-<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#080c16]/95 backdrop-blur-md border-t border-slate-800 px-3 py-1.5 flex items-center justify-around shadow-lg safe-bottom text-slate-300">
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-800 px-3 py-1.5 flex items-center justify-around shadow-lg safe-bottom text-slate-300">
   <button onclick="switchView('feed')" id="mNavFeed" class="flex flex-col items-center gap-1 text-indigo-600 font-bold text-[10px] p-1.5 tap-active">
     <i data-lucide="layout-list" class="w-5 h-5"></i>
     <span>ไทม์ไลน์</span>
   </button>
-  <button onclick="switchView('table')" id="mNavTable" class="flex flex-col items-center gap-1 text-slate-400 font-medium text-[10px] p-1.5 tap-active">
+  <button onclick="switchView('table')" id="mNavTable" class="flex flex-col items-center gap-1 text-slate-500 font-medium text-[10px] p-1.5 tap-active">
     <i data-lucide="table" class="w-5 h-5"></i>
     <span>ตารางบัญชี</span>
   </button>
@@ -2847,11 +2900,11 @@ renderAll();
     <i data-lucide="scan-line" class="w-5 h-5"></i>
   </button>
 
-  <button onclick="switchView('analytics')" id="mNavAnalytics" class="flex flex-col items-center gap-1 text-slate-400 font-medium text-[10px] p-1.5 tap-active">
+  <button onclick="switchView('analytics')" id="mNavAnalytics" class="flex flex-col items-center gap-1 text-slate-500 font-medium text-[10px] p-1.5 tap-active">
     <i data-lucide="pie-chart" class="w-5 h-5"></i>
     <span>วิเคราะห์</span>
   </button>
-  <button onclick="openAddManualModal()" class="flex flex-col items-center gap-1 text-slate-400 font-medium text-[10px] p-1.5 tap-active">
+  <button onclick="openAddManualModal()" class="flex flex-col items-center gap-1 text-slate-500 font-medium text-[10px] p-1.5 tap-active">
     <i data-lucide="plus-circle" class="w-5 h-5"></i>
     <span>เพิ่มเอง</span>
   </button>
@@ -2866,7 +2919,7 @@ renderAll();
         <div id="dtBrandIcon" class="w-12 h-12 rounded-2xl grid place-items-center text-2xl shadow-xs border border-slate-200/60 bg-white">💳</div>
         <div>
           <h3 id="dtTitle" class="font-bold text-slate-900 text-base leading-snug">รายละเอียดรายการ</h3>
-          <p id="dtSub" class="text-xs text-slate-400 font-mono truncate max-w-[220px]">ข้อความตามบิล</p>
+          <p id="dtSub" class="text-xs text-slate-500 font-mono truncate max-w-[220px]">ข้อความตามบิล</p>
         </div>
       </div>
       <button onclick="closeDetailModal()" class="w-8 h-8 rounded-full bg-slate-200/60 hover:bg-slate-200 text-slate-600 grid place-items-center transition-colors">
