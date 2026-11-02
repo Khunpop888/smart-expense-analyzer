@@ -38,31 +38,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
   body {
-    background-color: #0a0e17; /* Deep Carbon Obsidian */
-    color: #f1f5f9; /* Slate-100 crisp typography */
+    background-color: #f8fafc; /* Minimalist Serene Slate-50 */
+    color: #0f172a; /* Crisp Slate-900 typography */
     font-family: 'Inter', 'IBM Plex Sans Thai', 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   .card {
-    background: #121826; /* Titanium Slate */
-    border: 1px solid #1e293b; /* Crisp dark border */
+    background: #ffffff; /* Clean Pure White */
+    border: 1px solid #e2e8f0; /* Crisp Hairline Slate-200 */
     border-radius: 1.25rem;
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .card-hover:hover {
-    box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
     transform: translateY(-2px);
-    border-color: #334155;
+    border-color: #cbd5e1;
   }
   .chip {
     padding: 0.5rem 1rem;
     border-radius: 9999px;
     font-size: 0.85rem;
     font-weight: 600;
-    border: 1px solid #1e293b;
-    background-color: #0d131f;
-    color: #94a3b8;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    color: #475569;
     transition: all 0.15s ease;
     white-space: nowrap;
     cursor: pointer;
@@ -71,29 +71,29 @@
     gap: 0.4rem;
   }
   .chip:hover {
-    border-color: #38bdf8;
-    background-color: #162032;
-    color: #ffffff;
+    border-color: #94a3b8;
+    background-color: #f1f5f9;
+    color: #0f172a;
   }
   .chip.active {
-    background-color: #2563eb;
+    background-color: #0f172a;
     color: #ffffff;
-    border-color: #3b82f6;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+    border-color: #0f172a;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
   }
   .inp {
-    background: #0d131f;
-    border: 1px solid #273549;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
     border-radius: 0.75rem;
     padding: 0.5rem 0.85rem;
     font-size: 0.875rem;
-    color: #ffffff;
+    color: #0f172a;
     outline: none;
     transition: all 0.15s;
   }
   .inp:focus {
-    border-color: #38bdf8;
-    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
   }
   .editable-input {
     background: transparent;
@@ -102,16 +102,16 @@
     padding: 0.25rem 0.5rem;
     transition: all 0.15s;
     outline: none;
-    color: #ffffff;
+    color: #0f172a;
   }
   .editable-input:hover {
-    background: #1b263b;
-    border-color: #334155;
+    background: #f1f5f9;
+    border-color: #cbd5e1;
   }
   .editable-input:focus {
-    background: #0d131f;
-    border-color: #38bdf8;
-    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+    background: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
   }
   .btn {
     display: inline-flex;
@@ -126,30 +126,31 @@
     cursor: pointer;
   }
   .btn-primary {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    background: #0f172a;
     color: #ffffff;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
   }
   .btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+    background: #1e293b;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.3);
     transform: translateY(-1px);
   }
   .btn-ghost {
-    background: #121826;
-    color: #cbd5e1;
-    border: 1px solid #1e293b;
+    background: #ffffff;
+    color: #475569;
+    border: 1px solid #e2e8f0;
   }
   .btn-ghost:hover {
-    background: #1b263b;
-    color: #ffffff;
-    border-color: #334155;
+    background: #f8fafc;
+    color: #0f172a;
+    border-color: #cbd5e1;
   }
   .tab-btn {
     padding: 0.55rem 1.15rem;
     border-radius: 0.75rem;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #94a3b8;
+    color: #64748b;
     transition: all 0.15s;
     cursor: pointer;
     display: inline-flex;
@@ -157,10 +158,10 @@
     gap: 0.45rem;
   }
   .tab-btn.active {
-    background: #1b263b;
-    color: #ffffff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-    border: 1px solid #334155;
+    background: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
   }
   .scroll-thin::-webkit-scrollbar {
     width: 6px;
@@ -170,17 +171,14 @@
     background: transparent;
   }
   .scroll-thin::-webkit-scrollbar-thumb {
-    background: #334155;
+    background: #cbd5e1;
     border-radius: 9999px;
   }
-  .scroll-thin::-webkit-scrollbar-thumb:hover {
-    background: #475569;
-  }
   .fade-in {
-    animation: fadeIn 0.2s ease-out;
+    animation: fadeIn 0.15s ease-out;
   }
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
+    from { opacity: 0; transform: translateY(3px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
@@ -188,23 +186,22 @@
     display: inline-flex;
     align-items: baseline;
     gap: 0.25rem;
-    font-feature-settings: "tnum";
   }
   .currency-thb .thb-symbol {
     font-family: 'IBM Plex Sans Thai', 'Prompt', sans-serif;
     font-weight: 700;
-    color: #94a3b8;
+    color: #64748b;
   }
   .currency-thb .thb-amount {
     font-family: 'JetBrains Mono', Consolas, monospace;
     font-weight: 800;
-    color: #ffffff;
+    color: #0f172a;
     letter-spacing: -0.02em;
   }
   .currency-thb .thb-unit {
     font-size: 0.75em;
     font-weight: 500;
-    color: #94a3b8;
+    color: #64748b;
   }
 
   /* Mobile Bottom Navigation & Touch Optimizations */
@@ -279,19 +276,19 @@
   </div>
 </header>
     <!-- Month Cycle Info & Date Range Explainer -->
-    <div id="cycleInfoBar" class="bg-[#0b101d] border-t border-b border-slate-800/80 px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2 text-xs">
+    <div id="cycleInfoBar" class="bg-white border-t border-b border-slate-200 px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2 text-xs">
       <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-        <span id="cycleDescText" class="font-medium text-slate-300">
+        <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+        <span id="cycleDescText" class="font-medium text-slate-700">
           รอบบิล ต.ค. 2569 (ครอบคลุมรายการรูดบัตร 17 ก.ย. – 24 ต.ค. 2569 ตามรอบตัดสเตทเม้นต์)
         </span>
       </div>
       <div class="flex items-center gap-2">
-        <button onclick="openDatePickerModal()" class="px-2.5 py-1 rounded-lg bg-blue-950/60 hover:bg-blue-900/60 text-blue-300 border border-blue-700/50 flex items-center gap-1.5 transition-colors font-medium">
-          <i data-lucide="calendar" class="w-3.5 h-3.5 text-blue-400"></i>
+        <button onclick="openDatePickerModal()" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 flex items-center gap-1.5 transition-colors font-medium">
+          <i data-lucide="calendar" class="w-3.5 h-3.5 text-blue-600"></i>
           <span id="cycleDateBtnText">📅 กรองตามช่วงวันปฏิทิน</span>
         </button>
-        <button id="clearDateBtn" onclick="clearDateRangeFilter()" class="hidden px-2 py-1 rounded-lg bg-rose-950/60 hover:bg-rose-900/60 text-rose-300 border border-rose-800/50 text-[11px] transition-colors" title="กลับไปดูตามรอบบิล">
+        <button id="clearDateBtn" onclick="clearDateRangeFilter()" class="hidden px-2 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-[11px] transition-colors" title="กลับไปดูตามรอบบิล">
           ✕ ล้างช่วงวัน
         </button>
       </div>
@@ -408,26 +405,26 @@
 
   
   <!-- ============ ACTIVE SELECTION DETAIL BAR (กดเลือกอะไร รายละเอียดต้องขึ้น) ============ -->
-  <div id="activeDetailBar" class="hidden card p-4 bg-gradient-to-r from-[#14233c] to-[#121826] border-blue-500/50 text-white shadow-lg fade-in">
+  <div id="activeDetailBar" class="hidden card p-4 bg-gradient-to-r from-blue-50/70 to-white border-blue-200 text-slate-900 shadow-sm fade-in">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
       <div class="flex items-center gap-3">
-        <div id="adIcon" class="w-10 h-10 rounded-xl bg-blue-600/30 text-blue-300 grid place-items-center text-xl shrink-0 border border-blue-500/40">
+        <div id="adIcon" class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 grid place-items-center text-xl shrink-0 border border-blue-200">
           🎯
         </div>
         <div class="space-y-0.5">
           <div class="flex items-center gap-2 flex-wrap">
-            <span class="text-xs font-bold uppercase tracking-wider text-blue-400">มุมมองที่เลือกอยู่:</span>
-            <span id="adTitle" class="font-extrabold text-white text-sm sm:text-base">💳 แหล่งเงิน: บัตรเครดิต KTC</span>
-            <span id="adBadge" class="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-950 text-blue-300 border border-blue-700/50"></span>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-700">มุมมองที่เลือกอยู่:</span>
+            <span id="adTitle" class="font-bold text-slate-900 text-sm sm:text-base">💳 แหล่งเงิน: บัตรเครดิต KTC</span>
+            <span id="adBadge" class="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 border border-blue-200"></span>
           </div>
-          <p id="adDesc" class="text-xs text-slate-300 font-medium">
-            รอบบิล ต.ค. 2569 · พบ 66 รายการ · ยอดรวม ฿47,225.74 บาท (คิดเป็น 35.8% ของรายจ่ายทั้งหมดในเดือนนี้)
+          <p id="adDesc" class="text-xs text-slate-600 font-medium">
+            รอบบิล ต.ค. 2569 · พบ 66 รายการ · ยอดรวม ฿ 47,225.74 บาท
           </p>
         </div>
       </div>
       <div class="flex items-center gap-2 shrink-0">
-        <button onclick="clearAllActiveFilters()" class="btn btn-ghost text-xs text-rose-300 bg-rose-950/40 border-rose-800/60 hover:bg-rose-900/50 !py-1.5 px-3">
-          <i data-lucide="x" class="w-3.5 h-3.5 text-rose-400"></i>
+        <button onclick="clearAllActiveFilters()" class="btn btn-ghost text-xs text-rose-600 bg-white border-rose-200 hover:bg-rose-50 !py-1.5 px-3">
+          <i data-lucide="x" class="w-3.5 h-3.5 text-rose-500"></i>
           <span>ล้างตัวกรองนี้ (ดูทั้งหมด)</span>
         </button>
       </div>
@@ -929,8 +926,8 @@ const YEAR = 2026, MONTH = 10;
 const TH_MONTH = ['', 'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
 const TH_MONTH_FULL = ['', 'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
 const TH_DOW_FULL = ['วันอาทิตย์', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์', 'วันเสาร์'];
-const STORE_KEY = 'smart_expense_tx_v23';
-const TARGET_KEY = 'smart_expense_targets_v23';
+const STORE_KEY = 'smart_expense_tx_v25';
+const TARGET_KEY = 'smart_expense_targets_v25';
 const DEFAULT_GEMINI_KEY = atob('QVEuQWI4Uk42TE9RTE01XzVJanAzSEVPQWNVelRsYWlFbXBOYjVlbENLMWVoQl85M1hsbFE=');
 
 const MONTHLY_TARGETS = {
@@ -1015,7 +1012,7 @@ const CYCLE_RANGES = {
   '2026-10': { label: 'ต.ค. 2569 (ล่าสุด)', start: '2026-09-17', end: '2026-10-24', desc: 'ครอบคลุมรายการรูดบัตร 17 ก.ย. – 24 ต.ค. 2569 ตามรอบตัดสเตทเม้นต์' },
   '2026-09': { label: 'ก.ย. 2569', start: '2026-08-16', end: '2026-09-18', desc: 'ครอบคลุมรายการรูดบัตร 16 ส.ค. – 18 ก.ย. 2569 ตามรอบตัดสเตทเม้นต์' },
   '2026-08': { label: 'ส.ค. 2569', start: '2026-07-19', end: '2026-08-15', desc: 'ครอบคลุมรายการรูดบัตร 19 ก.ค. – 15 ส.ค. 2569 ตามรอบตัดสเตทเม้นต์' },
-  '2026-07': { label: 'ก.ย. 2569', start: '2026-06-18', end: '2026-07-18', desc: 'ครอบคลุมรายการรูดบัตร 18 มิ.ย. – 18 ก.ค. 2569 ตามรอบตัดสเตทเม้นต์' },
+  '2026-07': { label: 'ก.ค. 2569', start: '2026-06-18', end: '2026-07-18', desc: 'ครอบคลุมรายการรูดบัตร 18 มิ.ย. – 18 ก.ค. 2569 ตามรอบตัดสเตทเม้นต์' },
   '2026-06': { label: 'มิ.ย. 2569', start: '2026-05-19', end: '2026-06-18', desc: 'ครอบคลุมรายการรูดบัตร 19 พ.ค. – 18 มิ.ย. 2569 ตามรอบตัดสเตทเม้นต์' },
   'ALL':     { label: 'ทุกรอบบิลรวมกัน', start: '2026-05-19', end: '2026-10-24', desc: 'ทุกรอบบิลรวมกัน (มิ.ย. – ต.ค. 2569)' }
 };
@@ -1025,7 +1022,7 @@ function saveTx() {
 }
 
 /* =====================================================================
-   HELPERS & FORMATTERS (FINTECH STANDARD)
+   HELPERS & FORMATTERS (FINTECH MINIMALIST STANDARD)
    ===================================================================== */
 const $ = id => document.getElementById(id);
 const sum = arr => arr.reduce((a, t) => a + Number(t.amount || 0), 0);
@@ -1038,7 +1035,6 @@ const fmt = n => {
   });
 };
 
-// Explicit Thai Baht with space and unit to eliminate dollar confusion
 const baht = n => '฿ ' + fmt(n) + ' บาท';
 const bahtShort = n => '฿ ' + fmt(n);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -1084,6 +1080,133 @@ function getAvailableMonths() {
     set.add(ym);
   });
   return Array.from(set).sort().reverse();
+}
+
+function icons() {
+  if (window.lucide && typeof lucide.createIcons === 'function') {
+    lucide.createIcons();
+  }
+}
+
+function toast(msg, type = 'ok') {
+  const el = $('toast');
+  if (!el) return;
+  const bg = type === 'ok' ? 'bg-slate-900 text-white' : type === 'warn' ? 'bg-amber-600 text-white' : 'bg-rose-600 text-white';
+  el.innerHTML = `
+    <div class="${bg} text-xs font-semibold px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 fade-in">
+      <i data-lucide="${type === 'ok' ? 'check-circle' : 'alert-triangle'}" class="w-4 h-4"></i>
+      <span>${msg}</span>
+    </div>`;
+  el.classList.remove('hidden');
+  icons();
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.classList.add('hidden'), 3000);
+}
+
+function switchView(mode) {
+  state.viewMode = mode;
+  ['feed', 'table', 'analytics'].forEach(m => {
+    const btn = $(`viewBtn${m.charAt(0).toUpperCase() + m.slice(1)}`);
+    const view = $(`${m}View`);
+    if (btn) btn.classList.toggle('active', m === mode);
+    if (view) view.classList.toggle('hidden', m !== mode);
+  });
+  
+  ['Feed', 'Table', 'Analytics'].forEach(m => {
+    const mBtn = $(`mNav${m}`);
+    if (mBtn) {
+      const isAct = m.toLowerCase() === mode;
+      mBtn.className = isAct 
+        ? 'flex flex-col items-center gap-1 text-slate-900 font-bold text-[10px] p-1.5 tap-active'
+        : 'flex flex-col items-center gap-1 text-slate-400 font-medium text-[10px] p-1.5 tap-active';
+    }
+  });
+
+  if (mode === 'feed') renderDailyFeed();
+  else if (mode === 'table') renderTable();
+  else if (mode === 'analytics') { setTimeout(() => { renderDonut(); renderBar(); renderInstallments(); }, 30); }
+  icons();
+}
+
+let activeDetailTxId = null;
+
+function openDetailModal(id) {
+  const t = transactions.find(x => x.id === id);
+  if (!t) return;
+  activeDetailTxId = id;
+
+  const c = CATS[t.cat] || CATS.family;
+  const s = SOURCES[t.source] || SOURCES.KTC;
+
+  $('dtBrandIcon').textContent = t.brandLogo || '💳';
+  $('dtBrandIcon').style.backgroundColor = t.brandBg || '#f1f5f9';
+  $('dtBrandIcon').style.color = t.brandColor || '#475569';
+
+  $('dtTitle').textContent = t.name;
+  $('dtSub').textContent = t.raw || 'ข้อความตามบิล';
+  $('dtAmount').textContent = `${t.amount < 0 ? '+' : ''}${fmt(t.amount)} บาท`;
+  
+  $('dtSourceBadge').innerHTML = `
+    <span class="text-xs font-bold px-3 py-1 rounded-full ${s.badge}">
+      ${s.label} (${s.sub})
+    </span>`;
+
+  $('dtInputName').value = t.name;
+  $('dtInputAmount').value = t.amount;
+  $('dtInputDate').value = t.date || '2026-10-15';
+  if ($('dtInputInst')) $('dtInputInst').value = t.inst ? `ผ่อน ${pad2(t.inst.n)}/${pad2(t.inst.m)}` : 'เต็มจำนวน';
+  $('dtRawText').textContent = t.raw || '-';
+  $('dtInputNote').value = t.note || '';
+
+  $('dtSelectCat').innerHTML = Object.entries(CATS).map(([k, catObj]) => 
+    `<option value="${k}" ${t.cat === k ? 'selected' : ''}>${catObj.emoji} ${catObj.label}</option>`
+  ).join('');
+
+  $('dtSelectSource').value = t.source || 'KTC';
+
+  $('detailModal').classList.remove('hidden');
+  icons();
+}
+
+function closeDetailModal() {
+  $('detailModal').classList.add('hidden');
+  activeDetailTxId = null;
+}
+
+function dtSaveCurrent() {
+  if (!activeDetailTxId) return;
+  const t = transactions.find(x => x.id === activeDetailTxId);
+  if (!t) return;
+
+  const newName = $('dtInputName').value.trim();
+  const newAmt = parseFloat($('dtInputAmount').value);
+  if (!newName || isNaN(newAmt)) {
+    alert('กรุณากรอกชื่อและจำนวนเงินให้ถูกต้อง');
+    return;
+  }
+
+  t.name = newName;
+  t.amount = newAmt;
+  t.cat = $('dtSelectCat').value;
+  t.source = $('dtSelectSource').value;
+  t.date = $('dtInputDate').value;
+  t.note = $('dtInputNote').value.trim();
+  t.cycleMonth = t.date ? t.date.slice(0, 7) : t.cycleMonth;
+
+  saveTx();
+  closeDetailModal();
+  renderAll();
+  toast('บันทึกรายละเอียดรายการแล้ว');
+}
+
+function dtDeleteCurrent() {
+  if (!activeDetailTxId) return;
+  if (!confirm('ยืนยันลบรายการนี้ใช่หรือไม่?')) return;
+  transactions = transactions.filter(x => x.id !== activeDetailTxId);
+  saveTx();
+  closeDetailModal();
+  renderAll();
+  toast('ลบรายการแล้ว', 'warn');
 }
 
 function filtered() {
@@ -2736,13 +2859,13 @@ renderAll();
 
 <!-- ============ TRANSACTION DETAIL BOTTOM DRAWER / MODAL (MOBILE & DESKTOP) ============ -->
 <div id="detailModal" class="fixed inset-0 z-[60] bg-black/75 backdrop-blur-xs hidden flex items-end sm:items-center justify-center p-0 sm:p-4 transition-all">
-  <div class="bg-[#111827] w-full sm:max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl border border-slate-800 overflow-hidden max-h-[92vh] flex flex-col fade-in text-white">
+  <div class="bg-white w-full sm:max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl border border-slate-200 overflow-hidden max-h-[92vh] flex flex-col fade-in text-slate-900">
     <!-- Header -->
-    <div class="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between bg-[#0c1222]">
+    <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/90">
       <div class="flex items-center gap-3">
         <div id="dtBrandIcon" class="w-12 h-12 rounded-2xl grid place-items-center text-2xl shadow-xs border border-slate-200/60 bg-white">💳</div>
         <div>
-          <h3 id="dtTitle" class="font-bold text-white text-base leading-snug">รายละเอียดรายการ</h3>
+          <h3 id="dtTitle" class="font-bold text-slate-900 text-base leading-snug">รายละเอียดรายการ</h3>
           <p id="dtSub" class="text-xs text-slate-400 font-mono truncate max-w-[220px]">ข้อความตามบิล</p>
         </div>
       </div>
@@ -2754,10 +2877,10 @@ renderAll();
     <!-- Body -->
     <div class="p-5 space-y-4 overflow-y-auto flex-1">
       <!-- Big Amount Banner -->
-      <div class="rounded-2xl p-4 bg-gradient-to-br from-indigo-950/80 to-[#0c1222] border border-indigo-800/50 flex items-center justify-between">
+      <div class="rounded-2xl p-4 bg-gradient-to-br from-blue-50/80 to-slate-50 border border-blue-100 flex items-center justify-between">
         <div>
           <span class="text-[11px] font-bold text-indigo-600 uppercase tracking-wider">จำนวนเงิน</span>
-          <div id="dtAmount" class="text-2xl sm:text-3xl font-extrabold text-white font-mono tracking-tight">0.00 บาท</div>
+          <div id="dtAmount" class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono tracking-tight">0.00 บาท</div>
         </div>
         <div id="dtSourceBadge"></div>
       </div>
@@ -2765,17 +2888,17 @@ renderAll();
       <!-- Editable Fields -->
       <div class="space-y-3.5">
         <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1">ชื่อร้านค้า / รายการ (ภาษาไทย)</label>
+          <label class="block text-xs font-bold text-slate-700 mb-1">ชื่อร้านค้า / รายการ (ภาษาไทย)</label>
           <input id="dtInputName" class="inp w-full text-sm font-semibold" placeholder="ระบุชื่อร้านค้า..." />
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">หมวดหมู่</label>
+            <label class="block text-xs font-bold text-slate-700 mb-1">หมวดหมู่</label>
             <select id="dtSelectCat" class="inp w-full text-xs font-semibold cursor-pointer"></select>
           </div>
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">ช่องทางชำระ</label>
+            <label class="block text-xs font-bold text-slate-700 mb-1">ช่องทางชำระ</label>
             <select id="dtSelectSource" class="inp w-full text-xs font-semibold cursor-pointer">
               <option value="KTC">KTC (บัตรเครดิต)</option>
               <option value="SCB">SCB (CardX JCB)</option>
@@ -2788,22 +2911,30 @@ renderAll();
 
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">วันที่ทำรายการ</label>
+            <label class="block text-xs font-bold text-slate-700 mb-1">วันที่ทำรายการ</label>
             <input id="dtInputDate" type="date" class="inp w-full text-xs" />
           </div>
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">จำนวนเงิน (แก้ไขได้)</label>
+            <label class="block text-xs font-bold text-slate-700 mb-1">จำนวนเงิน (แก้ไขได้)</label>
             <input id="dtInputAmount" type="number" step="0.01" class="inp w-full text-xs font-mono font-bold" />
           </div>
         </div>
 
-        <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1">ข้อความดิบตามใบแจ้งหนี้ (Raw Text จากสแกน)</label>
-          <div id="dtRawText" class="p-2.5 rounded-xl bg-slate-100 text-slate-600 text-xs font-mono break-all border border-slate-200 select-all"></div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">การผ่อนชำระ (ถ้ามี)</label>
+            <input id="dtInputInst" class="inp w-full text-xs font-medium bg-slate-50 text-slate-600" readonly />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">ข้อความดิบ</label>
+            <div id="dtRawText" class="p-2 rounded-xl bg-slate-50 text-slate-600 text-xs font-mono truncate border border-slate-200"></div>
+          </div>
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1">หมายเหตุเพิ่มเติม</label>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">หมายเหตุเพิ่มเติม</label>
           <textarea id="dtInputNote" rows="2" class="inp w-full text-xs" placeholder="พิมพ์บันทึกรายละเอียดเพิ่มเติม..."></textarea>
         </div>
       </div>
@@ -2828,78 +2959,78 @@ renderAll();
 
 
 <!-- ============ DATE RANGE CALENDAR MODAL (เลือกช่วงแบบปฏิทิน) ============ -->
-<div id="datePickerModal" class="fixed inset-0 z-[65] bg-black/80 backdrop-blur-xs hidden flex items-center justify-center p-4 transition-all">
-  <div class="bg-[#121826] w-full max-w-lg rounded-2xl shadow-2xl border border-slate-700 overflow-hidden fade-in text-white space-y-4 p-5 sm:p-6">
-    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+<div id="datePickerModal" class="fixed inset-0 z-[65] bg-slate-900/40 backdrop-blur-xs hidden flex items-center justify-center p-4 transition-all">
+  <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl border border-slate-200 overflow-hidden fade-in text-slate-900 space-y-4 p-5 sm:p-6">
+    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
       <div class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-xl bg-blue-600/30 text-blue-400 grid place-items-center">
+        <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 grid place-items-center">
           <i data-lucide="calendar" class="w-4 h-4"></i>
         </div>
         <div>
-          <h3 class="font-bold text-white text-base">เลือกช่วงวันที่ทำรายการ (Calendar Date Filter)</h3>
-          <p class="text-xs text-slate-400">กรองเฉพาะรายการที่รูดบัตรหรือจ่ายเงินในช่วงวันที่กำหนด</p>
+          <h3 class="font-bold text-slate-900 text-base">เลือกช่วงวันที่ทำรายการ (Calendar Date Filter)</h3>
+          <p class="text-xs text-slate-500">กรองเฉพาะรายการที่รูดบัตรหรือจ่ายเงินในช่วงวันที่กำหนด</p>
         </div>
       </div>
-      <button onclick="closeDatePickerModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 grid place-items-center transition-colors">
+      <button onclick="closeDatePickerModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 grid place-items-center transition-colors">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
     </div>
 
     <!-- Quick Presets -->
     <div class="space-y-2">
-      <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">เลือกด่วน (Quick Presets):</span>
+      <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">เลือกด่วน (Quick Presets):</span>
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
-        <button onclick="applyDatePreset('cycle')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
-          <div class="font-bold text-blue-400">⚡ ทั้งรอบบิลนี้</div>
-          <div class="text-[11px] text-slate-400 mt-0.5" id="dpPresetCycleText">ตามสเตทเม้นต์</div>
+        <button onclick="applyDatePreset('cycle')" class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:bg-blue-50 text-slate-700 text-left transition-all">
+          <div class="font-bold text-blue-600">⚡ ทั้งรอบบิลนี้</div>
+          <div class="text-[11px] text-slate-500 mt-0.5" id="dpPresetCycleText">ตามสเตทเม้นต์</div>
         </button>
-        <button onclick="applyDatePreset('oct_full')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
-          <div class="font-bold text-white">📅 เดือน ต.ค. เต็มเดือน</div>
-          <div class="text-[11px] text-slate-400 mt-0.5">1 ต.ค. - 31 ต.ค. 69</div>
+        <button onclick="applyDatePreset('oct_full')" class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:bg-blue-50 text-slate-700 text-left transition-all">
+          <div class="font-bold text-slate-800">📅 เดือน ต.ค. เต็มเดือน</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">1 ต.ค. - 31 ต.ค. 69</div>
         </button>
-        <button onclick="applyDatePreset('sep_full')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
-          <div class="font-bold text-white">📅 เดือน ก.ย. เต็มเดือน</div>
-          <div class="text-[11px] text-slate-400 mt-0.5">1 ก.ย. - 30 ก.ย. 69</div>
+        <button onclick="applyDatePreset('sep_full')" class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:bg-blue-50 text-slate-700 text-left transition-all">
+          <div class="font-bold text-slate-800">📅 เดือน ก.ย. เต็มเดือน</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">1 ก.ย. - 30 ก.ย. 69</div>
         </button>
-        <button onclick="applyDatePreset('last7')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
-          <div class="font-bold text-white">🕒 7 วันล่าสุดในรอบ</div>
-          <div class="text-[11px] text-slate-400 mt-0.5">ช่วงท้ายรอบบิล</div>
+        <button onclick="applyDatePreset('last7')" class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:bg-blue-50 text-slate-700 text-left transition-all">
+          <div class="font-bold text-slate-800">🕒 7 วันล่าสุดในรอบ</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">ช่วงท้ายรอบบิล</div>
         </button>
-        <button onclick="applyDatePreset('last15')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
-          <div class="font-bold text-white">🕒 15 วันล่าสุดในรอบ</div>
-          <div class="text-[11px] text-slate-400 mt-0.5">ครึ่งหลังของรอบบิล</div>
+        <button onclick="applyDatePreset('last15')" class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:bg-blue-50 text-slate-700 text-left transition-all">
+          <div class="font-bold text-slate-800">🕒 15 วันล่าสุดในรอบ</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">ครึ่งหลังของรอบบิล</div>
         </button>
-        <button onclick="applyDatePreset('all')" class="p-2.5 rounded-xl bg-[#0d131f] border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-200 text-left transition-all">
-          <div class="font-bold text-white">🌐 ทุกช่วงวัน</div>
-          <div class="text-[11px] text-slate-400 mt-0.5">ไม่จำกัดวันที่</div>
+        <button onclick="applyDatePreset('all')" class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:bg-blue-50 text-slate-700 text-left transition-all">
+          <div class="font-bold text-slate-800">🌐 ทุกช่วงวัน</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">ไม่จำกัดวันที่</div>
         </button>
       </div>
     </div>
 
     <!-- Custom Date Range Inputs -->
-    <div class="space-y-2 pt-2 border-t border-slate-800">
-      <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">หรือระบุวันที่เจาะจง (Custom Range):</span>
+    <div class="space-y-2 pt-2 border-t border-slate-100">
+      <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">หรือระบุวันที่เจาะจง (Custom Range):</span>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">จากวันที่ (Start Date)</label>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">จากวันที่ (Start Date)</label>
           <input type="date" id="dpStartDate" onchange="onDateModalChange()" class="inp w-full font-mono text-sm" />
         </div>
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1">ถึงวันที่ (End Date)</label>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">ถึงวันที่ (End Date)</label>
           <input type="date" id="dpEndDate" onchange="onDateModalChange()" class="inp w-full font-mono text-sm" />
         </div>
       </div>
     </div>
 
     <!-- Preview matched count -->
-    <div id="dpPreviewBox" class="p-3 rounded-xl bg-[#0d131f] border border-slate-800 flex items-center justify-between text-xs">
-      <span class="text-slate-400">ผลการกรอง:</span>
-      <span id="dpMatchedText" class="font-bold text-blue-400 font-mono">พบ 0 รายการ · รวม ฿0.00</span>
+    <div id="dpPreviewBox" class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs">
+      <span class="text-slate-600">ผลการกรอง:</span>
+      <span id="dpMatchedText" class="font-bold text-blue-600 font-mono">พบ 0 รายการ · รวม ฿ 0.00 บาท</span>
     </div>
 
     <!-- Actions -->
-    <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-800">
-      <button onclick="clearDateRangeFilter(); closeDatePickerModal();" class="btn btn-ghost text-xs text-rose-300 hover:bg-rose-950/50">
+    <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-100">
+      <button onclick="clearDateRangeFilter(); closeDatePickerModal();" class="btn btn-ghost text-xs text-rose-600 hover:bg-rose-50">
         ล้างตัวกรองวันที่
       </button>
       <button onclick="applyDateRangeFromModal()" class="btn btn-primary text-xs">
