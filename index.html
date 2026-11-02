@@ -523,44 +523,44 @@
       </div>
     </div>
 
-    <div class="overflow-x-auto scroll-thin no-scrollbar">
+    <div class="overflow-x-auto scroll-thin pb-2">
       <table class="w-full text-sm text-left">
         <thead class="text-xs uppercase tracking-wider text-slate-600 bg-slate-50 border-b border-slate-200">
           <tr>
-            <th class="px-4 py-3.5 font-black min-w-[150px]">วันที่ & เวลา</th>
-            <th class="px-3 py-3.5 font-black min-w-[125px]">แหล่งจ่าย</th>
-            <th class="px-4 py-3.5 font-black min-w-[260px]">ชื่อรายการ / ร้านค้า (พิมพ์แก้ไขได้)</th>
-            <th class="px-3 py-3.5 font-bold min-w-[210px] w-[210px]">หมวดหมู่ (คลิกเปลี่ยนได้)</th>
-            <th class="px-3 py-3.5 font-black min-w-[115px]">ประเภท</th>
-            <th class="px-4 py-3.5 font-black text-right min-w-[140px]">จำนวนเงิน (บาท)</th>
-            <th class="px-4 py-3.5 font-black min-w-[200px]">หมายเหตุ (พิมพ์ระบุได้)</th>
-            <th class="px-3 py-3.5 font-black text-center w-12">จัดการ</th>
+            <th class="px-3 py-3 font-bold min-w-[105px] w-[105px]">วันที่ & เวลา</th>
+            <th class="px-2.5 py-3 font-bold min-w-[95px] w-[95px]">แหล่งจ่าย</th>
+            <th class="px-3 py-3 font-bold min-w-[200px]">ชื่อรายการ / ร้านค้า (พิมพ์แก้ไขได้)</th>
+            <th class="px-2.5 py-3 font-bold min-w-[185px] w-[185px]">หมวดหมู่ (คลิกเปลี่ยนได้)</th>
+            <th class="px-2 py-3 font-bold min-w-[85px] w-[85px]">ประเภท</th>
+            <th class="px-3 py-3 font-bold text-right min-w-[110px] w-[110px]">จำนวนเงิน (บาท)</th>
+            <th class="px-3 py-3 font-bold min-w-[150px]">หมายเหตุ (พิมพ์ระบุได้)</th>
+            <th class="px-2 py-3 font-bold text-center w-14 min-w-[56px]">จัดการ</th>
           </tr>
 
           <!-- COLUMN-LEVEL FILTER ROW -->
           <tr class="bg-slate-50/70 border-b border-slate-200 text-xs">
             <!-- Calendar Date Picker Trigger Button -->
-            <th class="p-2.5 min-w-[150px]">
-              <button id="colFDateBtn" type="button" onclick="openDatePickerModal()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs text-left text-slate-700 flex items-center justify-between font-medium transition-all group shadow-2xs" title="คลิกเพื่อเลือกช่วงวันที่จากปฏิทิน">
-                <span id="colFDateLabel" class="truncate font-semibold text-slate-700">📅 ทุกวันในรอบ</span>
+            <th class="p-2 min-w-[105px] w-[105px]">
+              <button id="colFDateBtn" type="button" onclick="openDatePickerModal()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2 py-1.5 text-xs text-left text-slate-700 flex items-center justify-between font-medium transition-all group shadow-2xs" title="คลิกเพื่อเลือกช่วงวันที่จากปฏิทิน">
+                <span id="colFDateLabel" class="truncate font-semibold text-slate-700">📅 ทุกวัน</span>
                 <i data-lucide="calendar" class="w-3.5 h-3.5 text-slate-500 group-hover:text-slate-800 shrink-0 ml-1"></i>
               </button>
             </th>
 
             <!-- Payment Source Filter -->
-            <th class="p-2.5 min-w-[125px]">
-              <select id="colFSource" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-semibold text-slate-800 cursor-pointer shadow-2xs">
+            <th class="p-2 min-w-[95px] w-[95px]">
+              <select id="colFSource" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-1.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-semibold text-slate-800 cursor-pointer shadow-2xs">
                 <option value="">ทุกช่องทาง</option>
                 <option value="KTC">💳 KTC</option>
                 <option value="SHOPEE">🛍️ Shopee</option>
                 <option value="SCB">🏦 SCB</option>
                 <option value="TRUE">📱 True</option>
-                <option value="FIXED">🔒 คงที่ (Fixed)</option>
+                <option value="FIXED">🔒 คงที่</option>
               </select>
             </th>
 
             <!-- Merchant Name Search Filter -->
-            <th class="p-2.5 min-w-[260px]">
+            <th class="p-2 min-w-[200px]">
               <div class="relative">
                 <input id="colFName" placeholder="🔍 กรองร้านค้า เช่น น้ำมัน..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg pl-2.5 pr-6 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-medium text-slate-800 placeholder-slate-400 shadow-2xs" />
                 <button type="button" onclick="$('colFName').value=''; onColFilterChange();" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs" title="ล้าง">✕</button>
@@ -568,8 +568,8 @@
             </th>
 
             <!-- Category Filter -->
-            <th class="p-2.5 min-w-[210px] w-[210px]">
-              <select id="colFCat" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-semibold text-slate-800 cursor-pointer shadow-2xs">
+            <th class="p-2 min-w-[185px] w-[185px]">
+              <select id="colFCat" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-1.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-semibold text-slate-800 cursor-pointer shadow-2xs">
                 <option value="">ทุกหมวดหมู่</option>
                 <option value="food">🍔 อาหาร & เครื่องดื่ม</option>
                 <option value="transport">🚗 ยานพาหนะ & เดินทาง</option>
@@ -584,8 +584,8 @@
             </th>
 
             <!-- Payment Type Filter -->
-            <th class="p-2.5 min-w-[115px]">
-              <select id="colFType" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-semibold text-slate-800 cursor-pointer shadow-2xs">
+            <th class="p-2 min-w-[85px] w-[85px]">
+              <select id="colFType" onchange="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-1.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-semibold text-slate-800 cursor-pointer shadow-2xs">
                 <option value="">ทุกประเภท</option>
                 <option value="full">จ่ายเต็ม</option>
                 <option value="inst">ผ่อนชำระ</option>
@@ -593,17 +593,17 @@
             </th>
 
             <!-- Amount Filter -->
-            <th class="p-2.5 min-w-[140px]">
-              <input id="colFAmount" placeholder="กรองยอด..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-right font-mono font-medium text-slate-800 placeholder-slate-400 shadow-2xs" />
+            <th class="p-2 min-w-[110px] w-[110px]">
+              <input id="colFAmount" placeholder="กรองยอด..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 text-right font-mono font-medium text-slate-800 placeholder-slate-400 shadow-2xs" />
             </th>
 
             <!-- Note Filter -->
-            <th class="p-2.5 min-w-[200px]">
-              <input id="colFNote" placeholder="กรองหมายเหตุ..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-medium text-slate-800 placeholder-slate-400 shadow-2xs" />
+            <th class="p-2 min-w-[150px]">
+              <input id="colFNote" placeholder="กรองหมายเหตุ..." oninput="onColFilterChange()" class="w-full bg-white border border-slate-300 hover:border-slate-400 rounded-lg px-2 py-1.5 text-xs outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 font-medium text-slate-800 placeholder-slate-400 shadow-2xs" />
             </th>
 
             <!-- Reset Filter Button -->
-            <th class="p-2.5 text-center w-12">
+            <th class="p-2 text-center w-14 min-w-[56px]">
               <button type="button" onclick="clearColFilters()" class="w-full py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors border border-slate-200 shadow-2xs" title="ล้างตัวกรองทั้งหมด">
                 <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
               </button>
@@ -1977,50 +1977,55 @@ function renderTable() {
 
     return `
       <tr onclick="openDetailModal('${t.id}')" class="hover:bg-slate-50 even:bg-slate-50/40 transition-colors border-b border-slate-100 cursor-pointer">
-        <td class="px-4 py-3.5 text-xs whitespace-nowrap">
-          <div class="font-bold text-slate-900 text-sm">${formatShortThaiDate(t.date)}</div>
-          <div class="text-xs ${t.time ? 'text-blue-400 font-bold' : 'text-slate-500 font-medium'} font-mono mt-0.5">${timeStr}</div>
+        <!-- Date Column -->
+        <td class="px-3 py-3 text-xs whitespace-nowrap min-w-[105px] w-[105px]">
+          <div class="font-bold text-slate-900 text-xs sm:text-sm">${formatShortThaiDate(t.date)}</div>
+          <div class="text-[11px] ${t.time ? 'text-blue-600 font-semibold' : 'text-slate-400 font-medium'} font-mono mt-0.5">${timeStr}</div>
         </td>
         
-        <td class="px-3 py-3.5 whitespace-nowrap" onclick="event.stopPropagation()">
-          <span class="text-xs font-black px-2.5 py-1 rounded-lg ${s.badge}">${s.label}</span>
+        <!-- Source Column -->
+        <td class="px-2.5 py-3 whitespace-nowrap min-w-[95px] w-[95px]" onclick="event.stopPropagation()">
+          <span class="text-xs font-bold px-2 py-1 rounded-lg ${s.badge}">${s.emoji} ${s.label}</span>
         </td>
 
         <!-- Editable Name Column -->
-        <td class="px-4 py-3.5" onclick="event.stopPropagation()">
-          <div class="flex items-center gap-2.5">
-            <span class="text-xl shrink-0">${t.brandLogo || '💳'}</span>
+        <td class="px-3 py-3 min-w-[200px]" onclick="event.stopPropagation()">
+          <div class="flex items-center gap-2">
+            <span class="text-lg shrink-0">${t.brandLogo || '💳'}</span>
             <div class="flex-1 min-w-0">
-              <input value="${esc(t.name)}" onchange="updateTxField('${t.id}', 'name', this.value)" class="editable-input font-bold text-slate-900 text-sm sm:text-base w-full py-0.5" title="คลิกเพื่อแก้ไขชื่อ" />
-              <p class="text-xs text-slate-500 font-mono truncate px-1 mt-0.5" title="${esc(t.raw)}">${esc(t.raw)}</p>
+              <input value="${esc(t.name)}" onchange="updateTxField('${t.id}', 'name', this.value)" class="editable-input font-bold text-slate-900 text-xs sm:text-sm w-full py-0.5" title="คลิกเพื่อแก้ไขชื่อ" />
+              <p class="text-[11px] text-slate-400 font-mono truncate px-1 mt-0.5" title="${esc(t.raw)}">${esc(t.raw)}</p>
             </div>
           </div>
         </td>
 
         <!-- Editable Category Column -->
-        <td class="px-3 py-3.5 min-w-[210px] w-[210px] whitespace-nowrap" onclick="event.stopPropagation()">
-          <select onchange="updateTxField('${t.id}', 'cat', this.value)" class="text-xs font-bold px-2.5 py-1.5 rounded-xl border cursor-pointer outline-none w-full shadow-2xs transition-all hover:opacity-90" style="background-color: ${c.bg}; color: ${c.text}; border-color: ${c.border};">
+        <td class="px-2.5 py-3 min-w-[185px] w-[185px] whitespace-nowrap" onclick="event.stopPropagation()">
+          <select onchange="updateTxField('${t.id}', 'cat', this.value)" class="text-xs font-semibold px-2 py-1.5 rounded-xl border cursor-pointer outline-none w-full shadow-2xs transition-all hover:opacity-90" style="background-color: ${c.bg}; color: ${c.text}; border-color: ${c.border};">
             ${Object.entries(CATS).map(([k, catObj]) => `<option value="${k}" ${t.cat === k ? 'selected' : ''}>${catObj.emoji} ${catObj.label}</option>`).join('')}
           </select>
         </td>
 
-        <td class="px-3 py-3.5 whitespace-nowrap text-xs">
-          ${t.inst ? `<span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-200">ผ่อน ${pad2(t.inst.n)}/${pad2(t.inst.m)}</span>` : '<span class="text-slate-500 text-xs font-semibold">จ่ายเต็ม</span>'}
+        <!-- Type Column -->
+        <td class="px-2 py-3 whitespace-nowrap text-xs min-w-[85px] w-[85px]">
+          ${t.inst ? `<span class="text-[11px] font-bold px-2 py-0.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-200">ผ่อน ${pad2(t.inst.n)}/${pad2(t.inst.m)}</span>` : '<span class="text-slate-500 text-xs font-medium">จ่ายเต็ม</span>'}
         </td>
 
-        <td class="px-4 py-3.5 text-right font-black whitespace-nowrap text-base sm:text-lg font-mono ${isRefund ? 'text-emerald-600' : 'text-slate-900'}">
+        <!-- Amount Column -->
+        <td class="px-3 py-3 text-right font-black whitespace-nowrap text-sm sm:text-base font-mono min-w-[110px] w-[110px] ${isRefund ? 'text-emerald-600' : 'text-slate-900'}">
           ${isRefund ? '+' : ''}${fmt(t.amount)}
         </td>
 
         <!-- Editable Note Column -->
-        <td class="px-4 py-3.5 text-xs sm:text-sm" onclick="event.stopPropagation()">
+        <td class="px-3 py-3 text-xs sm:text-sm min-w-[150px]" onclick="event.stopPropagation()">
           <input value="${esc(t.note || '')}" placeholder="+ หมายเหตุ..." onchange="updateTxField('${t.id}', 'note', this.value)" class="editable-input text-xs sm:text-sm text-slate-700 placeholder-slate-400 w-full" />
         </td>
 
-        <td class="px-3 py-3.5 text-center whitespace-nowrap" onclick="event.stopPropagation()">
-          <div class="flex items-center justify-center gap-1.5">
-            <button onclick="openDetailModal('${t.id}')" class="text-slate-500 hover:text-blue-400 transition-colors p-1.5 rounded-lg hover:bg-slate-800" title="ดูรายละเอียดเต็ม"><i data-lucide="info" class="w-4 h-4"></i></button>
-            <button onclick="deleteTx('${t.id}')" class="text-slate-500 hover:text-rose-400 transition-colors p-1.5 rounded-lg hover:bg-slate-800" title="ลบรายการนี้"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+        <!-- Action Column -->
+        <td class="px-2 py-3 text-center whitespace-nowrap w-14 min-w-[56px]" onclick="event.stopPropagation()">
+          <div class="flex items-center justify-center gap-1">
+            <button onclick="openDetailModal('${t.id}')" class="text-slate-500 hover:text-slate-800 transition-colors p-1 rounded-lg hover:bg-slate-100" title="ดูรายละเอียดเต็ม"><i data-lucide="info" class="w-4 h-4"></i></button>
+            <button onclick="deleteTx('${t.id}')" class="text-slate-400 hover:text-rose-600 transition-colors p-1 rounded-lg hover:bg-rose-50" title="ลบรายการ"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
           </div>
         </td>
       </tr>`;
